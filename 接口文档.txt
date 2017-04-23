@@ -1,0 +1,241 @@
+全局：
+{
+	status:200    //一个三位整数
+	message："OK" //一个简短的英文短语用于说明
+	data:{}       //请求的数据
+}
+无该项信息用空字符串代替
+
+未登录状态下cookie：
+login=0表示未登录
+登录状态下cookie：
+login=1；
+username表示用户名
+
+
+***********返回信息格式的具体说明*******************
+{
+	status:200,message:"OK"     				//代表成功返回
+	status:300,message:"failure"  				//代表失败
+	status:400,message:"permission denied"		//代表没有权限
+}
+
+************具体请求************
+
+
+
+#####工作室介绍部分：
+URL:/studioIntro
+method:GET
+request:{}
+response:
+{
+	introImg:"url",					//工作室介绍图片
+	introText:"string"				//工作室介绍文字
+}
+
+
+#####项目介绍
+
+url:getProjects
+method:get
+request:{
+	page:2,						//请求的页数
+	num:10						//一次请求数量
+}
+response:
+{
+	status : 200,
+	message:"OK"
+	data:
+	{
+		total:123,														//总的项目数量，用来显示总页数
+	    projects:[
+		{
+		projectIntro			:	"string",							//项目简介
+		projectPic				:	"url"	,							//项目图片
+		projectLink 			:	"sdu.edu.cn"	,					//项目地址
+		projectSrcLink			:	"github.com",						//项目源码地址
+		timeStart				:	13245687L(1970.1.1至今的毫秒数),	//项目开始的时间
+		timeEnd					:	13245687L(1970.1.1至今的毫秒数), 	//项目结束的时间
+		groupsJoined			:	["前端","后台"],					//参加组
+		competitationsJoined	:	["山大杯","软院杯"]					//参加的比赛
+		},
+		...
+	]
+	}
+	
+}
+
+
+#####:组别介绍
+url:getGroups
+method:get
+request{}
+response:
+{
+	status:200,
+	message:"OK",
+	data:[
+		{
+		techStack	:"",			//技术栈（图片）
+		groupIntro	:"string",		//组介绍
+		members		:[
+			{
+			name			:	"李华",								//成员姓名
+			pic 			:	"url",								//成员照片
+			selfIntro		:	"string",							//成员自我介绍
+			grade			:	2016,								//年级
+			class			:	"string",							//学院班级
+			blog			:	"qq.com",							//个人博客
+			phone			:	123456798,							//手机号
+			email			:	"test@sdu.edu.cn",					//邮箱
+			timeJoined		:	1213546L (1970.1.1至今的毫秒数),	//加入时间
+			github 			:	"github.com",						//github地址
+			qq				:	123456879 							//qq
+			},
+			....
+			]
+		}
+	]
+	
+}
+
+#####6.0:获取通知部分
+URL:/notice
+method：GET
+request:{
+	page:2,													//请求页数
+	num:2													//一次请求的数量
+}
+response:
+{
+	"status":200
+	"message":"OK"
+	"data":
+	{
+		total:2001,											//总通知数量，用以显示页数
+		notices:[
+		{ 										
+			"noticeType":0									//常规通知
+			"noticeTitle":"string"							//通知标题
+			"noticeContent":"string"						//通知内容
+			"noticeImage":"常规通知图片地址"				//通知图片
+		},
+		{
+			"noticeType":1									//投票通知
+			"voteTitle":"string"							//投票标题
+			"voteContent":"string"							//投票内容	
+			"voteSection":["string0","string1","string2",……]//投票选项
+			"voteType": 0									//投票类型0单选1多选							         
+		}
+		]
+	}
+}
+
+#####6.1：发布通知部分
+URL:/notice
+method:POST
+request:
+{
+	"data":[
+	{ 										
+		"noticeType":0									//常规通知
+		"noticeTitle":"string"							//通知标题
+		"noticeContent":"string"						//通知内容
+		"noticeImage":"常规通知图片地址"				//通知图片
+	},
+	{
+		"noticeType":1									//投票通知
+		"voteTitle":"string"							//投票标题
+		"voteContent":"string"							//投票内容	
+		"voteSection":["string0","string1","string2",……]//投票选项
+		"voteType":0									//投票类型0单选1多选							         
+	}
+	]
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+#####7:获取资料
+URL:/data
+method；GET
+request:{
+	page:2,															//请求资料页数
+	num:10															//一次请求资料数量
+}
+response:
+{
+	"status":200
+	"message":"OK"
+	"data":
+	{
+		total:2001,													//资料总条数用以显示页数
+		data:[
+		{
+			"dataTitle":"string"									//资料标题
+			"dataLink":"http://javascript.ruanyifeng.com/"			//资料链接
+			"dataPublish":"李华"									//发布人
+			"publishTime":"2017-4-22 21:14:35"						//发布时间
+		}
+		...
+		]
+	}
+}
+
+
+#####7:存资料
+URL:/data
+method；POST
+request:
+{
+	"data":
+	{
+		"dataTitle":"string"									//资料标题
+		"dataLink":"http://javascript.ruanyifeng.com/"			//资料链接
+		"dataPublish":"李华"									//发布人
+	}
+	...
+	
+}
+response:
+{
+
+	"status":200
+	"message":"OK"
+}
+
+#####特色活动部分
+ Codereview：
+ URL:/activity/codereview
+method:GET
+request:{}
+response:
+{    
+ 	timeSet:"String"			//举办时间
+	groupMake:"String"          //承办组
+	groupShow:"String"   		//展示组
+	downloadData:"String"		//资料下载（github地址）
+}
+
+简历投递部分：
+URL:/submit
+method：POST
+request:
+{
+	submitter:"String" 			//投递人
+	subDire:"String"			//投递方向
+	selfIntro:"String"			//自我介绍
+	selfProGithub:"String"      //本人作品链接 github地址
+	eMail:"String"				//个人邮箱
+	Phone:"String"				//个人电话
+	QQ:"String"					//个人QQ
+}
+response:
+{
+	"status":200,
+	"message":"OK"
+}

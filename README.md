@@ -1,5 +1,6 @@
 ---
-# this is a homepage project about ING STUDIO
----
+
+# This is a homepage project about ING STUDIO!
+
 ---
 

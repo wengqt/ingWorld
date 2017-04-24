@@ -21,8 +21,8 @@ public class DemoController {
     @Autowired
     DemoService demoService;
     @RequestMapping(value = "/test",method = RequestMethod.POST)
-    public Result test(MultipartFile file){
-            System.out.println(file);
+    public Result test() {
         return demoService.test();
     }
+
 }

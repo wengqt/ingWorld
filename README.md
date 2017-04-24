@@ -1,2 +1,2 @@
-# this is a homepage project about ing studio
+## this is a homepage project about ING STUDIO
 

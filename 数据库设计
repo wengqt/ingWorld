@@ -1,0 +1,93 @@
+md
+工作室介绍：文本 图片
+组别介绍：技术栈 文本介绍 
+  成员 姓名 照片 自我介绍 年级学院 个人博客 手机 邮箱 加入时间 个人博客地址 github地址 qq 
+项目介绍：项目简介 项目图片 项目地址 项目源码地址 项目时间 参与组 项目参与的比赛
+特色活动：
+  codereview：时间 承办组 展示组 资料下载（github地址)
+通知：
+  常规通知：通知标题 通知内容 通知时间图片 时间
+  投票通知：投票标题 投票内容 投票选项 现在的投票结果 投票类型（单选多选） 时间
+资料共享：资料标题 资料链接 发布人 发布时间 
+简历投递：投递人 投递时间 投递方向 自我介绍(请附上本人作品链接 放到github上 不会git请参考廖雪峰的博客) 邮箱 电话 qq 
+
+ing
+	introduce text md格式的富文本介绍
+group
+	固定技术栈链接 1 2 3 4 5 6 （后台前段安卓ios游戏设计） introduce
+users
+	id 唯一标示
+	name 名字
+	password 密码
+	introduce
+	group 所属组
+	照片固定链接 
+	from 年级学院
+	blog 个人博客
+	phone 手机
+	mail 邮箱
+	date 加入时间
+	github
+	qq
+	role
+project
+	id 唯一标示
+	introduce 项目介绍
+	url 项目地址
+	github	源码地址 
+	date 项目时间
+	join 参与组
+	game 参与的比赛 
+activity	
+	id 唯一标示
+	date 时间
+	group 承办者
+	shower 展示者
+	github  资料下载
+	introduce 介绍
+notice
+	id 唯一标示
+	type 0 1 2 类型 普通 单选 多选
+	content 内容
+	date 通知时间
+option 选项表
+	id 唯一标示
+	noticeId 所属投票
+vote 投票表
+	id 唯一标示
+	optionId 投的哪一个选项
+	noticeId 通知id
+	userid 谁投的
+	date 投票时间
+datum 资料
+	id 唯一标示
+	title 标题
+	url 资料链接
+	publisher 发布人
+	date 发布时间
+resume 简历
+	name 投递人
+	date 投递时间 
+	group 投递组
+	introduce 自我介绍（不要图片）
+	mail 邮箱
+	phone 手机
+	qq qq
+privilege 权限
+	id 权限id 
+	description 权限描述
+role 角色
+	id 角色id
+	description 角色描述
+prRelation 权限 角色关系
+	privilegeId 
+	roleId
+	
+角色权限
+log 日志
+	id log的唯一标示
+	userId 用户id
+	date 时间
+	operation 动作
+
+	

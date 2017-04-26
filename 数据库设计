@@ -50,6 +50,7 @@ notice
 	type 0 1 2 类型 普通 单选 多选
 	content 内容
 	date 通知时间
+	deadline 投票截止日期
 option 选项表
 	id 唯一标示
 	noticeId 所属投票
@@ -66,6 +67,7 @@ datum 资料
 	publisher 发布人
 	date 发布时间
 resume 简历
+    id唯一标示
 	name 投递人
 	date 投递时间 
 	group 投递组
@@ -81,13 +83,9 @@ role 角色
 	description 角色描述
 prRelation 权限 角色关系
 	privilegeId 
-	roleId
-	
-角色权限
+	roleId 角色权限
 log 日志
 	id log的唯一标示
 	userId 用户id
 	date 时间
 	operation 动作
-
-	

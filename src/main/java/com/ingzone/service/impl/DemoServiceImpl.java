@@ -1,8 +1,9 @@
-package com.ingzone.service;
+package com.ingzone.service.impl;
 
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.DemoDao;
+import com.ingzone.service.DemoService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 

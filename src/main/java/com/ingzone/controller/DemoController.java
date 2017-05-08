@@ -18,7 +18,6 @@ import java.io.IOException;
  */
 @RestController
 public class DemoController {
-    //https://plugins.jetbrains.com/pluginManager/?action=download&id=JRebelPlugin&build=IU-171.4249.39&uuid=d8d0196b-535a-492c-b3c8-ce41046d69c3
     @Autowired
     DemoService demoService;
     @RequestMapping(value = "/test",method = RequestMethod.POST)

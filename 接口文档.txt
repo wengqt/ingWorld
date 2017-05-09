@@ -27,7 +27,7 @@ api/需要的权限(plain/member/miniAdmin/admin)/requet
 
 **********权限***********
 plain：无
-member：增删资料，增改投票
+member：增删资料，增改投票,修改个人信息
 miniAdmin：改组介绍
 Admin:改studio介绍，增删改活动、项目、通知
 权限继承

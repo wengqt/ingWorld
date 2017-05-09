@@ -242,7 +242,7 @@ response:
 	"message":"OK"
 }
 
-修改资料
+修改资料。
 URL:/api/member/modifyDatum
 method:POST
 request:

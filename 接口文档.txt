@@ -12,6 +12,25 @@ login=0表示未登录
 login=1；
 username表示用户名
 
+api/需要的权限(plain/member/miniAdmin/admin)/requet
+
+*(md)表示markdown格式字符串
+
+**************************
+组默认ID：
+1	后台
+2	前端
+3	安卓
+4	IOS
+5	游戏
+6	设计
+
+**********权限***********
+plain：无
+member：增删资料，增改投票
+miniAdmin：改组介绍
+Admin:改studio介绍，增删改活动、项目、通知
+权限继承
 
 ***********返回信息格式的具体说明*******************
 {
@@ -20,28 +39,27 @@ username表示用户名
 	status:400,message:"permission denied"		//代表没有权限
 }
 
-************具体请求************
 
 
 
-#####工作室介绍部分：
-URL:/studioIntro
+
+************无权限请求************
+
+工作室介绍
+URL:/api/plain/getStudioIntro
 method:GET
 request:{}
 response:
 {
-	introImg:"url",					//工作室介绍图片
-	introText:"string"				//工作室介绍文字
+	introduce:"string"				//工作室介绍(md)
 }
 
-
-#####项目介绍
-
-url:getProjects
+项目介绍
+url:/api/plain/getProjectIntro
 method:get
 request:{
 	page:2,						//请求的页数
-	num:10						//一次请求数量
+	rows:10						//一次请求数量
 }
 response:
 {
@@ -52,24 +70,21 @@ response:
 		total:123,														//总的项目数量，用来显示总页数
 	    projects:[
 		{
-		projectIntro			:	"string",							//项目简介
-		projectPic				:	"url"	,							//项目图片
-		projectLink 			:	"sdu.edu.cn"	,					//项目地址
-		projectSrcLink			:	"github.com",						//项目源码地址
-		timeStart				:	13245687L(1970.1.1至今的毫秒数),	//项目开始的时间
-		timeEnd					:	13245687L(1970.1.1至今的毫秒数), 	//项目结束的时间
-		groupsJoined			:	["前端","后台"],					//参加组
-		competitationsJoined	:	["山大杯","软院杯"]					//参加的比赛
+		introduce				:	"string",							//项目简介(md)
+		url 					:	"sdu.edu.cn"	,					//项目地址
+		github					:	"github.com",						//项目源码地址
+		date					:	"2017-3-16",						//项目时间
+		join					:	"前端,后台,IOS",					//参加组	，隔开
+		game					:	"山大杯,软院杯"						//参加的比赛，隔开
 		},
 		...
 	]
 	}
-	
+
 }
 
-
-#####:组别介绍
-url:getGroups
+组别介绍
+url:/api/plain/getGroupIntro
 method:get
 request{}
 response:
@@ -78,35 +93,69 @@ response:
 	message:"OK",
 	data:[
 		{
-		techStack	:"",			//技术栈（图片）
-		groupIntro	:"string",		//组介绍
+		techStack	:"",			//图片链接，同时也是组id，
+		introduce	:"string",		//组介绍(md)
 		members		:[
 			{
 			name			:	"李华",								//成员姓名
-			pic 			:	"url",								//成员照片
-			selfIntro		:	"string",							//成员自我介绍
-			grade			:	2016,								//年级
-			class			:	"string",							//学院班级
+			photoId			:	1,									//成员照片链接/user/id
+			introduce		:	"string",							//成员自我介绍
+			from			:	"软件学院软件工程6班"				//年级学院
 			blog			:	"qq.com",							//个人博客
 			phone			:	123456798,							//手机号
-			email			:	"test@sdu.edu.cn",					//邮箱
-			timeJoined		:	1213546L (1970.1.1至今的毫秒数),	//加入时间
+			mail			:	"test@sdu.edu.cn",					//邮箱
+			date			:	"2017-3-18 00:00"					//加入时间
 			github 			:	"github.com",						//github地址
-			qq				:	123456879 							//qq
+			qq				:	"123456879"							//qq
 			},
 			....
 			]
 		}
 	]
-	
+
 }
 
-#####6.0:获取通知部分
-URL:/notice
+特色活动
+URL:/api/plain/getActivity
+method:GET
+request:{}
+response:
+{
+	id:132
+	name:"第2次codereview"		//活动名字
+	introduce:"dfdfsd"			//活动介绍(md)
+ 	date:"String"				//举办时间
+	group:"String"     		     //承办组
+	shower:"String"   			//展示组
+	github:"String"			//资料下载（github地址）
+}
+
+简历投递
+URL:/api/plain/uploadResume
+method：POST
+request:
+{
+	name:"String" 			//投递人
+	group:"String"			//投递方向
+	introduce:"String"			//自我介绍
+	mail:"String"				//个人邮箱
+	phone:"String"				//个人电话
+	qq:"String"					//个人QQ
+}
+response:
+{
+	"status":200,
+	"message":"OK"
+}
+
+****************成员权限请求*******************
+
+获取通知
+URL:/api/member/getNotice
 method：GET
 request:{
 	page:2,													//请求页数
-	num:2													//一次请求的数量
+	rows:2													//一次请求的数量
 }
 response:
 {
@@ -115,57 +164,47 @@ response:
 	"data":
 	{
 		total:2001,											//总通知数量，用以显示页数
-		notices:[
-		{ 										
-			"noticeType":0									//常规通知
-			"noticeTitle":"string"							//通知标题
-			"noticeContent":"string"						//通知内容
-			"noticeImage":"常规通知图片地址"				//通知图片
-		},
+		notice:[
 		{
-			"noticeType":1									//投票通知
-			"voteTitle":"string"							//投票标题
-			"voteContent":"string"							//投票内容	
-			"voteSection":["string0","string1","string2",……]//投票选项
-			"voteType": 0									//投票类型0单选1多选							         
-		}
+			"id":1											//通知id，用于上传
+			"type":0										//0常规通知1单选2多选
+			"title":"string"								//通知标题
+			"content":"string"								//通知内容(md)
+			"option":[										//通知选项，普通通知就不用了
+			{
+				id:123,										//通知选项ID
+				content:"行"								//通知选项内容
+				sum:132										//投票数
+			}
+			......
+			],
+			"closing":"2017-6-6"							//投票截止日期，普通通知就不用了
+		},
+		.....
 		]
 	}
 }
 
-#####6.1：发布通知部分
-URL:/notice
+投票/重新投票
+URL:/api/member/vote
 method:POST
 request:
 {
-	"data":[
-	{ 										
-		"noticeType":0									//常规通知
-		"noticeTitle":"string"							//通知标题
-		"noticeContent":"string"						//通知内容
-		"noticeImage":"常规通知图片地址"				//通知图片
-	},
-	{
-		"noticeType":1									//投票通知
-		"voteTitle":"string"							//投票标题
-		"voteContent":"string"							//投票内容	
-		"voteSection":["string0","string1","string2",……]//投票选项
-		"voteType":0									//投票类型0单选1多选							         
-	}
-	]
+	noticeId:123,							//通知ID
+	optionId:"1,2,3"						//选项id,隔开
 }
 response:
 {
-	"status":200
+	"status":200,
 	"message":"OK"
 }
 
-#####7:获取资料
-URL:/data
+获取资料
+URL:/api/member/getDatum
 method；GET
 request:{
 	page:2,															//请求资料页数
-	num:10															//一次请求资料数量
+	rows:10															//一次请求资料数量
 }
 response:
 {
@@ -176,8 +215,9 @@ response:
 		total:2001,													//资料总条数用以显示页数
 		data:[
 		{
-			"dataTitle":"string"									//资料标题
-			"dataLink":"http://javascript.ruanyifeng.com/"			//资料链接
+			id:132
+			"title":"string"										//资料标题
+			"url":"http://javascript.ruanyifeng.com/"				//资料链接
 			"dataPublish":"李华"									//发布人
 			"publishTime":"2017-4-22 21:14:35"						//发布时间
 		}
@@ -186,20 +226,14 @@ response:
 	}
 }
 
-
-#####7:存资料
-URL:/data
+上传资料
+URL:/api/member/uploadDatum
 method；POST
 request:
 {
-	"data":
-	{
-		"dataTitle":"string"									//资料标题
-		"dataLink":"http://javascript.ruanyifeng.com/"			//资料链接
-		"dataPublish":"李华"									//发布人
-	}
-	...
-	
+	"title":"string"									//资料标题
+	"url":"http://javascript.ruanyifeng.com/"			//资料链接
+
 }
 response:
 {
@@ -208,34 +242,137 @@ response:
 	"message":"OK"
 }
 
-#####特色活动部分
- Codereview：
- URL:/activity/codereview
-method:GET
-request:{}
-response:
-{    
- 	timeSet:"String"			//举办时间
-	groupMake:"String"          //承办组
-	groupShow:"String"   		//展示组
-	downloadData:"String"		//资料下载（github地址）
-}
-
-简历投递部分：
-URL:/submit
-method：POST
+修改资料
+URL:/api/member/modifyDatum
+method:POST
 request:
 {
-	submitter:"String" 			//投递人
-	subDire:"String"			//投递方向
-	selfIntro:"String"			//自我介绍
-	selfProGithub:"String"      //本人作品链接 github地址
-	eMail:"String"				//个人邮箱
-	Phone:"String"				//个人电话
-	QQ:"String"					//个人QQ
+	id:132,
+	"url":"dfdfd"//要修改的内容
+}
+
+删除资料
+URL:/api/member/deleteDatum
+method:GET
+request:
+{
+	id:132
 }
 response:
 {
-	"status":200,
+	"status":200
+	"message":"OK"
+}
+
+
+*************组负责人请求******************
+
+修改组介绍
+URL:api/miniAdmin/modifyNotice
+method:POST
+request:
+{
+	id:132456
+	"key":value//要修改的内容
+}
+
+
+
+*************总负责人权限请求*****************
+
+修改工作室介绍
+URL:/api/admin/modifyStudio
+method:POST
+request:
+{
+	key:value
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+发布通知
+URL:/api/admin/uploadNotice
+method:POST
+request:
+{
+	"type":0										//常规通知
+	"title":"string"								//通知标题
+	"content":"string"								//通知内容(md)
+	"option":["行","不行"]							//通知选项，普通通知就不用了
+	"closing":"2017-8-8"							//投票截止日期，普通通知就不用了
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+修改通知
+URL:/api/admin/modifyNotice
+method:POST
+request:
+{
+	id:132,
+	key:value
+}
+
+删除通知
+URL:/api/admin/deleteNotice
+method:GET
+request:
+{
+	id:123
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+发布活动
+URL:/api/admin/uploadActivity
+method:POST
+request:
+{
+	name:"第2次codereview"		//活动名字
+	introduce:"dfdfsd"			//活动介绍
+ 	date:"String"				//举办时间
+	group:"String"     		     //承办组
+	shower:"String"   			//展示组
+	github:"String"			//资料下载（github地址）
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+修改活动
+URL:/api/admin/modifyActivity
+method:POST
+request:
+{
+	id:13,
+	key:value
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+删除活动
+URL：/api/admin/deleteActivity
+method:GET
+request:
+{
+	id:132
+}
+response:
+{
+	"status":200
 	"message":"OK"
 }

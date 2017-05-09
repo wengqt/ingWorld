@@ -27,7 +27,7 @@ api/需要的权限(plain/member/miniAdmin/admin)/requet
 
 **********权限***********
 plain：无
-member：增删资料，增改投票
+member：增删资料，增改投票，修改个人信息
 miniAdmin：改组介绍
 Admin:改studio介绍，增删改活动、项目、通知
 权限继承
@@ -257,6 +257,51 @@ method:GET
 request:
 {
 	id:132
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+获取个人信息
+URL:/api/member/getUserInfo
+method:GET
+request:{}
+response:
+{
+    name:"",
+    introduce:"",
+    group:123456,
+    from:"软件学院",
+    blog:"xxx",
+    phone:"235445454",
+    mail:"sdu.edu.cn",
+    date:"2017-3-9",
+    github:"github.com",
+    qq:"1315487",
+}
+
+修改个人信息
+URL:/api/member/modifyUserInfo
+method:POST
+request:
+{
+    key:value
+}
+response:
+{
+	"status":200
+	"message":"OK"
+}
+
+修改密码
+URL:/api/member/changePassword
+method:POST
+request:
+{
+    old:"",
+    new:""
 }
 response:
 {

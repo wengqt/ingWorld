@@ -12,7 +12,7 @@ import java.io.PrintWriter;
 /**
  * Created by omsfuk on 17-5-11.
  */
-public class AdminFilter implements Filter {
+public class MemberFilter implements Filter {
 
     /**
      * ObjectMapper线程安全
@@ -30,7 +30,7 @@ public class AdminFilter implements Filter {
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         // 假定session中有role和id
         String role = (String) request.getSession().getAttribute("role");
-        if("admin".equals(role)) {
+        if("member".equals(role) || "miniAdmin".equals(role) || "admin".equals(role)) {
             filterChain.doFilter(servletRequest, servletResponse);
         } else {
             PrintWriter writer = response.getWriter();

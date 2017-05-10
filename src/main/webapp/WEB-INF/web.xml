@@ -25,14 +25,30 @@
     <filter-name>encodingFilter</filter-name>
     <url-pattern>/*</url-pattern>
   </filter-mapping>
-  <!--<filter>-->
-    <!--<filter-name>AdminFilter</filter-name>-->
-    <!--<filter-class>com.ingzone.filter.AdminFilter</filter-class>-->
-  <!--</filter>-->
-  <!--<filter-mapping>-->
-    <!--<filter-name>AdminFilter</filter-name>-->
-    <!--<servlet-name>SpringMVC</servlet-name>-->
-  <!--</filter-mapping>-->
+  <filter>
+    <filter-name>AdminFilter</filter-name>
+    <filter-class>com.ingzone.filter.AdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>AdminFilter</filter-name>
+    <url-pattern>/admin/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>MiniAdminFilter</filter-name>
+    <filter-class>com.ingzone.filter.MiniAdminFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MiniAdminFilter</filter-name>
+    <url-pattern>/miniAdmin/*</url-pattern>
+  </filter-mapping>
+  <filter>
+    <filter-name>MemberFilter</filter-name>
+    <filter-class>com.ingzone.filter.MemberFilter</filter-class>
+  </filter>
+  <filter-mapping>
+    <filter-name>MemberFilter</filter-name>
+    <url-pattern>/member/*</url-pattern>
+  </filter-mapping>
   <servlet>
     <servlet-name>SpringMVC</servlet-name>
     <servlet-class>org.springframework.web.servlet.DispatcherServlet</servlet-class>

@@ -8,7 +8,7 @@
 无该项信息用空字符串代替
 未登录状态下cookie：
 login=0表示未登录
-登录状态下cookie：
+登录状态下cookie
 login=1；
 username表示用户名
 

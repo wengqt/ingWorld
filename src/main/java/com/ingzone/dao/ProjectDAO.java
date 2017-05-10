@@ -1,5 +1,6 @@
 package com.ingzone.dao;
 
+import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.Project;
 import org.springframework.stereotype.Repository;
 
@@ -11,9 +12,9 @@ import java.util.Map;
  */
 
 @Repository
-public interface ProjectDao {
+public interface ProjectDAO {
 
-    List<Project> getProject(Map<String, Object> map);
+    List<Project> getProject(Page page);
 
     Integer getProjectCount();
 }

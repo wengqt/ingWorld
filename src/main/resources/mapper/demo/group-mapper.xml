@@ -1,0 +1,15 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ingzone.dao.GroupDAO">
+
+    <resultMap id="groupMap" type="Group">
+        <id column="id" property="techStack"/>
+        <result column="introduce" property="introduce"/>
+    </resultMap>
+
+    <select id="getGroup" resultMap="groupMap">
+        SELECT *
+        FROM `group`
+    </select>
+
+</mapper>

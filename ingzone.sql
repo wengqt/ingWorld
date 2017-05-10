@@ -41,7 +41,10 @@ CREATE TABLE `datum` (
 
 DROP TABLE IF EXISTS `group`;
 CREATE TABLE `group` (
-  `introduce` text
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `introduce` text,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `group_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #

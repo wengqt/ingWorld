@@ -374,7 +374,7 @@ request:
 	"title":"string"								//通知标题
 	"content":"string"								//通知内容(md)
 	"option":["行","不行"]							//通知选项，普通通知就不用了
-	"closing":"2017-8-8"							//投票截止日期，普通通知就不用了
+    "closing":"2017-8-8"							//投票截止日期，普通通知就不用了
 }
 response:
 {

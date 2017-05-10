@@ -40,11 +40,16 @@ Admin:改studio介绍，增删改活动、项目、通知
 }
 
 
-
-
-
 ************无权限请求************
+登录：
+url:/api/plain/login
+method:POST
+request:{id:"id",password:"password"}
+response
+{
 
+}
+注：登陆之后， session中存储id 和角色
 工作室介绍
 URL:/api/plain/getStudioIntro
 method:GET
@@ -165,7 +170,6 @@ response:
 	{
 		total:2001,											//总通知数量，用以显示页数
 		notice:[
-		{
 			"id":1											//通知id，用于上传
 			"type":0										//0常规通知1单选2多选
 			"title":"string"								//通知标题
@@ -377,8 +381,8 @@ request:
 	"type":0										//常规通知
 	"title":"string"								//通知标题
 	"content":"string"								//通知内容(md)
-	"option":["行","不行"]							//通知选项，普通通知就不用了
-	"closing":"2017-8-8"							//投票截止日期，普通通知就不用了
+	"option":"行","不行"							//通知选项，普通通知就不用了
+    "closing":"2017-8-8"							//投票截止日期，普通通知就不用了
 }
 response:
 {

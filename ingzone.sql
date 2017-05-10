@@ -6,6 +6,7 @@
 #
 # Structure for table "activity"
 #
+use ingzone;
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -75,8 +76,9 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
+  `title` VARCHAR(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `closing` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `notice_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -85,10 +87,11 @@ CREATE TABLE `notice` (
 # Structure for table "option"
 #
 
-DROP TABLE IF EXISTS `option`;
-CREATE TABLE `option` (
+DROP TABLE IF EXISTS `options`;
+CREATE TABLE `options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noticeId` int(11) DEFAULT NULL,
+  `content` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

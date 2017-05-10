@@ -21,6 +21,12 @@ public class NoticeServiceImpl implements NoticeService {
     public boolean uploadNotice(Notice notice) {
         try {
             noticeDao.uploadNotice(notice);
+            if (notice.getType() != 0) {
+                String[] options = notice.getOptions().split(",");
+                for (String name : options) {
+                    noticeDao.insertOptions(notice.getId(), name);
+                }
+            }
             return true;
         } catch (Exception e) {
             e.printStackTrace();

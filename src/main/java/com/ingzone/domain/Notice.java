@@ -16,7 +16,6 @@ import java.util.Date;
 @NoArgsConstructor
 public class Notice {
 
-
     private Integer id;
 
 

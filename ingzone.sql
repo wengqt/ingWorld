@@ -78,7 +78,6 @@ CREATE TABLE `notice` (
   `type` int(11) DEFAULT NULL,
   `title` VARCHAR(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `option` VARCHAR(255) DEFAULT NULL,
   `closing` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `notice_id_uindex` (`id`)
@@ -88,10 +87,11 @@ CREATE TABLE `notice` (
 # Structure for table "option"
 #
 
-DROP TABLE IF EXISTS `option`;
-CREATE TABLE `option` (
+DROP TABLE IF EXISTS `options`;
+CREATE TABLE `options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noticeId` int(11) DEFAULT NULL,
+  `name` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

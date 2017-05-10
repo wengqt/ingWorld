@@ -53,6 +53,7 @@ notice 通知
 option 选项表
 	id 唯一标示
 	noticeId 所属投票
+	name option名
 vote 投票表
 	id 唯一标示
 	optionId 投的哪一个选项

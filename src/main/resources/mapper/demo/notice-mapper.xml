@@ -2,9 +2,14 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.NoticeDao">
 
-    <insert id="uploadNotice" parameterType="com.ingzone.domain.Notice">
-        INSERT INTO notice
-        VALUES (null,#{type},#{title},#{content},#{options},#{closing})
+    <insert id="uploadNotice" parameterType="com.ingzone.domain.Notice" useGeneratedKeys="true" keyProperty="id" keyColumn="id">
+        INSERT INTO notice (type,title,content,closing)
+        VALUES (#{type},#{title},#{content},#{closing})
+    </insert>
+
+    <insert id="insertOptions" >
+        INSERT INTO options (noticeId,name)
+        VALUES (#{noticeId},#{name})
     </insert>
 
     <delete id="deleteNotice">

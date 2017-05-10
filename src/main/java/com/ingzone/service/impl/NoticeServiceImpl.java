@@ -2,6 +2,8 @@ package com.ingzone.service.impl;
 
 import com.ingzone.dao.NoticeDao;
 import com.ingzone.domain.Notice;
+import com.ingzone.domain.Option;
+import com.ingzone.dto.NoticeDTO;
 import com.ingzone.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -22,9 +24,9 @@ public class NoticeServiceImpl implements NoticeService {
         try {
             noticeDao.uploadNotice(notice);
             if (notice.getType() != 0) {
-                String[] options = notice.getOptions().split(",");
-                for (String name : options) {
-                    noticeDao.insertOptions(notice.getId(), name);
+                for (Option option : notice.getOption()) {
+                    option.setNoticeId(notice.getId());
+                    noticeDao.insertOptions(option);
                 }
             }
             return true;
@@ -32,6 +34,11 @@ public class NoticeServiceImpl implements NoticeService {
             e.printStackTrace();
             return false;
         }
+    }
+
+    @Override
+    public NoticeDTO getNotice(int page, int rows) {
+        return null;
     }
 
     @Override
@@ -43,4 +50,6 @@ public class NoticeServiceImpl implements NoticeService {
             return false;
         }
     }
+
+
 }

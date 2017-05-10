@@ -1,6 +1,7 @@
 package com.ingzone.dao;
 
 import com.ingzone.domain.Notice;
+import com.ingzone.domain.Option;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -13,5 +14,5 @@ public interface NoticeDao {
 
     void deleteNotice(int id);
 
-    void insertOptions(@Param("noticeId") int noticeId,@Param("name") String name);
+    void insertOptions(Option option);
 }

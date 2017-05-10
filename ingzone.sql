@@ -91,7 +91,7 @@ DROP TABLE IF EXISTS `options`;
 CREATE TABLE `options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noticeId` int(11) DEFAULT NULL,
-  `name` VARCHAR(255) DEFAULT NULL,
+  `content` VARCHAR(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

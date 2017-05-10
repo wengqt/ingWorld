@@ -14,6 +14,7 @@ import org.springframework.stereotype.Service;
 public class DemoServiceImpl implements DemoService {
     @Autowired
     DemoDao demoDao;
+
     @Override
     public Result test() {
         return ResultCache.getDataOk(demoDao.select());

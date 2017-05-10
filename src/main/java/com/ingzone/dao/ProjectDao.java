@@ -1,6 +1,6 @@
 package com.ingzone.dao;
 
-import com.ingzone.domain.Project;
+import com.ingzone.model.dto.Project;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;

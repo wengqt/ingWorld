@@ -1,6 +1,5 @@
-package com.ingzone.dto;
+package com.ingzone.model.dto;
 
-import com.ingzone.domain.Project;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 

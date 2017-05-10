@@ -1,11 +1,8 @@
-package com.ingzone.domain;
+package com.ingzone.model.dto;
 
 import lombok.Data;
-import lombok.Getter;
 import lombok.NoArgsConstructor;
 
-import java.nio.file.OpenOption;
-import java.text.SimpleDateFormat;
 import java.util.Date;
 import java.util.List;
 

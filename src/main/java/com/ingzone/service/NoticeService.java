@@ -1,8 +1,7 @@
 package com.ingzone.service;
 
-import com.ingzone.domain.Notice;
-import com.ingzone.dto.NoticeDTO;
-import org.springframework.stereotype.Service;
+import com.ingzone.model.dto.Notice;
+import com.ingzone.model.vo.NoticeVO;
 
 /**
  * Created by gzq on 17-5-10.
@@ -13,5 +12,5 @@ public interface NoticeService {
 
     boolean deleteNotice(int id);
 
-    NoticeDTO getNotice(int page, int rows);
+    NoticeVO getNotice(int page, int rows);
 }

@@ -1,4 +1,4 @@
-package com.ingzone.domain;
+package com.ingzone.model.dto;
 
 import lombok.Data;
 

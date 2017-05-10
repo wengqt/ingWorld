@@ -50,15 +50,16 @@ notice 通知
 	type 0 1 2 类型 普通 单选 多选
 	content 内容
 	date 通知时间
+	deadline 截止日期
 option 选项表
 	id 唯一标示
 	noticeId 所属投票
-	name option名
+	content 选项内容
 vote 投票表
 	id 唯一标示
 	optionId 投的哪一个选项
 	noticeId 通知id
-	userid 谁投的
+	userId 谁投的
 	date 投票时间
 datum 资料
 	id 唯一标示

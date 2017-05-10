@@ -1,9 +1,10 @@
 package com.ingzone.dao;
 
-import com.ingzone.domain.Notice;
-import com.ingzone.domain.Option;
-import org.apache.ibatis.annotations.Param;
+import com.ingzone.model.dto.Notice;
+import com.ingzone.model.dto.Option;
 import org.springframework.stereotype.Repository;
+
+import java.util.List;
 
 /**
  * Created by gzq on 17-5-10.
@@ -15,4 +16,8 @@ public interface NoticeDao {
     void deleteNotice(int id);
 
     void insertOptions(Option option);
+
+    int getTotalNumber();
+
+    List<Notice> getNotice(int begin, int rows);
 }

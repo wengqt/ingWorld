@@ -2,23 +2,25 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.NoticeDao">
 
-    <insert id="uploadNotice" parameterType="com.ingzone.domain.Notice" useGeneratedKeys="true" keyProperty="id"
+    <insert id="uploadNotice" parameterType="com.ingzone.model.dto.Notice" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
         INSERT INTO notice (type,title,content,closing)
         VALUES (#{type},#{title},#{content},#{closing})
     </insert>
 
-    <insert id="insertOptions" parameterType="com.ingzone.domain.Option">
+    <insert id="insertOptions" parameterType="com.ingzone.model.dto.Option">
         INSERT INTO options (noticeId,content)
         VALUES (#{noticeId},#{content})
     </insert>
 
     <delete id="deleteNotice">
-        DELETE notice , options
-        FROM notice
-        LEFT JOIN options
-        ON notice.id = options.noticeId
-        WHERE notice.id = #{id}
+        DELETE FROM notice
+        WHERE id = #{id}
     </delete>
+
+    <select id="getTotalNumber" resultType="int">
+        SELECT  count(*)
+        FROM notice
+    </select>
 
 </mapper>

@@ -1,8 +1,8 @@
 package com.ingzone.service.impl;
 
 import com.ingzone.dao.ProjectDao;
-import com.ingzone.domain.Project;
-import com.ingzone.dto.ProjectDto;
+import com.ingzone.model.dto.Project;
+import com.ingzone.model.dto.ProjectDto;
 import com.ingzone.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

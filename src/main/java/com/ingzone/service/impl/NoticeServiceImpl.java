@@ -1,14 +1,14 @@
 package com.ingzone.service.impl;
 
 import com.ingzone.dao.NoticeDao;
-import com.ingzone.domain.Notice;
-import com.ingzone.domain.Option;
-import com.ingzone.dto.NoticeDTO;
+import com.ingzone.model.dto.Notice;
+import com.ingzone.model.dto.Option;
+import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import javax.xml.ws.soap.Addressing;
+import java.util.List;
 
 /**
  * Created by gzq on 17-5-10.
@@ -36,10 +36,6 @@ public class NoticeServiceImpl implements NoticeService {
         }
     }
 
-    @Override
-    public NoticeDTO getNotice(int page, int rows) {
-        return null;
-    }
 
     @Override
     public boolean deleteNotice(int id) {
@@ -51,5 +47,17 @@ public class NoticeServiceImpl implements NoticeService {
         }
     }
 
+    @Override
+    public NoticeVO getNotice(int page, int rows) {
+        int begin = (page - 1) * rows;
+        try {
+            int total = noticeDao.getTotalNumber();
+            List<Notice> notice = noticeDao.getNotice(begin, rows);
+            NoticeVO noticeVO = new NoticeVO(total, notice);
+            return noticeVO;
+        } catch (Exception e) {
+            return null;
+        }
+    }
 
 }

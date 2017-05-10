@@ -1,6 +1,6 @@
-package com.ingzone.dto;
+package com.ingzone.model.vo;
 
-import com.ingzone.domain.Notice;
+import com.ingzone.model.dto.Notice;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,7 +11,7 @@ import java.util.List;
  */
 @Data
 @AllArgsConstructor
-public class NoticeDTO {
+public class NoticeVO {
 
     private Integer total;
     private List<Notice> notice;

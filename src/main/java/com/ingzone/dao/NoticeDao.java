@@ -9,4 +9,6 @@ import org.springframework.stereotype.Repository;
 @Repository
 public interface NoticeDao {
     void uploadNotice(Notice notice);
+
+    void deleteNotice(int id);
 }

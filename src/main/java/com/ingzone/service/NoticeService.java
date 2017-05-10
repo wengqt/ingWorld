@@ -9,4 +9,6 @@ import org.springframework.stereotype.Service;
 public interface NoticeService {
 
     boolean uploadNotice(Notice notice);
+
+    boolean deleteNotice(int id);
 }

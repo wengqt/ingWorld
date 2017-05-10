@@ -24,5 +24,4 @@ public class DemoController {
     public Result test() {
         return demoService.test();
     }
-
 }

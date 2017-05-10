@@ -44,7 +44,17 @@ public class NoticeController {
         return ResultCache.OK;
     }
 
-
+    @RequestMapping(value = "/deleteNotice", method = RequestMethod.GET)
+    public Result deleteNotice(int id) {
+        if (id <= 0) {
+            return ResultCache.FAILURE;
+        }
+        boolean success = noticeService.deleteNotice(id);
+        if (!success) {
+            return ResultCache.FAILURE;
+        }
+        return ResultCache.OK;
+    }
 
 
 }

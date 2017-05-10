@@ -27,4 +27,14 @@ public class NoticeServiceImpl implements NoticeService {
             return false;
         }
     }
+
+    @Override
+    public boolean deleteNotice(int id) {
+        try {
+            noticeDao.deleteNotice(id);
+            return true;
+        } catch (Exception e) {
+            return false;
+        }
+    }
 }

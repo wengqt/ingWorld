@@ -7,4 +7,9 @@
         VALUES (null,#{type},#{title},#{content},#{options},#{closing})
     </insert>
 
+    <delete id="deleteNotice">
+        DELETE FROM notice
+        WHERE id = #{id}
+    </delete>
+
 </mapper>

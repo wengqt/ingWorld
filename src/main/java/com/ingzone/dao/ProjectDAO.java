@@ -17,4 +17,8 @@ public interface ProjectDAO {
     List<Project> getProject(Page page);
 
     Integer getProjectCount();
+
+    Integer insertProject(Project project);
+
+    Integer updateProject(Project project);
 }

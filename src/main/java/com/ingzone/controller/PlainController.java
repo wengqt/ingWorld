@@ -8,6 +8,7 @@ import com.ingzone.service.GroupService;
 import com.ingzone.service.IngService;
 import com.ingzone.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -55,6 +56,11 @@ public class PlainController{
         else{
             return ResultCache.FAILURE;
         }
+    }
+
+    @RequestMapping(value = "/login", method = RequestMethod.POST)
+    public Result login(Integer id, Integer password) {
+        return null;
     }
 
 }

@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.ProjectDAO">
 
-    <select id="getProject" parameterType="map" resultType="com.ingzone.model.dto.Project">
+    <select id="getProject" parameterType="map" resultType="Project">
         SELECT *
         FROM project
         LIMIT #{page}, #{rows}
@@ -12,4 +12,15 @@
         SELECT COUNT(*)
         FROM project
     </select>
+
+    <insert id="insertProject" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO project(url, introduce, github, date, game)
+        VALUES (#{url}, #{introduce}, #{github}, #{date}, #{game})
+    </insert>
+
+    <update id="updateProject" parameterType="Project">
+        UPDATE project
+        SET url = #{url}, introduce = #{introduce}, github = #{github}, date = #{date}, game = #{game}
+        WHERE id = #{id}
+    </update>
 </mapper>

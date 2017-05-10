@@ -1,12 +1,11 @@
 ﻿# Host: localhost  (Version 5.7.15-log)
-# Date: 2017-05-09 22:37:30
+# Date: 2017-05-10 21:57:38
 # Generator: MySQL-Front 6.0  (Build 1.122)
 
 
 #
 # Structure for table "activity"
 #
-use ingzone;
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -76,9 +75,9 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
-  `title` VARCHAR(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `closing` datetime DEFAULT NULL,
+  `date` date DEFAULT NULL,
+  `deadline` date DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `notice_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -87,11 +86,11 @@ CREATE TABLE `notice` (
 # Structure for table "option"
 #
 
-DROP TABLE IF EXISTS `options`;
-CREATE TABLE `options` (
+DROP TABLE IF EXISTS `option`;
+CREATE TABLE `option` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noticeId` int(11) DEFAULT NULL,
-  `content` VARCHAR(255) DEFAULT NULL,
+  `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `option_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -123,7 +122,7 @@ CREATE TABLE `project` (
   `game` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=3 DEFAULT CHARSET=utf8;
 
 #
 # Structure for table "prrelation"

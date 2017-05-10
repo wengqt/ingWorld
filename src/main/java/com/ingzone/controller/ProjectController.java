@@ -24,7 +24,7 @@ public class ProjectController {
     @Autowired
     private ProjectService projectService;
 
-    @RequestMapping(value = "/api", method = RequestMethod.GET)
+    @RequestMapping(value = "/api/plain/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(@RequestParam("page") Integer page, @RequestParam("rows") Integer rows) {
         if(page < 0 || rows <= 0) {
             return ResultCache.getCache(0);

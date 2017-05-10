@@ -41,7 +41,15 @@ Admin:改studio介绍，增删改活动、项目、通知
 
 
 ************无权限请求************
+登录：
+url:/api/plain/login
+method:POST
+request:{id:"id",password:"password"}
+response
+{
 
+}
+注：登陆之后， session中存储id 和角色
 工作室介绍
 URL:/api/plain/getStudioIntro
 method:GET

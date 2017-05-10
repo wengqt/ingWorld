@@ -107,7 +107,7 @@ response:
 		members		:[
 			{
 			name			:	"李华",								//成员姓名
-			photoId			:	1,									//成员照片链接/user/id
+			id			    :	1,									//成员id
 			introduce		:	"string",							//成员自我介绍
 			from			:	"软件学院软件工程6班"				//年级学院
 			blog			:	"qq.com",							//个人博客

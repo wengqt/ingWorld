@@ -226,7 +226,7 @@ request:
 		url 					:	"sdu.edu.cn"	,					//项目地址
 		github					:	"github.com",						//项目源码地址
 		date					:	"2017-3-16",						//项目时间
-		join					:	"前端,后台,IOS",					//参加组	，隔开
+		join					:	"前端,后台,IOS",					//参加组，隔开
 		game					:	"山大杯,软院杯"						//参加的比赛，隔开
 }
 response:

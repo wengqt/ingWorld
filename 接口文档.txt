@@ -5,6 +5,7 @@
 	data:{}       //请求的数据
 }
 
+无特殊说明的简单request类型是formdata，参数涉及数组或者其他非简单类型数据的request类型是JSON，response类型是JSON
 时间格式 ：2016-01-02 12:40:00
 该项信息用空字符串代替
 未登录状态下cookie：
@@ -402,13 +403,13 @@ response:
 发布通知
 URL:/api/admin/uploadNotice
 method:POST
-request:
+request://数据类型为JSON
 {
 	"type":0										//常规通知
 	"title":"string"								//通知标题
 	"content":"string"								//通知内容(md)
-	"option":"行,不行"							//通知选项，普通通知就不用了,   ,隔开
-    "deadline":"2017-8-8 "							//投票截止日期，普通通知就不用了
+	"option":["行","不行"]							//通知选项，普通通知就不用了,   ,隔开
+    "deadline":"2017-8-8 20:36:32"							//投票截止日期，普通通知就不用了
 }
 response:
 {
@@ -419,13 +420,13 @@ response:
 修改通知
 URL:/api/admin/modifyNotice
 method:POST
-request:
+request://数据类型为JSON
 {
 	id:132,
 	"type":0										//常规通知
 	"title":"string"								//通知标题
 	"content":"string"								//通知内容(md)
-	"option":"行,不行"							//通知选项，普通通知就不用了,   ,隔开
+	"option":["行","不行"]							//通知选项，普通通知就不用了,   ,隔开
     "deadline":"2017-8-8"							//投票截止日期，普通通知就不用了
 }
 

@@ -23,8 +23,8 @@ public class AdminController {
     private ProjectService projectService;
 
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
-    public Result uploadNotice(Notice notice, String option, String closing) {
-        return noticeService.uploadNotice(notice, option, closing);
+    public Result uploadNotice(@RequestBody Notice notice) {
+        return noticeService.uploadNotice(notice);
     }
 
     @RequestMapping(value = "/deleteNotice", method = RequestMethod.GET)
@@ -33,9 +33,9 @@ public class AdminController {
     }
 
     @RequestMapping(value = "/modifyNotice", method = RequestMethod.POST)
-    public Result modifyNotice(Notice notice, String option, String closing) {
+    public Result modifyNotice(@RequestBody Notice notice) {
 
-        return noticeService.modifyNotice(notice, option, closing);
+        return noticeService.modifyNotice(notice);
     }
 
 

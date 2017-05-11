@@ -8,9 +8,12 @@
         VALUES (#{type},#{title},#{content},now(),#{deadline})
     </insert>
 
-    <insert id="insertOptions" parameterType="com.ingzone.model.dto.Option">
+    <insert id="insertOptions">
         INSERT INTO options (noticeId,content)
-        VALUES (#{noticeId},#{content})
+        VALUES
+        <foreach collection="list" item="opt"  separator=",">
+            ( #{opt.noticeId} , #{opt.content} )
+        </foreach>
     </insert>
     <update id="modifyNotice">
         UPDATE notice
@@ -36,7 +39,6 @@
     <select id="getNotice" resultType="com.ingzone.model.dto.Notice">
         SELECT *
         FROM notice
-
     </select>
 
 </mapper>

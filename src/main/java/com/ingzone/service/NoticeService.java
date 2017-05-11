@@ -10,12 +10,12 @@ import com.ingzone.model.vo.NoticeVO;
  */
 public interface NoticeService {
 
-    Result uploadNotice(Notice notice, String option, String dateline);
+    Result uploadNotice(Notice notice);
 
     Result deleteNotice(int id);
 
     Result getNotice(Page page);
 
-    Result modifyNotice(Notice notice, String option, String closing);
+    Result modifyNotice(Notice notice);
 
 }

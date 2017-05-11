@@ -39,6 +39,22 @@
     <select id="getNotice" resultType="com.ingzone.model.dto.Notice">
         SELECT *
         FROM notice
+        LIMIT #{begin},#{rows}
     </select>
+    <select id="getOptions" parameterType="int" resultType="com.ingzone.model.dto.Option">
+        SELECT *
+        FROM options
+        WHERE noticeId = #{noticeId}
+    </select>
+
+    <resultMap id="noticeMap" type="com.ingzone.model.dto.Notice">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="date" column="date"/>
+        <result property="deadline" column="deadline"/>
+        <collection property="option" column="id" select="getOptions"/>
+    </resultMap>
 
 </mapper>

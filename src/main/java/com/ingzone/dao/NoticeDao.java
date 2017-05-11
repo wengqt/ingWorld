@@ -2,6 +2,7 @@ package com.ingzone.dao;
 
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -19,9 +20,12 @@ public interface NoticeDao {
 
     int getTotalNumber();
 
-    List<Notice> getNotice(int begin, int rows);
+    List<Notice> getNotice(@Param("begin") int begin,@Param("rows") int rows);
+
+    List<Option> getOptions(int noticeId);
 
     void modifyNotice(Notice notice);
 
     void deleteOptions(int id);
+
 }

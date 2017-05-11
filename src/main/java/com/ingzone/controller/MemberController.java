@@ -20,7 +20,7 @@ public class MemberController {
     @Autowired
     private NoticeService noticeService;
 
-    @RequestMapping(value = "/member/getNotice", method = RequestMethod.GET)
+    @RequestMapping(value = "/getNotice", method = RequestMethod.GET)
     public Result getNotice(Page page) {
         return noticeService.getNotice(page);
     }

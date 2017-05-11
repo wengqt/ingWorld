@@ -34,7 +34,6 @@ public class AdminController {
 
     @RequestMapping(value = "/modifyNotice", method = RequestMethod.POST)
     public Result modifyNotice(@RequestBody Notice notice) {
-
         return noticeService.modifyNotice(notice);
     }
 

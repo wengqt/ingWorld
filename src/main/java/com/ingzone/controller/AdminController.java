@@ -69,7 +69,6 @@ public class AdminController {
         if(project == null) {
             return ResultCache.getCache(0);
         }
-        System.out.println(project.getDate());
 
         return projectService.uploadProject(project);
 

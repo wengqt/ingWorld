@@ -53,6 +53,41 @@ public class NoticeServiceImpl implements NoticeService {
         }
     }
 
+    @Override
+    public Result modifyNotice(Notice notice, String option, String closing) {
+        Date deadline;
+        try {
+            deadline = DateFormatUtil.formatData(closing);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return ResultCache.FAILURE;
+        }
+        notice.setDeadline(deadline);
+        String[] options = option.split(",");
+        try {
+            noticeDao.modifyNotice(notice);
+            noticeDao.deleteOptions(notice.getId());
+            if (notice.getType() == 0) {
+                return ResultCache.OK;
+            }
+            Option opt = new Option();
+            opt.setNoticeId(notice.getId());
+            for (String optionName : options) {
+                opt.setContent(optionName);
+                noticeDao.insertOptions(opt);
+            }
+
+            return ResultCache.OK;
+        } catch (
+                Exception e)
+
+        {
+            e.printStackTrace();
+            return ResultCache.FAILURE;
+        }
+
+    }
+
 
     @Override
     public Result deleteNotice(int id) {
@@ -76,5 +111,6 @@ public class NoticeServiceImpl implements NoticeService {
             return null;
         }
     }
+
 
 }

@@ -14,4 +14,6 @@ public interface NoticeService {
     Result deleteNotice(int id);
 
     Result getNotice(int page, int rows);
+
+    Result modifyNotice(Notice notice, String option, String closing);
 }

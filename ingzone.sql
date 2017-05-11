@@ -6,6 +6,7 @@
 #
 # Structure for table "activity"
 #
+use ingzone;
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -78,6 +79,7 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `deadline` datetime DEFAULT NULL,

@@ -24,9 +24,7 @@ public class AdminController {
 
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
     public Result uploadNotice(Notice notice, String option, String closing) {
-
         return noticeService.uploadNotice(notice, option, closing);
-
     }
 
     @RequestMapping(value = "/deleteNotice", method = RequestMethod.GET)
@@ -34,10 +32,16 @@ public class AdminController {
         return noticeService.deleteNotice(id);
     }
 
+    @RequestMapping(value = "/modifyNotice", method = RequestMethod.POST)
+    public Result modifyNotice(Notice notice, String option, String closing) {
+
+        return noticeService.modifyNotice(notice, option, closing);
+    }
+
 
     @RequestMapping(value = "/uploadProject", method = RequestMethod.POST)
     public Result uploadProject(Project project) {
-        if(project == null) {
+        if (project == null) {
             return ResultCache.getCache(0);
         }
 
@@ -47,7 +51,7 @@ public class AdminController {
 
     @RequestMapping(value = "/modifyProject", method = RequestMethod.POST)
     public Result modifyProject(@RequestBody Project project) {
-        if(project == null) {
+        if (project == null) {
             return ResultCache.getCache(0);
         }
         return projectService.modifyProject(project);

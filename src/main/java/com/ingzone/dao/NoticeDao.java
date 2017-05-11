@@ -20,4 +20,8 @@ public interface NoticeDao {
     int getTotalNumber();
 
     List<Notice> getNotice(int begin, int rows);
+
+    void modifyNotice(Notice notice);
+
+    void deleteOptions(int id);
 }

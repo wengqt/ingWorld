@@ -12,15 +12,29 @@
         INSERT INTO options (noticeId,content)
         VALUES (#{noticeId},#{content})
     </insert>
+    <update id="modifyNotice">
+        UPDATE notice
+        SET type = #{type},
+            title = #{title},
+            content = #{content},
+            deadline = #{deadline}
+        WHERE id = #{id}
+    </update>
 
     <delete id="deleteNotice">
         DELETE FROM notice
         WHERE id = #{id}
     </delete>
-
+    <delete id="deleteOptions">
+        DELETE FROM options
+        WHERE noticeId = #{id}
+    </delete>
     <select id="getTotalNumber" resultType="int">
         SELECT  count(*)
         FROM notice
+    </select>
+    <select id="getNotice" resultType="com.ingzone.model.dto.Notice">
+
     </select>
 
 </mapper>

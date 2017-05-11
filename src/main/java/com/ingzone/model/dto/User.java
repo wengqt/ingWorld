@@ -14,12 +14,10 @@ import java.sql.Date;
 @Data
 public class User {
 
-    @JsonIgnore
     private Integer id;
 
     private String name;
 
-    @JsonIgnore
     private String password;
 
     private Integer photoId = 1;

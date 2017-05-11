@@ -4,6 +4,8 @@ import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.IngDTO;
 import com.ingzone.model.dto.Page;
+import com.ingzone.model.dto.User;
+import com.ingzone.service.AuthService;
 import com.ingzone.service.GroupService;
 import com.ingzone.service.IngService;
 import com.ingzone.service.ProjectService;
@@ -12,6 +14,8 @@ import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
+
+import javax.servlet.http.HttpSession;
 
 /**
  * Created by gzq on 17-5-10.
@@ -26,6 +30,9 @@ public class PlainController{
 
     @Autowired
     private GroupService groupService;
+
+    @Autowired
+    private AuthService authService;
 
     @Autowired
     private IngService ingService;
@@ -59,8 +66,12 @@ public class PlainController{
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result login(Integer id, Integer password) {
-        return null;
+    public Result login(@RequestBody User user, HttpSession session) {
+        if(user.getPassword() == null || user.getId() == null) {
+            return ResultCache.getCache(0);
+        }
+
+        return authService.login(user.getId(), user.getPassword(), session);
     }
 
 }

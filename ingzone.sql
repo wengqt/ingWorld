@@ -11,7 +11,7 @@ DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `group` varchar(255) DEFAULT NULL,
   `shower` varchar(255) DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,
@@ -30,7 +30,7 @@ CREATE TABLE `datum` (
   `title` varchar(255) DEFAULT NULL,
   `url` varchar(255) DEFAULT NULL,
   `publisher` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `datum_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -64,7 +64,7 @@ DROP TABLE IF EXISTS `log`;
 CREATE TABLE `log` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `userId` int(11) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `operation` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `log_id_uindex` (`id`)
@@ -79,8 +79,8 @@ CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
-  `deadline` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `deadline` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `notice_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
@@ -120,7 +120,7 @@ CREATE TABLE `project` (
   `introduce` text,
   `url` varchar(255) DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `join` varchar(255) DEFAULT NULL,
   `game` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
@@ -144,7 +144,7 @@ CREATE TABLE `prrelation` (
 DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
   `name` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `group` int(11) DEFAULT NULL,
   `introduce` text,
   `mail` varchar(255) DEFAULT NULL,
@@ -177,7 +177,7 @@ CREATE TABLE `users` (
   `blog` varchar(255) DEFAULT NULL,
   `phone` varchar(11) DEFAULT NULL,
   `mail` varchar(255) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,
   `qq` varchar(255) DEFAULT NULL,
   `role` varchar(255) DEFAULT NULL,
@@ -195,7 +195,7 @@ CREATE TABLE `vote` (
   `optionId` int(11) DEFAULT NULL,
   `noticeId` int(11) DEFAULT NULL,
   `userId` int(11) DEFAULT NULL,
-  `date` date DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `vote_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

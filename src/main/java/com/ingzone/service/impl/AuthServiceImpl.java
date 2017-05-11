@@ -5,7 +5,7 @@ import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.UserDAO;
 import com.ingzone.model.dto.User;
 import com.ingzone.service.AuthService;
-import com.ingzone.util.BCrypt;
+import com.ingzone.util.CryptUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
@@ -27,16 +27,15 @@ public class AuthServiceImpl implements AuthService {
     public Result login(int id, String password, HttpSession session) {
         Map<String, Integer> map = new HashMap<>();
         User user = userDAO.getUserById(id);
-//        if(BCrypt.checkpw(password, user.getPassword())) {
-//            map.put("result", 0);
-//            return ResultCache.getDataOk(map);
-//        }
+
         if(user == null) {
             map.put("result", 0);
             return ResultCache.getDataOk(map);
         }
 
-        if(!password.equals(user.getPassword())) {
+        System.out.println(CryptUtil.getSHA1(password));
+
+        if(!CryptUtil.getSHA1(password).equals(user.getPassword())) {
             map.put("result", 0);
             return ResultCache.getDataOk(map);
         }

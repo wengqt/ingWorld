@@ -1,14 +1,15 @@
 package com.ingzone.service;
 
 import com.ingzone.base.Result;
-import com.ingzone.model.Ing;
+import com.ingzone.model.dto.IngDTO;
+import com.ingzone.model.vo.IngVO;
 
 /**
  * Created by Ji Shaokang on 2017/5/9.
  */
 public interface IngService {
 
-    Result getStudioIntro();
-    Result modifyStudio(Ing ing);
+    IngVO getStudioIntro();
+    boolean modifyStudio(IngDTO ingDTO);
 
 }

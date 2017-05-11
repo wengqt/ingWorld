@@ -15,6 +15,8 @@ public class Project {
 
     private Integer id;
 
+    private String url;
+
     private String introduce;
 
     private String github;

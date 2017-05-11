@@ -1,5 +1,6 @@
-package com.ingzone.model.dto;
+package com.ingzone.model.vo;
 
+import com.ingzone.model.dto.Project;
 import lombok.AllArgsConstructor;
 import lombok.Data;
 
@@ -11,7 +12,7 @@ import java.util.List;
 
 @Data
 @AllArgsConstructor
-public class ProjectDto {
+public class ProjectVO {
 
     private Integer total;
 

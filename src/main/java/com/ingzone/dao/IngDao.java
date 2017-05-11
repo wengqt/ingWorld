@@ -1,15 +1,16 @@
 package com.ingzone.dao;
 
-import com.ingzone.model.Ing;
+import com.ingzone.model.dto.IngDTO;
+import com.ingzone.model.vo.IngVO;
 import org.springframework.stereotype.Repository;
 
 /**
- * Created by Ji Shapkang on 2017/5/9.
+ * Created by Ji Shaokang on 2017/5/9.
  */
 @Repository
 public interface IngDao {
 
-    Ing select();
-    int update(Ing ing);
+    IngVO select();
+    int update(IngDTO ingDTO);
 
 }

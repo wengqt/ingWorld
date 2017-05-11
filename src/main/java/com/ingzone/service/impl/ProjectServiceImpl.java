@@ -1,15 +1,18 @@
 package com.ingzone.service.impl;
 
-import com.ingzone.dao.ProjectDao;
+import com.ingzone.base.Result;
+import com.ingzone.cache.ResultCache;
+import com.ingzone.dao.ProjectDAO;
+import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.Project;
-import com.ingzone.model.dto.ProjectDto;
+import com.ingzone.model.vo.ProjectVO;
 import com.ingzone.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.web.bind.annotation.RequestBody;
 
-import java.util.HashMap;
+import java.sql.Timestamp;
 import java.util.List;
-import java.util.Map;
 
 /**
  * Created by omsfuk on 17-5-9.
@@ -19,15 +22,27 @@ import java.util.Map;
 public class ProjectServiceImpl implements ProjectService {
 
     @Autowired
-    private ProjectDao projectDao;
+    private ProjectDAO projectDAO;
 
-    public ProjectDto getProjectIntro(Integer page, Integer rows) {
-        Map<String, Object> map = new HashMap<String, Object>();
-        map.put("begin", page * rows);
-        map.put("rows", rows);
-        List<Project> projectList = projectDao.getProject(map);
-        Integer count = projectDao.getProjectCount();
+    @Override
+    public Result getProjectIntro(Page page) {
+        page.setPage(page.getPage() - 1);
+        List<Project> projectList = projectDAO.getProject(page);
+        Integer count = projectDAO.getProjectCount();
+        return ResultCache.getDataOk(new ProjectVO(count, projectList));
+    }
 
-        return new ProjectDto(count, projectList);
+    @Override
+    public Result uploadProject(Project project) {
+        projectDAO.insertProject(project);
+        return ResultCache.getCache(1);
+    }
+
+    @Override
+    public Result modifyProject(Project project) {
+        if(projectDAO.updateProject(project) != 1) {
+            return ResultCache.getCache(0);
+        }
+        return ResultCache.getCache(1);
     }
 }

@@ -1,3 +1,6 @@
+
+ #所有 日期 存为 datetime 类型
+
 工作室介绍：文本 图片
 组别介绍：技术栈 文本介绍
   成员 姓名 照片 自我介绍 年级学院 个人博客 手机 邮箱 加入时间 个人博客地址 github地址 qq
@@ -52,7 +55,7 @@ notice 通知
 	content 内容
 	date 通知时间
 	deadline 截止日期
-option 选项表
+options 选项表
 	id 唯一标示
 	noticeId 所属投票
 	content 选项内容

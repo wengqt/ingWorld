@@ -1,13 +1,19 @@
 package com.ingzone.service.impl;
 
+import com.ingzone.base.Result;
+import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.NoticeDao;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
 import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.NoticeService;
+import com.ingzone.util.DateFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.text.ParseException;
+import java.util.ArrayList;
+import java.util.Date;
 import java.util.List;
 
 /**
@@ -20,41 +26,52 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeDao noticeDao;
 
     @Override
-    public boolean uploadNotice(Notice notice) {
+    public Result uploadNotice(Notice notice, String option, String dateline) {
+        Date closing;
+        try {
+            closing = DateFormatUtil.formatData(dateline);
+        } catch (ParseException e) {
+            e.printStackTrace();
+            return ResultCache.FAILURE;
+        }
+        notice.setDeadline(closing);
+        String[] options = option.split(",");
         try {
             noticeDao.uploadNotice(notice);
             if (notice.getType() != 0) {
-                for (Option option : notice.getOption()) {
-                    option.setNoticeId(notice.getId());
-                    noticeDao.insertOptions(option);
+                Option opt = new Option();
+                opt.setNoticeId(notice.getId());
+                for (String optionName : options) {
+                    opt.setContent(optionName);
+                    noticeDao.insertOptions(opt);
                 }
             }
-            return true;
+            return ResultCache.OK;
         } catch (Exception e) {
             e.printStackTrace();
-            return false;
+            return ResultCache.FAILURE;
         }
     }
 
 
     @Override
-    public boolean deleteNotice(int id) {
+    public Result deleteNotice(int id) {
         try {
             noticeDao.deleteNotice(id);
-            return true;
+            return ResultCache.OK;
         } catch (Exception e) {
-            return false;
+            return ResultCache.FAILURE;
         }
     }
 
     @Override
-    public NoticeVO getNotice(int page, int rows) {
+    public Result getNotice(int page, int rows) {
         int begin = (page - 1) * rows;
         try {
             int total = noticeDao.getTotalNumber();
             List<Notice> notice = noticeDao.getNotice(begin, rows);
             NoticeVO noticeVO = new NoticeVO(total, notice);
-            return noticeVO;
+            return ResultCache.getDataOk(noticeVO);
         } catch (Exception e) {
             return null;
         }

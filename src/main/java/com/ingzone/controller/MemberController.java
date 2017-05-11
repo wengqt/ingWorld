@@ -21,13 +21,6 @@ public class MemberController {
 
     @RequestMapping(value = "/member/getNotice", method = RequestMethod.GET)
     public Result getNotice(int page, int rows) {
-        if (page <= 0 || rows <= 0) {
-            return ResultCache.FAILURE;
-        }
-        NoticeVO noticeVO = noticeService.getNotice(page, rows);
-        if (noticeVO == null) {
-            return ResultCache.FAILURE;
-        }
-        return ResultCache.getDataOk(noticeVO);
+        return noticeService.getNotice(page, rows);
     }
 }

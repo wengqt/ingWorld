@@ -6,5 +6,8 @@
     <typeAliases>
         <typeAlias type="com.ingzone.dao.DemoDao" alias="Demo"/>
         <typeAlias type="com.ingzone.dao.IngDao" alias="Ing"/>
+        <typeAlias type="com.ingzone.model.dto.Group" alias="Group"/>
+        <typeAlias type="com.ingzone.model.dto.Project" alias="Project"/>
+        <typeAlias type="com.ingzone.model.dto.User" alias="User"/>
     </typeAliases>
 </configuration>

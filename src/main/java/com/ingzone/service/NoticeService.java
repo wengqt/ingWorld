@@ -1,5 +1,6 @@
 package com.ingzone.service;
 
+import com.ingzone.base.Result;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.vo.NoticeVO;
 
@@ -8,9 +9,9 @@ import com.ingzone.model.vo.NoticeVO;
  */
 public interface NoticeService {
 
-    boolean uploadNotice(Notice notice);
+    Result uploadNotice(Notice notice, String option, String dateline);
 
-    boolean deleteNotice(int id);
+    Result deleteNotice(int id);
 
-    NoticeVO getNotice(int page, int rows);
+    Result getNotice(int page, int rows);
 }

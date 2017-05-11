@@ -4,8 +4,8 @@
 
     <insert id="uploadNotice" parameterType="com.ingzone.model.dto.Notice" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
-        INSERT INTO notice (type,title,content,)
-        VALUES (#{type},#{title},#{content},#{closing})
+        INSERT INTO notice (type,title,content,date,deadline)
+        VALUES (#{type},#{title},#{content},now(),#{deadline})
     </insert>
 
     <insert id="insertOptions" parameterType="com.ingzone.model.dto.Option">

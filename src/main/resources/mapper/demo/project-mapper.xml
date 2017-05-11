@@ -1,20 +1,27 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
-<mapper namespace="com.ingzone.dao.ProjectDao">
+<mapper namespace="com.ingzone.dao.ProjectDAO">
 
-    <resultMap id="Project" type="com.ingzone.model.dto.Project">
-        <id column="id" property="id"/>
-        <result column="introduce" property="introduce"/>
-        <result column="github" property="github"/>
-        <result column="date" property="date"/>
-        <result column="game" property="game"/>
-    </resultMap>
-
-    <select id="getProject" parameterType="map" resultMap="Project">
-        SELECT * FROM project LIMIT #{begin}, #{rows}
+    <select id="getProject" parameterType="map" resultType="Project">
+        SELECT id, url, introduce, github, date, game
+        FROM project
+        ORDER BY date
+        LIMIT #{page}, #{rows}
     </select>
 
     <select id="getProjectCount" resultType="int">
-        SELECT COUNT(*) FROM project;
+        SELECT COUNT(*)
+        FROM project
     </select>
+
+    <insert id="insertProject" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO project(url, introduce, github, date, game)
+        VALUES (#{url}, #{introduce}, #{github}, #{date}, #{game})
+    </insert>
+
+    <update id="updateProject" parameterType="Project">
+        UPDATE project
+        SET url = #{url}, introduce = #{introduce}, github = #{github}, date = #{date}, game = #{game}
+        WHERE id = #{id}
+    </update>
 </mapper>

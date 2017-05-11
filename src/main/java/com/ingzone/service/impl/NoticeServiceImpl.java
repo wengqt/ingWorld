@@ -27,26 +27,13 @@ public class NoticeServiceImpl implements NoticeService {
     private NoticeDao noticeDao;
 
     @Override
-    public Result uploadNotice(Notice notice, String option, String dateline) {
-        Date closing;
-        try {
-            closing = DateFormatUtil.formatData(dateline);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return ResultCache.FAILURE;
-        }
-        notice.setDeadline(closing);
-        String[] options = option.split(",");
+    public Result uploadNotice(Notice notice) {
         try {
             noticeDao.uploadNotice(notice);
-            if (notice.getType() != 0) {
-                Option opt = new Option();
-                opt.setNoticeId(notice.getId());
-                for (String optionName : options) {
-                    opt.setContent(optionName);
-                    noticeDao.insertOptions(opt);
-                }
+            if (notice.getType() == 0) {
+               return ResultCache.OK;
             }
+            noticeDao.insertOptions(notice.getOption());
             return ResultCache.OK;
         } catch (Exception e) {
             e.printStackTrace();
@@ -55,28 +42,14 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public Result modifyNotice(Notice notice, String option, String closing) {
-        Date deadline;
-        try {
-            deadline = DateFormatUtil.formatData(closing);
-        } catch (ParseException e) {
-            e.printStackTrace();
-            return ResultCache.FAILURE;
-        }
-        notice.setDeadline(deadline);
-        String[] options = option.split(",");
+    public Result modifyNotice(Notice notice) {
         try {
             noticeDao.modifyNotice(notice);
             noticeDao.deleteOptions(notice.getId());
             if (notice.getType() == 0) {
                 return ResultCache.OK;
             }
-            Option opt = new Option();
-            opt.setNoticeId(notice.getId());
-            for (String optionName : options) {
-                opt.setContent(optionName);
-                noticeDao.insertOptions(opt);
-            }
+            noticeDao.insertOptions(notice.getOption());
             return ResultCache.OK;
         } catch (Exception e) {
             e.printStackTrace();

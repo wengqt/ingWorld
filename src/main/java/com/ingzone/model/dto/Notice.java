@@ -22,14 +22,14 @@ public class Notice {
 
     private String content;
 
-    private List<Option> option;     //选项名用 ,
+    private List<Option> option;
 
-    private Date date;
+    private String date;
 
-    private Date deadline;
+    private String deadline;
 
 
-    public Notice(Integer type, String title, String content, Date deadline) {
+    public Notice(Integer type, String title, String content, String deadline) {
         this.type = type;
         this.title = title;
         this.content = content;

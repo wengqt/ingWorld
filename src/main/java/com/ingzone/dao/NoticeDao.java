@@ -15,7 +15,7 @@ public interface NoticeDao {
 
     void deleteNotice(int id);
 
-    void insertOptions(Option option);
+    void insertOptions(List<Option> option);
 
     int getTotalNumber();
 

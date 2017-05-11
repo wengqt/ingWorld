@@ -12,20 +12,9 @@ public class DateFormatUtil {
 
     public static final String PATTERN = "yyyy-MM-dd HH:mm:ss";
 
-    public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal = new ThreadLocal<SimpleDateFormat>();
+    public static ThreadLocal<SimpleDateFormat> dateFormatThreadLocal = ThreadLocal.withInitial(() -> new SimpleDateFormat(PATTERN));
 
     public static Date formatData(String date) throws ParseException {
-        SimpleDateFormat dateFormator = getDateFormator();
-        return dateFormator.parse(date);
+        return dateFormatThreadLocal.get().parse(date);
     }
-
-    private static SimpleDateFormat getDateFormator() {
-        SimpleDateFormat dateFormat = dateFormatThreadLocal.get();
-        if (dateFormat == null) {
-            dateFormat = new SimpleDateFormat(PATTERN);
-            dateFormatThreadLocal.set(dateFormat);
-        }
-        return dateFormat;
-    }
-
 }

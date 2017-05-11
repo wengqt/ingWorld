@@ -2,6 +2,7 @@ package com.ingzone.service;
 
 import com.ingzone.base.Result;
 import com.ingzone.model.dto.Notice;
+import com.ingzone.model.dto.Page;
 import com.ingzone.model.vo.NoticeVO;
 
 /**
@@ -13,7 +14,8 @@ public interface NoticeService {
 
     Result deleteNotice(int id);
 
-    Result getNotice(int page, int rows);
+    Result getNotice(Page page);
 
     Result modifyNotice(Notice notice, String option, String closing);
+
 }

@@ -5,6 +5,7 @@ import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.NoticeDao;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
+import com.ingzone.model.dto.Page;
 import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.NoticeService;
 import com.ingzone.util.DateFormatUtil;
@@ -76,16 +77,11 @@ public class NoticeServiceImpl implements NoticeService {
                 opt.setContent(optionName);
                 noticeDao.insertOptions(opt);
             }
-
             return ResultCache.OK;
-        } catch (
-                Exception e)
-
-        {
+        } catch (Exception e) {
             e.printStackTrace();
             return ResultCache.FAILURE;
         }
-
     }
 
 
@@ -100,17 +96,15 @@ public class NoticeServiceImpl implements NoticeService {
     }
 
     @Override
-    public Result getNotice(int page, int rows) {
-        int begin = (page - 1) * rows;
+    public Result getNotice(Page page) {
+        int begin = (page.getPage() - 1) * page.getRows();
         try {
             int total = noticeDao.getTotalNumber();
-            List<Notice> notice = noticeDao.getNotice(begin, rows);
+            List<Notice> notice = noticeDao.getNotice(begin, page.getRows());
             NoticeVO noticeVO = new NoticeVO(total, notice);
             return ResultCache.getDataOk(noticeVO);
         } catch (Exception e) {
             return null;
         }
     }
-
-
 }

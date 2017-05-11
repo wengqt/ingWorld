@@ -34,6 +34,8 @@
         FROM notice
     </select>
     <select id="getNotice" resultType="com.ingzone.model.dto.Notice">
+        SELECT *
+        FROM notice
 
     </select>
 

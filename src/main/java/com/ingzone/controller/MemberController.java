@@ -2,6 +2,7 @@ package com.ingzone.controller;
 
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
+import com.ingzone.model.dto.Page;
 import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
@@ -20,7 +21,7 @@ public class MemberController {
     private NoticeService noticeService;
 
     @RequestMapping(value = "/member/getNotice", method = RequestMethod.GET)
-    public Result getNotice(int page, int rows) {
-        return noticeService.getNotice(page, rows);
+    public Result getNotice(Page page) {
+        return noticeService.getNotice(page);
     }
 }

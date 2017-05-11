@@ -1,6 +1,8 @@
+/*全局*/
 body{
     margin: 0;
     padding: 0;
+    background-color: #e4eff5;
 }
 a{
     color: #fff;
@@ -10,7 +12,45 @@ a:hover{
 }
 *{
     font-size: 0;
+    font-family: "Microsoft YaHei UI", serif;
 }
 html{
     font-size: initial;
+}
+
+/*导航*/
+.nav_bar{
+    background-color: #5f92c7;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+}
+.nav_bar .nav_bar_back,.nav_bar .nav_bar_confirm{
+    display: inline-block;
+    padding: 5px 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.nav_bar .nav_bar_back{
+    left: 0;
+}
+.nav_bar .nav_bar_confirm{
+    right: 0;
+}
+.nav_bar .nav_bar_back img,.nav_bar .nav_bar_confirm img{
+    width: 40px;
+    height: 40px;
+}
+
+
+
+
+
+
+/*响应式*/
+.part_inform{
+    max-width: 1080px;
+    min-width: 720px;
 }

@@ -4,29 +4,81 @@
     <meta charset="UTF-8">
     <title>通知</title>
     <style>
-        .nav_bar{
-            background-color: #5f92c7;
-            position: fixed;
-            top: 0;
-            height: 50px;
-            width: 100%;
+        .part_inform{
+            width: 70%;
+            margin: 100px auto;
         }
-        .nav_bar .nav_bar_back,.nav_bar .nav_bar_confirm{
+        .part_inform>.title{
+            font-size: 1.8rem;
+            color: #f0726c;
+            position: relative;
             display: inline-block;
-            padding: 5px 50px;
+            padding: 0 30px;
+            margin-bottom: 20px;
+        }
+        .part_inform>.title:after{
+            content: "";
             position: absolute;
-            top: 50%;
-            transform: translateY(-50%);
-        }
-        .nav_bar .nav_bar_back{
+            top: 100%;
             left: 0;
+            width: 100%;
+            height: 5px;
+            background-color: #f0726c;
         }
-        .nav_bar .nav_bar_confirm{
-            right: 0;
+        .inform_container{
+            margin: 0 -15px;
         }
-        .nav_bar .nav_bar_back img,.nav_bar .nav_bar_confirm img{
-            width: 40px;
-            height: 40px;
+        .inform_container .item_wrapper{
+            box-sizing: border-box;
+            width: 33.33%;
+            padding: 0 15px;
+            margin: 20px 0;
+            height: 200px;
+            display: inline-block;
+            vertical-align: top;
+        }
+        .inform_container  .item{
+            box-sizing: border-box;
+            width: 100%;
+            height: 100%;
+            border-radius: 20px;
+            background-color: #a6c5e3;
+            padding: 10px;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            position: relative;
+        }
+        .inform_container .item .title{
+            display: inline-block;
+            font-size: 1.2rem;
+            font-weight: 500;
+            padding: 5px 10px;
+            box-sizing: border-box;
+            width: 60%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+        }
+        .inform_container .item .date{
+            display: inline-block;
+            font-size: 1rem;
+            width: 40%;
+            white-space: nowrap;
+            overflow: hidden;
+            text-overflow: ellipsis;
+            line-height: 34px;
+            vertical-align: top;
+            text-align: right;
+        }
+        .inform_container .item .content{
+            font-size: 1rem;
+            line-height: 150%;
+            position: absolute;
+            top: 50px;
+            bottom: 0;
+            left: 20px;
+            right: 20px;
+            overflow: hidden;
         }
     </style>
     <link rel="stylesheet" href="css/inform.css">
@@ -35,6 +87,28 @@
 <div class="nav_bar">
     <div class="nav_bar_back" href="#"><img src="images/back.png"></div>
     <div class="nav_bar_confirm" href="#"><img src="images/confirm.png"></div>
+</div>
+<div class="part_inform">
+    <div class="title">通知</div>
+    <div class="inform_container">
+        <div class="item_wrapper">
+            <div class="item">
+                <div class="title">ING首页来啦</div>
+                <div class="date">5月11日20:10</div>
+                <div class="content">我估计现在2ch上的年轻人是不会怎么怀念昭和的,因为软绵绵的平成对它们来说正相宜。中年人大约会有一部分怀念昭和,不过就我个人意见,昭和确实是个比平成要辉煌不少</div>
+            </div>
+        </div>
+        <div class="item_wrapper">
+            <div class="item">
+
+            </div>
+        </div>
+        <div class="item_wrapper">
+            <div class="item">
+
+            </div>
+        </div>
+    </div>
 </div>
 </body>
 </html>

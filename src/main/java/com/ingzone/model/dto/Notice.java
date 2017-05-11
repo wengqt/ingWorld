@@ -24,13 +24,15 @@ public class Notice {
 
     private List<Option> option;     //选项名用 ,
 
-    private Date closing;
+    private Date date;
 
-    public Notice(Integer type, String title, String content, List<Option> options, Date closing) {
+    private Date deadline;
+
+
+    public Notice(Integer type, String title, String content, Date deadline) {
         this.type = type;
         this.title = title;
         this.content = content;
-        this.option = options;
-        this.closing = closing;
+        this.deadline = deadline;
     }
 }

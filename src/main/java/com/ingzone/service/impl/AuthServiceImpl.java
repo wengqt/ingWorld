@@ -25,7 +25,7 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Result login(int id, String password, HttpSession session) {
-        Map<String, Integer> map = new HashMap<>();
+        Map<String, Integer> map = new HashMap();
         User user = userDAO.getUserById(id);
 
         if(user == null) {

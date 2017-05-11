@@ -5,6 +5,7 @@ import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
 import com.ingzone.service.NoticeService;
+import com.ingzone.util.DateFormatUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
@@ -27,10 +28,9 @@ public class AdminController {
 
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
     public Result uploadNotice(int type, String title, String content, String option, String closing) {
-        SimpleDateFormat sdf = new SimpleDateFormat("yyyy-MM-dd");
         Date closing2;
         try {
-            closing2 = sdf.parse(closing);
+            closing2 = DateFormatUtil.formatData(closing);
         } catch (ParseException e) {
             e.printStackTrace();
             return ResultCache.FAILURE;
@@ -41,8 +41,7 @@ public class AdminController {
             optionlist.add(new Option(opt));
         }
         Notice notice = new Notice(type, title, content, optionlist, closing2);
-        boolean success = noticeService.uploadNotice(notice);
-        if (!success) {
+        if (!noticeService.uploadNotice(notice)) {
             return ResultCache.FAILURE;
         }
         return ResultCache.OK;

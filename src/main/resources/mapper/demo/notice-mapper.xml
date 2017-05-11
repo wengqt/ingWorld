@@ -4,7 +4,7 @@
 
     <insert id="uploadNotice" parameterType="com.ingzone.model.dto.Notice" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
-        INSERT INTO notice (type,title,content,closing)
+        INSERT INTO notice (type,title,content,)
         VALUES (#{type},#{title},#{content},#{closing})
     </insert>
 

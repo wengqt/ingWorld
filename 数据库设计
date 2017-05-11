@@ -48,6 +48,7 @@ activity 活动表
 notice 通知
 	id 唯一标示
 	type 0 1 2 类型 普通 单选 多选
+	title  标题
 	content 内容
 	date 通知时间
 	deadline 截止日期

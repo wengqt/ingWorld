@@ -3,8 +3,9 @@
 <mapper namespace="com.ingzone.dao.ProjectDAO">
 
     <select id="getProject" parameterType="map" resultType="Project">
-        SELECT *
+        SELECT id, url, introduce, github, date, game
         FROM project
+        ORDER BY date
         LIMIT #{page}, #{rows}
     </select>
 

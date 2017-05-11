@@ -1,5 +1,6 @@
 package com.ingzone.filter;
 
+import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ingzone.cache.ResultCache;
 
@@ -59,7 +60,8 @@ public class AuthFilter implements Filter {
         String role = (String) request.getSession().getAttribute("role");
         if(!auth(request.getServletPath(), role)) {
             PrintWriter writer = response.getWriter();
-            mapper.writeValue(writer, ResultCache.getCache(3));
+            writer.write(JSON.toJSONString(ResultCache.getCache(3)));
+            writer.flush();
             return ;
         }
 

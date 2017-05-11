@@ -50,7 +50,13 @@ response
 	status:200,
 	message:"OK",
 	data:{
-	    result:0 账号不存在/密码错误    1 成功
+	}
+}
+{
+	status:300,//300包括密码错误等。
+	message:"OK",
+	data:{
+	    detail:"wrongPassword"
 	}
 }
 注：登陆之后， session中存储id 和角色
@@ -215,7 +221,13 @@ URL:/api/admin/modifyProject
 method:POST
 request:
 {
-    key:value
+    id:132
+		introduce				:	"string",							//项目简介(md)
+		url 					:	"sdu.edu.cn"	,					//项目地址
+		github					:	"github.com",						//项目源码地址
+		date					:	"2017-3-16",						//项目时间
+		join					:	"前端,后台,IOS",					//参加组	，隔开
+		game					:	"山大杯,软院杯"						//参加的比赛，隔开
 }
 response:
 {
@@ -271,7 +283,6 @@ request:
 {
 	"title":"string"									//资料标题
 	"url":"http://javascript.ruanyifeng.com/"			//资料链接
-
 }
 response:
 {
@@ -326,7 +337,17 @@ URL:/api/member/modifyUserInfo
 method:POST
 request:
 {
-	key:value
+	id:123,
+	name:"lph" 名字
+	introduce:"string"
+	group:123456 所属组
+	from:"string" 年级学院
+	blog:"string" 个人博客
+	phone:"1231456" 手机
+	mail:"sdu.esu.cn" 邮箱
+	date:"string" 加入时间
+	github:"string"
+	qq:"1345679"
 }
 response:
 {
@@ -352,12 +373,12 @@ response:
 *************组负责人请求******************
 
 修改组介绍
-URL:api/miniAdmin/modifyNotice
+URL:api/miniAdmin/modifyGroup
 method:POST
 request:
 {
 	id:132456
-	"key":value//要修改的内容
+	introduce	:"string",		//组介绍(md)
 }
 
 
@@ -369,7 +390,7 @@ URL:/api/admin/modifyStudio
 method:POST
 request:
 {
-	key:value
+	introduce	:"string",		//工作室介绍(md)
 }
 response:
 {
@@ -400,9 +421,11 @@ method:POST
 request:
 {
 	id:132,
-
-	key:value
-	value:string
+	"type":0										//常规通知
+	"title":"string"								//通知标题
+	"content":"string"								//通知内容(md)
+	"option":"行,不行"							//通知选项，普通通知就不用了,   ,隔开
+    "closing":"2017-8-8"							//投票截止日期，普通通知就不用了
 }
 
 删除通知
@@ -442,7 +465,12 @@ method:POST
 request:
 {
 	id:13,
-	key:value
+	name:"第2次codereview"		//活动名字
+	introduce:"dfdfsd"			//活动介绍
+ 	date:"String"				//举办时间
+	group:"String"     		     //承办组
+	shower:"String"   			//展示组
+	github:"String"			//资料下载（github地址）
 }
 response:
 {

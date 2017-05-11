@@ -7,6 +7,7 @@ import com.ingzone.model.dto.Project;
 import com.ingzone.service.NoticeService;
 import com.ingzone.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 /**
@@ -22,6 +23,7 @@ public class AdminController {
     @Autowired
     private ProjectService projectService;
 
+    @Transactional
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
     public Result uploadNotice(@RequestBody Notice notice) {
         return noticeService.uploadNotice(notice);
@@ -32,6 +34,7 @@ public class AdminController {
         return noticeService.deleteNotice(id);
     }
 
+    @Transactional
     @RequestMapping(value = "/modifyNotice", method = RequestMethod.POST)
     public Result modifyNotice(@RequestBody Notice notice) {
         return noticeService.modifyNotice(notice);

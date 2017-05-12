@@ -32,7 +32,7 @@ public class AuthPrivilegeUtil {
             return false;
         }
 
-        if(requiredRank == 2 && !ownerId.equals(currentUserId)) {
+        if(requiredRank == currentRank && !ownerId.equals(currentUserId)) {
             return false;
         }
 
@@ -41,7 +41,6 @@ public class AuthPrivilegeUtil {
 
     public static Result operateWithPrivilege(Integer ownerid, Integer userid, String requiredRole, String currentRole, NeedPrivilegeOperate operate) {
         if(AuthPrivilegeUtil.permitAccess(requiredRole, currentRole, ownerid, userid)) {
-            System.out.println(requiredRole + currentRole + userid);
             return operate.run();
         }
         return ResultCache.getCache(3);

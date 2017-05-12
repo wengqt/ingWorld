@@ -33,8 +33,6 @@ public class AuthServiceImpl implements AuthService {
             return ResultCache.getDataOk(map);
         }
 
-        System.out.println(CryptUtil.getSHA1(password));
-
         if(!CryptUtil.getSHA1(password).equals(user.getPassword())) {
             map.put("result", 0);
             return ResultCache.getDataOk(map);
@@ -42,6 +40,7 @@ public class AuthServiceImpl implements AuthService {
 
         session.setAttribute("id", id);
         session.setAttribute("role", user.getRole());
+
         map.put("result", 1);
         return ResultCache.getDataOk(map);
     }

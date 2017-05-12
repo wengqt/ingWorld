@@ -71,7 +71,7 @@ public class PlainController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(User user, HttpSession session) {
         if (user.getPassword() == null || user.getId() == null) {
-            return ResultCache.getCache(0);
+            return ResultCache.FAILURE;
         }
         return authService.login(user.getId(), user.getPassword(), session);
     }

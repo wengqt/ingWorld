@@ -1,5 +1,8 @@
 package com.ingzone.util;
 
+import com.ingzone.base.NeedPrivilegeOperate;
+import com.ingzone.base.Result;
+import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.User;
 
 import java.util.HashMap;
@@ -18,7 +21,7 @@ public class AuthPrivilegeUtil {
         map.put("member", 2);
     }
 
-    public static boolean permitAccess(String requireRole, String currentRole, Integer ownerId, Integer currentUserId) {
+    private static boolean permitAccess(String requireRole, String currentRole, Integer ownerId, Integer currentUserId) {
         // 防止调用时传错参数
         if(requireRole == null || currentRole == null) {
            return false;
@@ -35,5 +38,13 @@ public class AuthPrivilegeUtil {
 
         return true;
     }
+
+    public static Result operateWithPrivilege(Integer ownerid, Integer userid, String requiredRole, String currentRole, NeedPrivilegeOperate operate) {
+        if(AuthPrivilegeUtil.permitAccess(requiredRole, currentRole, ownerid, userid)) {
+            System.out.println(requiredRole + currentRole + userid);
+            return operate.run();
+        }
+        return ResultCache.getCache(3);
+    };
 
 }

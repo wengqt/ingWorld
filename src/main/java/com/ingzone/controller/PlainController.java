@@ -13,7 +13,9 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
 import java.util.List;
+import java.util.Map;
 
 /**
  * Created by gzq on 17-5-10.
@@ -44,7 +46,7 @@ public class PlainController {
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
         if (page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
-            return ResultCache.getCache(0);
+            return ResultCache.FAILURE;
         }
         return projectService.getProjectIntro(page);
     }
@@ -61,9 +63,15 @@ public class PlainController {
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(User user, HttpSession session) {
+        Map<String, String> map = new HashMap();
+
         if (user.getPassword() == null || user.getId() == null) {
-            return ResultCache.FAILURE;
+            map.put("detail", "Wrong Parameter Format");
+            Result result = ResultCache.getCache(0);
+            result.setData(map);
+            return result;
         }
+
         return authService.login(user.getId(), user.getPassword(), session);
     }
 

@@ -25,23 +25,26 @@ public class AuthServiceImpl implements AuthService {
 
     @Override
     public Result login(int id, String password, HttpSession session) {
-        Map<String, Integer> map = new HashMap();
+        Map<String, String> map = new HashMap();
         User user = userDAO.getUserById(id);
 
         if(user == null) {
-            map.put("result", 0);
-            return ResultCache.getDataOk(map);
+            map.put("detail", "Wrong Parameter Format");
+            Result result = ResultCache.getCache(0);
+            result.setData(map);
+            return result;
         }
 
         if(!CryptUtil.getSHA1(password).equals(user.getPassword())) {
-            map.put("result", 0);
-            return ResultCache.getDataOk(map);
+            map.put("detail", "Wrong Password");
+            Result result = ResultCache.getCache(0);
+            result.setData(map);
+            return result;
         }
 
         session.setAttribute("id", id);
         session.setAttribute("role", user.getRole());
 
-        map.put("result", 1);
         return ResultCache.getDataOk(map);
     }
 }

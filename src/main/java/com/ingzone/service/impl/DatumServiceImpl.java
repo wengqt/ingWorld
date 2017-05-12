@@ -53,7 +53,7 @@ public class DatumServiceImpl implements DatumService {
         }
         User dataOwner = userDAO.getUserByName(datum.getDataPublish());
 
-        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, "member", currentRole,
+        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.deleteDatum(id) == 1 ? ResultCache.OK : ResultCache.FAILURE);
     }
 
@@ -66,7 +66,7 @@ public class DatumServiceImpl implements DatumService {
         }
         User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
 
-        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, "member", currentRole,
+        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.updateDatum(datum) == 1 ? ResultCache.OK : ResultCache.FAILURE);
     }
 

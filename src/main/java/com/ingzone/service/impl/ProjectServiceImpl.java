@@ -46,7 +46,7 @@ public class ProjectServiceImpl implements ProjectService {
     public Result uploadProject(Project project, Integer userid) {
         project.setOwnerId(userid);
         projectDAO.insertProject(project);
-        return ResultCache.getCache(1);
+        return ResultCache.OK;
     }
 
 

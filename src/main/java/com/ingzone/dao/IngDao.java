@@ -12,5 +12,6 @@ public interface IngDao {
 
     IngVO select();
     int update(IngDTO ingDTO);
+    int add(IngDTO ingDTO);
 
 }

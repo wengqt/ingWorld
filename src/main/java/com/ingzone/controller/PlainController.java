@@ -6,8 +6,10 @@ import com.ingzone.model.dto.Resume;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
 import com.ingzone.model.vo.ActivityVO;
+import com.ingzone.model.vo.IngVO;
 import com.ingzone.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
@@ -59,7 +61,12 @@ public class PlainController {
     @Transactional
     @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)
     public Result getStudioIntro() {
-        return ResultCache.getDataOk(ingService.getStudioIntro());
+        IngVO ingVO = ingService.getStudioIntro();
+        if (ingVO!=null) {
+            return ResultCache.getDataOk(ingService.getStudioIntro());
+        }else{
+            return ResultCache.FAILURE;
+        }
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)

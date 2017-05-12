@@ -2,6 +2,11 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.IngDao">
 
+    <insert id="add" parameterType="com.ingzone.model.dto.IngDTO">
+        INSERT INTO ing (introduce)
+        VALUE (#{introduce})
+    </insert>
+
     <select id="select" resultType="com.ingzone.model.vo.IngVO">
         SELECT *
         FROM ing

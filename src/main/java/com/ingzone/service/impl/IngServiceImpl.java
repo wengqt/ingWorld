@@ -27,7 +27,11 @@ public class IngServiceImpl implements IngService {
             return true;
         }
         else {
-            return false;
+            if (ingDao.add(ingDTO)!=0){
+                return true;
+            }else{
+                return false;
+            }
         }
     }
 

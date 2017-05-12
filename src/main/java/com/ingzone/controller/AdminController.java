@@ -88,7 +88,7 @@ public class AdminController {
     }
 
     @Transactional
-    @RequestMapping(value = "/deleteActivity", method = RequestMethod.POST)
+    @RequestMapping(value = "/deleteActivity", method = RequestMethod.GET)
     public Result deleteActivity(int id) {
 
         if (activityService.deleteActivity(id)){

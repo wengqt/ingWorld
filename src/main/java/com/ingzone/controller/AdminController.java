@@ -51,24 +51,6 @@ public class AdminController {
     public Result modifyNotice(@RequestBody Notice notice) {
         return noticeService.modifyNotice(notice);
     }
-
-
-    @RequestMapping(value = "/uploadProject", method = RequestMethod.POST)
-    public Result uploadProject(Project project, HttpSession session) {
-        if (project == null) {
-            return ResultCache.getCache(0);
-        }
-
-        return projectService.uploadProject(project, (Integer) session.getAttribute("id"));
-    }
-
-    @RequestMapping(value = "/modifyProject", method = RequestMethod.POST)
-    public Result modifyProject(@RequestBody Project project, HttpSession session) {
-        if (project == null) {
-            return ResultCache.getCache(0);
-        }
-        return projectService.modifyProject(project, (Integer) session.getAttribute("id"), (String) session.getAttribute("role"));
-    }
     
     @Transactional
     @RequestMapping(value = "/uploadActivity", method = RequestMethod.POST)

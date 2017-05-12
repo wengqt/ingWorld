@@ -34,6 +34,7 @@ users 用户表
 	role
 project 项目
 	id 唯一标示
+	ownerId 上传者Id
 	introduce 项目介绍
 	url 项目地址
 	github	源码地址

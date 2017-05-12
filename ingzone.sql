@@ -132,6 +132,7 @@ CREATE TABLE `privilege` (
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
+  `ownerId` int(11) DEFAULT NULL ,
   `introduce` text,
   `url` varchar(255) DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,

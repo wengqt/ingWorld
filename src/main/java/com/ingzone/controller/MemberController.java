@@ -71,8 +71,8 @@ public class MemberController {
 
 
     @RequestMapping(value = "/vote", method = RequestMethod.POST)
-    public Result vote(Vote vote) {
-        return ResultCache.FAILURE;
+    public Result vote(Vote vote ,@SessionAttribute("id") int userId) {
+        return noticeService.vote(vote , userId);
     }
 
 

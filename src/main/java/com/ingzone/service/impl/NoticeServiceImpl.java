@@ -6,6 +6,7 @@ import com.ingzone.dao.NoticeDao;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
 import com.ingzone.model.dto.Page;
+import com.ingzone.model.dto.Vote;
 import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.NoticeService;
 import com.ingzone.util.DateFormatUtil;
@@ -31,7 +32,7 @@ public class NoticeServiceImpl implements NoticeService {
         try {
             noticeDao.uploadNotice(notice);
             if (notice.getType() == 0) {
-               return ResultCache.OK;
+                return ResultCache.OK;
             }
             noticeDao.insertOptions(notice.getOption());
             return ResultCache.OK;
@@ -57,6 +58,17 @@ public class NoticeServiceImpl implements NoticeService {
         }
     }
 
+    @Override
+    public Result vote(Vote vote, int userId) {
+        vote.setUserId(userId);
+        try {
+            noticeDao.insertVote(vote);
+            return ResultCache.OK;
+        } catch (Exception e) {
+            e.printStackTrace();
+            return ResultCache.FAILURE;
+        }
+    }
 
     @Override
     public Result deleteNotice(int id) {

@@ -22,15 +22,17 @@ public class Notice {
 
     private String content;
 
-    private List<Option> option;     //选项名用 ,
+    private List<Option> option;
 
-    private Date closing;
+    private String date;
 
-    public Notice(Integer type, String title, String content, List<Option> options, Date closing) {
+    private String deadline;
+
+
+    public Notice(Integer type, String title, String content, String deadline) {
         this.type = type;
         this.title = title;
         this.content = content;
-        this.option = options;
-        this.closing = closing;
+        this.deadline = deadline;
     }
 }

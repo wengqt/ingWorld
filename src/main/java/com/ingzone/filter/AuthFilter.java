@@ -25,7 +25,7 @@ public class AuthFilter implements Filter {
      */
     private static ObjectMapper mapper = new ObjectMapper();
 
-    private static Map<String, String[]> authPattern = new HashMap<>();
+    private static Map<String, String[]> authPattern = new HashMap();
 
     static {
         authPattern.put("/api/admin/", new String[] {"admin"});

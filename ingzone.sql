@@ -1,4 +1,4 @@
-﻿# Host: localhost  (Version 5.7.15-log)
+# Host: localhost  (Version 5.7.15-log)
 # Date: 2017-05-10 21:57:38
 # Generator: MySQL-Front 6.0  (Build 1.122)
 
@@ -6,6 +6,7 @@
 #
 # Structure for table "activity"
 #
+use ingzone;
 
 DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
@@ -78,6 +79,7 @@ DROP TABLE IF EXISTS `notice`;
 CREATE TABLE `notice` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `type` int(11) DEFAULT NULL,
+  `title` varchar(255) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `deadline` datetime DEFAULT NULL,
@@ -89,13 +91,13 @@ CREATE TABLE `notice` (
 # Structure for table "option"
 #
 
-DROP TABLE IF EXISTS `option`;
-CREATE TABLE `option` (
+DROP TABLE IF EXISTS `options`;
+CREATE TABLE `options` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `noticeId` int(11) DEFAULT NULL,
   `content` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
-  UNIQUE KEY `option_id_uindex` (`id`)
+  UNIQUE KEY `options_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #

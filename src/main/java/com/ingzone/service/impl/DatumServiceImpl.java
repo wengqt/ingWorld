@@ -78,7 +78,7 @@ public class DatumServiceImpl implements DatumService {
         }
 
         User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
-        System.out.println(userid);
+        System.out.println("userid" + userid);
 
         return datumOperate(dataOwner.getId(), userid, "member", currentRole,
                 () -> datumDAO.updateDatum(datum) == 1 ? ResultCache.OK : ResultCache.FAILURE);

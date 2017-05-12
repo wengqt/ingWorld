@@ -4,23 +4,67 @@
 
     <insert id="uploadNotice" parameterType="com.ingzone.model.dto.Notice" useGeneratedKeys="true" keyProperty="id"
             keyColumn="id">
-        INSERT INTO notice (type,title,content,closing)
-        VALUES (#{type},#{title},#{content},#{closing})
+        INSERT INTO notice (type,title,content,date,deadline)
+        VALUES (#{type},#{title},#{content},now(),#{deadline})
     </insert>
 
-    <insert id="insertOptions" parameterType="com.ingzone.model.dto.Option">
+    <insert id="insertOptions">
         INSERT INTO options (noticeId,content)
-        VALUES (#{noticeId},#{content})
+        VALUES
+        <foreach collection="list" item="opt"  separator=",">
+            ( #{opt.noticeId} , #{opt.content} )
+        </foreach>
     </insert>
+    <update id="modifyNotice">
+        UPDATE notice
+        SET type = #{type},
+            title = #{title},
+            content = #{content},
+            deadline = #{deadline}
+        WHERE id = #{id}
+    </update>
 
     <delete id="deleteNotice">
         DELETE FROM notice
         WHERE id = #{id}
     </delete>
-
+    <delete id="deleteOptions">
+        DELETE FROM options
+        WHERE noticeId = #{id}
+    </delete>
     <select id="getTotalNumber" resultType="int">
         SELECT  count(*)
         FROM notice
     </select>
+    <select id="getNotice" resultMap="noticeMap">
+        SELECT *
+        FROM notice
+        LIMIT #{begin},#{rows}
+    </select>
+    <select id="getOptions" parameterType="int" resultMap="optionMap">
+        SELECT *
+        FROM options
+        WHERE noticeId = #{noticeId}
+    </select>
+    <select id="getVoteNumber" parameterType="int" resultType="int">
+        SELECT count(*)
+        FROM vote
+        WHERE optionId = #{optionId}
+    </select>
 
+    <resultMap id="noticeMap" type="com.ingzone.model.dto.Notice">
+        <id property="id" column="id"/>
+        <result property="type" column="type"/>
+        <result property="title" column="title"/>
+        <result property="content" column="content"/>
+        <result property="date" column="date"/>
+        <result property="deadline" column="deadline"/>
+        <collection property="option" column="id" select="getOptions"/>
+    </resultMap>
+    <resultMap id="optionMap" type="com.ingzone.model.dto.Option">
+        <id property="id" column="id"/>
+        <result property="noticeId" column="noticeId"/>
+        <result property="content" column="content"/>
+        <association property="sum" column="id" select="getVoteNumber"/>
+    </resultMap>
 </mapper>

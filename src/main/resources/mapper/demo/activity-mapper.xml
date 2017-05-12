@@ -1,0 +1,22 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd" >
+<mapper namespace="com.ingzone.dao.ActivityDao">
+    <insert id="add" parameterType="com.ingzone.model.dto.ActivityDTO" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO activity
+        SET (name,date,`group`,shower,github,introduce)
+        VALUES (#{name},#{date},#{group},#{shower},#{github},#{introduce})
+    </insert>
+    <update id="update" parameterType="com.ingzone.model.dto.ActivityDTO">
+        UPDATE activity
+        SET name=#{name},date=#{date},`group`=#{group},shower=#{shower},github=#{github},introduce=#{introduce}
+        WHERE id=#{id}
+    </update>
+    <delete id="delete" parameterType="int">
+        DELETE FROM activity
+        WHERE id=#{id}
+    </delete>
+    <select id="select" resultType="com.ingzone.model.vo.ActivityVO">
+        SELECT *
+        FROM activity
+    </select>
+</mapper>

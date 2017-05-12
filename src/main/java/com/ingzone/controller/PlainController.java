@@ -3,9 +3,9 @@ package com.ingzone.controller;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.Resume;
-import com.ingzone.model.dto.IngDTO;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
+import com.ingzone.model.vo.ActivityVO;
 import com.ingzone.service.AuthService;
 import com.ingzone.service.GroupService;
 import com.ingzone.service.IngService;
@@ -17,6 +17,7 @@ import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.List;
 
 /**
  * Created by gzq on 17-5-10.
@@ -40,6 +41,9 @@ public class PlainController {
 
     @Autowired
     private ResumeService resumeService;
+    
+    @Autowired
+    private ActivityService activityService;
 
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
@@ -59,15 +63,6 @@ public class PlainController {
         return ResultCache.getDataOk(ingService.getStudioIntro());
     }
 
-    @RequestMapping(value = "/modifyStudio", method = RequestMethod.POST)
-    public Result modifyStudio(IngDTO ingDTO) {
-        if (ingService.modifyStudio(ingDTO)) {
-            return ResultCache.OK;
-        } else {
-            return ResultCache.FAILURE;
-        }
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(User user, HttpSession session) {
         if (user.getPassword() == null || user.getId() == null) {
@@ -81,4 +76,15 @@ public class PlainController {
         return resumeService.uploadResume(resume);
     }
 
+    @RequestMapping(value = "/getActivity",method = RequestMethod.GET)
+    public Result getActivity() {
+        List<ActivityVO> activityVOs = activityService.getActivity();
+        if (activityVOs!=null){
+            return ResultCache.getDataOk(activityVOs);
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+    }
+    
 }

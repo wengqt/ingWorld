@@ -1,5 +1,5 @@
-# Host: localhost  (Version 5.7.15-log)
-# Date: 2017-05-10 21:57:38
+﻿# Host: localhost  (Version 5.7.15-log)
+# Date: 2017-05-11 22:42:30
 # Generator: MySQL-Front 6.0  (Build 1.122)
 
 
@@ -12,14 +12,14 @@ DROP TABLE IF EXISTS `activity`;
 CREATE TABLE `activity` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
   `name` varchar(255) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `date` datetime NOT NULL COMMENT '00-00-00 00:00:00',
   `group` varchar(255) DEFAULT NULL,
   `shower` varchar(255) DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,
   `introduce` text,
   PRIMARY KEY (`id`),
   UNIQUE KEY `activity_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+) ENGINE=InnoDB AUTO_INCREMENT=4 DEFAULT CHARSET=utf8;
 
 #
 # Structure for table "datum"
@@ -89,6 +89,19 @@ CREATE TABLE `notice` (
 
 #
 # Structure for table "option"
+#
+
+DROP TABLE IF EXISTS `option`;
+CREATE TABLE `option` (
+  `id` int(11) NOT NULL AUTO_INCREMENT,
+  `noticeId` int(11) DEFAULT NULL,
+  `content` varchar(255) DEFAULT NULL,
+  PRIMARY KEY (`id`),
+  UNIQUE KEY `option_id_uindex` (`id`)
+) ENGINE=InnoDB DEFAULT CHARSET=utf8;
+
+#
+# Structure for table "options"
 #
 
 DROP TABLE IF EXISTS `options`;

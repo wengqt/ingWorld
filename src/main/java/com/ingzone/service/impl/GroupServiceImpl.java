@@ -27,12 +27,22 @@ public class GroupServiceImpl implements GroupService {
 
     @Override
     public Result getGroup() {
-
         List<Group> groups = groupDAO.getGroup();
         for (Group group : groups) {
             group.setMembers(userDAO.getUserByGroup(group.getTechStack()));
         }
 
         return ResultCache.getDataOk(groups);
+    }
+
+    @Override
+    public Result modifyGroup(Group group) {
+        try {
+            groupDAO.modifyGroup(group);
+            return ResultCache.OK;
+        }catch (Exception e){
+            e.printStackTrace();
+            return ResultCache.FAILURE;
+        }
     }
 }

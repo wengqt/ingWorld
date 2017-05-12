@@ -56,6 +56,7 @@ public class PlainController {
         return groupService.getGroup();
     }
 
+    @Transactional
     @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)
     public Result getStudioIntro() {
         return ResultCache.getDataOk(ingService.getStudioIntro());
@@ -78,6 +79,7 @@ public class PlainController {
         return resumeService.uploadResume(resume);
     }
 
+    @Transactional
     @RequestMapping(value = "/getActivity",method = RequestMethod.GET)
     public Result getActivity() {
         List<ActivityVO> activityVOs = activityService.getActivity();

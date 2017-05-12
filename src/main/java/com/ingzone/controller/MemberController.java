@@ -11,6 +11,7 @@ import com.ingzone.service.DatumService;
 import com.ingzone.service.NoticeService;
 import com.ingzone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -70,9 +71,10 @@ public class MemberController {
     }
 
 
+    @Transactional
     @RequestMapping(value = "/vote", method = RequestMethod.POST)
-    public Result vote(Vote vote ,@SessionAttribute("id") int userId) {
-        return noticeService.vote(vote , userId);
+    public Result vote(Vote vote ,@SessionAttribute("id") int id ) {
+        return noticeService.vote(vote , id);
     }
 
 
@@ -80,6 +82,4 @@ public class MemberController {
     public Result modifyUserInfo(User user) {
         return userService.modifyUserInfo(user);
     }
-
-
 }

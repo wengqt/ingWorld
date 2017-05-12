@@ -32,4 +32,6 @@ public interface NoticeDao {
     int getVoteNumber(int optionId);
 
     void insertVote(Vote vote);
+
+    void deleteVote(Vote vote);
 }

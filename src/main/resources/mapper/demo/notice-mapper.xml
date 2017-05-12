@@ -11,13 +11,16 @@
     <insert id="insertOptions">
         INSERT INTO options (noticeId,content)
         VALUES
-        <foreach collection="list" item="opt"  separator=",">
+        <foreach collection="list" item="opt" separator=",">
             ( #{opt.noticeId} , #{opt.content} )
         </foreach>
     </insert>
     <insert id="insertVote" parameterType="com.ingzone.model.dto.Vote">
         INSERT INTO vote ( optionId , noticeId , userId , `date`)
-        VALUES (#{optionId} , #{noticeId} ,#{userId} , now())
+        VALUES
+        <foreach collection="optionIdList" item="opt" separator=",">
+            (#{opt} , #{noticeId} ,#{userId} , now())
+        </foreach>
     </insert>
     <update id="modifyNotice">
         UPDATE notice
@@ -27,7 +30,11 @@
             deadline = #{deadline}
         WHERE id = #{id}
     </update>
-
+    <update id="updateVote">
+        UPDATE vote
+        SET optionId = #{optionId} , date = #{date}
+        WHERE noticeId = #{noticeId} AND userId = #{userId}
+    </update>
     <delete id="deleteNotice">
         DELETE FROM notice
         WHERE id = #{id}
@@ -35,6 +42,11 @@
     <delete id="deleteOptions">
         DELETE FROM options
         WHERE noticeId = #{id}
+    </delete>
+    <delete id="deleteVote" parameterType="com.ingzone.model.dto.Vote">
+        DELETE FROM vote
+        WHERE noticeId = #{noticeId}
+        AND userId = #{userId}
     </delete>
     <select id="getTotalNumber" resultType="int">
         SELECT  count(*)
@@ -54,6 +66,11 @@
         SELECT count(*)
         FROM vote
         WHERE optionId = #{optionId}
+    </select>
+    <select id="hasBeenVoted" parameterType="com.ingzone.model.dto.Vote" resultType="java.lang.Integer">
+        SELECT count(*)
+        FROM vote
+        WHERE noticeId = #{noticeId} AND userId = #{userId}
     </select>
 
     <resultMap id="noticeMap" type="com.ingzone.model.dto.Notice">

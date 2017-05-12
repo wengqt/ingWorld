@@ -1,12 +1,11 @@
 package com.ingzone.util;
 
-import com.ingzone.base.NeedPrivilegeOperate;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
-import com.ingzone.model.dto.User;
 
 import java.util.HashMap;
 import java.util.Map;
+import java.util.function.Supplier;
 
 /**
  * Created by omsfuk on 17-5-12.
@@ -39,9 +38,9 @@ public class AuthPrivilegeUtil {
         return true;
     }
 
-    public static Result operateWithPrivilege(Integer ownerid, Integer userid, String requiredRole, String currentRole, NeedPrivilegeOperate operate) {
+    public static Result operateWithPrivilege(Integer ownerid, Integer userid, String requiredRole, String currentRole, Supplier<Result> operate) {
         if(AuthPrivilegeUtil.permitAccess(requiredRole, currentRole, ownerid, userid)) {
-            return operate.run();
+            return operate.get();
         }
         return ResultCache.getCache(3);
     };

@@ -10,6 +10,8 @@ import com.ingzone.service.ProjectService;
 import com.ingzone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
+import org.springframework.ui.Model;
+import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -22,6 +24,11 @@ import javax.servlet.http.HttpSession;
 @SessionAttributes("userId")
 public class MemberController {
 
+    @ModelAttribute
+    private void init(ModelMap modelMap) {
+        modelMap.addAttribute("userId", 11);
+    }
+
     @Autowired
     private NoticeService noticeService;
 
@@ -33,6 +40,11 @@ public class MemberController {
 
     @Autowired
     private ProjectService projectService;
+
+    @RequestMapping(value = "test", method = RequestMethod.GET)
+    public void test(@ModelAttribute("userid") Integer userid) {
+        System.out.println(userid);
+    }
 
     @RequestMapping(value = "/getDatum", method = RequestMethod.GET)
     public Result getDatum(Page page) {

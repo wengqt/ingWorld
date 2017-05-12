@@ -1,6 +1,5 @@
 package com.ingzone.service.impl;
 
-import com.ingzone.base.NeedPrivilegeOperate;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.DatumDAO;

@@ -8,9 +8,7 @@ import com.ingzone.model.vo.NoticeVO;
 import com.ingzone.service.DatumService;
 import com.ingzone.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestMapping;
-import org.springframework.web.bind.annotation.RequestMethod;
-import org.springframework.web.bind.annotation.RestController;
+import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
 
@@ -39,7 +37,7 @@ public class MemberController {
         return ResultCache.getDataOk(noticeVO);
     }
 
-    @RequestMapping(value = "/getDatum")
+    @RequestMapping(value = "/getDatum", method = RequestMethod.GET)
     public Result getDatum(Page page) {
         if (page.getPage() <= 0 || page.getRows() <= 0) {
             return ResultCache.FAILURE;
@@ -47,13 +45,27 @@ public class MemberController {
         return datumService.getDatum(page);
     }
 
-    @RequestMapping(value = "uploadDatum")
-    public Result uploadDatum(Datum datum, HttpSession session) {
+    @RequestMapping(value = "uploadDatum", method = RequestMethod.POST)
+    public Result uploadDatum(Datum datum, @SessionAttribute("id") Integer userid) {
         if(datum == null || datum.getTitle() == null || datum.getUrl() == null) {
-            return ResultCache.getCache(0);
+            return ResultCache.FAILURE;
         }
+        return datumService.insertDatum(datum, userid);
+    }
 
-        datum.setDataPublish(null);
-        return null;
+    @RequestMapping(value = "modifyDatum", method = RequestMethod.POST)
+    public Result modifyDatum(Datum datum, @SessionAttribute("id") Integer userid, @SessionAttribute("role") String role) {
+        if(datum == null || datum.getUrl() == null) {
+            return ResultCache.FAILURE;
+        }
+        return datumService.updateDatum(datum, userid, role);
+    }
+
+    @RequestMapping(value = "deleteDatum", method = RequestMethod.GET)
+    public Result deleteDatum(@RequestParam("id") Integer id, @SessionAttribute("id") Integer userid, @SessionAttribute("role") String role) {
+        if(id == null) {
+            return ResultCache.FAILURE;
+        }
+        return datumService.deleteDatum(id, userid, role);
     }
 }

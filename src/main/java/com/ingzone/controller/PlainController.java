@@ -34,9 +34,6 @@ public class PlainController{
     @Autowired
     private IngService ingService;
 
-    @Autowired
-    private ServiceDemo serviceDemo;
-
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
         if(page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
@@ -73,14 +70,4 @@ public class PlainController{
 
         return authService.login(user.getId(), user.getPassword(), session);
     }
-
-    @RequestMapping(value = "/test", method = RequestMethod.GET)
-    public void test() {
-        try {
-            serviceDemo.methodA();
-        } catch (Exception e) {
-            e.printStackTrace();
-        }
-    };
-
 }

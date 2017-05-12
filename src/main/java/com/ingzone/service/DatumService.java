@@ -13,8 +13,8 @@ public interface DatumService {
 
     Result insertDatum(Datum datum, Integer userid);
 
-    Result deleteDatum(int id, Integer userid);
 
-    Result updateDatum(int id, String url);
+    Result deleteDatum(int id, Integer userid, String currentRole);
 
+    Result updateDatum(Datum datum, Integer userid, String currentRole);
 }

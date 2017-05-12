@@ -58,8 +58,7 @@ public class AuthFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         // 假定session中有role和id
-        User user = (User) request.getSession().getAttribute("user");
-        String role = user.getRole();
+        String role = (String) request.getSession().getAttribute("role");
         if(!auth(request.getServletPath(), role)) {
             PrintWriter writer = response.getWriter();
             writer.write(JSON.toJSONString(ResultCache.getCache(3)));

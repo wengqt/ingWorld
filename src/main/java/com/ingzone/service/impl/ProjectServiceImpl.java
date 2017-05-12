@@ -35,7 +35,6 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
-    @Transactional(propagation = Propagation.NEVER)
     public Result uploadProject(Project project) {
         projectDAO.insertProject(project);
         return ResultCache.getCache(1);

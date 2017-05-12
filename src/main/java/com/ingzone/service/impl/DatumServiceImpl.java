@@ -1,5 +1,6 @@
 package com.ingzone.service.impl;
 
+import com.ingzone.base.NeedPrivilegeOperate;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.DatumDAO;
@@ -9,6 +10,7 @@ import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
 import com.ingzone.model.vo.DatumVO;
 import com.ingzone.service.DatumService;
+import com.ingzone.util.AuthPrivilegeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
@@ -38,65 +40,48 @@ public class DatumServiceImpl implements DatumService {
     @Override
     public Result insertDatum(Datum datum, Integer userid) {
         User user = userDAO.getUserById(userid);
+        datum.setDataPublish(user.getName());
         datumDAO.insertDatum(datum);
         return ResultCache.getCache(1);
     }
 
+    private Result datumOperate(Integer ownerid, Integer userid, String requiredRole, String currentRole, NeedPrivilegeOperate operate) {
+        if(AuthPrivilegeUtil.permitAccess(requiredRole, currentRole, ownerid, userid)) {
+            System.out.println(requiredRole + currentRole + userid);
+            return operate.run();
+        }
+        return ResultCache.getCache(3);
+    };
+
+
     @Override
-    public Result deleteDatum(int id, Integer userid) {
+    public Result deleteDatum(int id, Integer userid, String currentRole) {
         Datum datum = datumDAO.getDatumById(id);
         if(datum == null) {
             return ResultCache.getCache(0);
         }
         User dataOwner = userDAO.getUserByName(datum.getDataPublish());
-        User user = userDAO.getUserById(userid);
-        if("admin".equals(user.getRole())) {
-            if(datumDAO.deleteDatum(id) != 1) {
-                return ResultCache.getCache(0);
-            }
-        } else if("miniAdmin".equals(user.getRole())) {
-            if ("member".equals(dataOwner.getRole())) {
-                if (datumDAO.deleteDatum(id) != 1) {
-                    return ResultCache.getCache(0);
-                }
-            }
-        } else {
-            if(dataOwner.getName().equals(datum.getDataPublish())) {
-                if (datumDAO.deleteDatum(id) != 1) {
-                    return ResultCache.getCache(0);
-                }
-            }
-        }
 
-        return ResultCache.getCache(0);
+        return datumOperate(dataOwner.getId(), userid, "member", currentRole,
+                () -> datumDAO.deleteDatum(id) == 1 ? ResultCache.OK : ResultCache.FAILURE);
+
     }
 
     @Override
-    public Result updateDatum(int id, String url) {
-//        Datum datum = datumDAO.getDatumById(id);
-//        if(datum == null) {
-//            return ResultCache.getCache(0);
-//        }
-//        User dataOwner = userDAO.getUserByName(datum.getDataPublish());
-//        User user = userDAO.getUserById(userid);
-//        if("admin".equals(user.getRole())) {
-//            if(datumDAO.deleteDatum(id) != 1) {
-//                return ResultCache.getCache(0);
-//            }
-//        } else if("miniAdmin".equals(user.getRole())) {
-//            if ("member".equals(dataOwner.getRole())) {
-//                if (datumDAO.deleteDatum(id) != 1) {
-//                    return ResultCache.getCache(0);
-//                }
-//            }
-//        } else {
-//            if(dataOwner.getName().equals(datum.getDataPublish())) {
-//                if (datumDAO.deleteDatum(id) != 1) {
-//                    return ResultCache.getCache(0);
-//                }
-//            }
-//        }
+    public Result updateDatum(Datum datum, Integer userid, String currentRole) {
 
-        return ResultCache.getCache(0);
+        // 当前存储的资料，用来判断是否是拥有者
+        Datum ownerDatum = datumDAO.getDatumById(datum.getId());
+
+        if(ownerDatum == null) {
+            return ResultCache.FAILURE;
+        }
+
+        User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
+        System.out.println(userid);
+
+        return datumOperate(dataOwner.getId(), userid, "member", currentRole,
+                () -> datumDAO.updateDatum(datum) == 1 ? ResultCache.OK : ResultCache.FAILURE);
     }
+
 }

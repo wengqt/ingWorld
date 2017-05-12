@@ -41,7 +41,7 @@
     <update id="updateDatum" parameterType="Datum">
         UPDATE datum
         SET url = #{url}
-        WHERE
+        WHERE id = #{id}
     </update>
 
 </mapper>

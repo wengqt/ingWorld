@@ -5,10 +5,7 @@ import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.IngDTO;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
-import com.ingzone.service.AuthService;
-import com.ingzone.service.GroupService;
-import com.ingzone.service.IngService;
-import com.ingzone.service.ProjectService;
+import com.ingzone.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
@@ -36,6 +33,9 @@ public class PlainController{
 
     @Autowired
     private IngService ingService;
+
+    @Autowired
+    private ServiceDemo serviceDemo;
 
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
@@ -73,5 +73,14 @@ public class PlainController{
 
         return authService.login(user.getId(), user.getPassword(), session);
     }
+
+    @RequestMapping(value = "/test", method = RequestMethod.GET)
+    public void test() {
+        try {
+            serviceDemo.methodA();
+        } catch (Exception e) {
+            e.printStackTrace();
+        }
+    };
 
 }

@@ -9,6 +9,8 @@ import com.ingzone.model.vo.ProjectVO;
 import com.ingzone.service.ProjectService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Propagation;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestBody;
 
 import java.sql.Timestamp;
@@ -33,6 +35,7 @@ public class ProjectServiceImpl implements ProjectService {
     }
 
     @Override
+    @Transactional(propagation = Propagation.NEVER)
     public Result uploadProject(Project project) {
         projectDAO.insertProject(project);
         return ResultCache.getCache(1);

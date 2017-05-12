@@ -3,6 +3,7 @@ package com.ingzone.filter;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ingzone.cache.ResultCache;
+import com.ingzone.model.dto.User;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;
@@ -57,7 +58,8 @@ public class AuthFilter implements Filter {
         HttpServletRequest request = (HttpServletRequest) servletRequest;
         HttpServletResponse response = (HttpServletResponse) servletResponse;
         // 假定session中有role和id
-        String role = (String) request.getSession().getAttribute("role");
+        User user = (User) request.getSession().getAttribute("user");
+        String role = user.getRole();
         if(!auth(request.getServletPath(), role)) {
             PrintWriter writer = response.getWriter();
             writer.write(JSON.toJSONString(ResultCache.getCache(3)));

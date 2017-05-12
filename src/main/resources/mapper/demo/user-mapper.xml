@@ -14,4 +14,10 @@
         where id = #{id}
     </select>
 
+    <select id="getUserByName" parameterType="java.lang.String" resultType="User">
+        SELECT *
+        FROM users
+        where name = #{name}
+    </select>
+
 </mapper>

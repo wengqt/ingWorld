@@ -40,8 +40,11 @@ public class AuthServiceImpl implements AuthService {
             return ResultCache.getDataOk(map);
         }
 
-        session.setAttribute("id", user.getId());
-        session.setAttribute("role", user.getRole());
+        User sessionUser = new User();
+        sessionUser.setId(user.getId());
+        sessionUser.setRole(user.getRole());
+
+        session.setAttribute("user", sessionUser);
         map.put("result", 1);
         return ResultCache.getDataOk(map);
     }

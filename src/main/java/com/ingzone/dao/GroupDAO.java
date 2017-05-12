@@ -15,4 +15,5 @@ public interface GroupDAO {
 
     List<Group> getGroup();
 
+    void modifyGroup(Group group);
 }

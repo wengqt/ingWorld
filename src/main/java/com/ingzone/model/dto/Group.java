@@ -10,6 +10,7 @@ import java.util.List;
 
 @Data
 public class Group {
+    private Integer id;
 
     private Integer techStack;
 

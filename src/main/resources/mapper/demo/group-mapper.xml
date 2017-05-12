@@ -6,6 +6,11 @@
         <id column="id" property="techStack"/>
         <result column="introduce" property="introduce"/>
     </resultMap>
+    <update id="modifyGroup" parameterType="com.ingzone.model.dto.Group">
+        UPDATE `group`
+        SET introduce = #{introduce}
+        WHERE id = #{id}
+    </update>
 
     <select id="getGroup" resultMap="groupMap">
         SELECT *

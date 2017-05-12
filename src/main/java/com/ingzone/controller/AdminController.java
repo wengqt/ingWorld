@@ -4,8 +4,12 @@ import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Project;
+import com.ingzone.model.dto.ActivityDTO;
+import com.ingzone.model.dto.IngDTO;
 import com.ingzone.service.NoticeService;
 import com.ingzone.service.ProjectService;
+import com.ingzone.service.ActivityService;
+import com.ingzone.service.IngService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -22,6 +26,12 @@ public class AdminController {
 
     @Autowired
     private ProjectService projectService;
+    
+    @Autowired
+    private ActivityService activityService;
+
+    @Autowired
+    private IngService ingService;
 
     @Transactional
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
@@ -57,6 +67,56 @@ public class AdminController {
             return ResultCache.getCache(0);
         }
         return projectService.modifyProject(project);
+    }
+    
+    @Transactional
+    @RequestMapping(value = "/uploadActivity", method = RequestMethod.POST)
+    public Result uploadActivity(ActivityDTO activityDTO) {
+
+        if (activityService.uploadActivity(activityDTO)){
+            return ResultCache.OK;
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+
+    }
+
+    @Transactional
+    @RequestMapping(value = "/modifyStudio",method = RequestMethod.POST)
+    public Result modifyStudio(IngDTO ingDTO) {
+        if (ingService.modifyStudio(ingDTO)){
+            return ResultCache.OK;
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+    }
+
+    @Transactional
+    @RequestMapping(value = "/modifyActivity", method = RequestMethod.POST)
+    public Result modifyActivity(ActivityDTO activityDTO) {
+
+        if (activityService.modifyActivity(activityDTO)){
+            return ResultCache.OK;
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+
+    }
+
+    @Transactional
+    @RequestMapping(value = "/deleteActivity", method = RequestMethod.POST)
+    public Result deleteActivity(int id) {
+
+        if (activityService.deleteActivity(id)){
+            return ResultCache.OK;
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+
     }
 
 }

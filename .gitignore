@@ -1,3 +1,8 @@
 .idea
 target
 ingZone.iml
+src/main/java/com/ingzone/controller/Test.java
+src/main/java/com/ingzone/service/BB.java
+src/main/java/com/ingzone/service/TestService.java
+src/main/java/com/ingzone/dao/TestDao.java
+src/main/resources/mapper/demo/TestDao-mapper.xml

@@ -45,15 +45,6 @@ public class DatumServiceImpl implements DatumService {
         return ResultCache.getCache(1);
     }
 
-    private Result datumOperate(Integer ownerid, Integer userid, String requiredRole, String currentRole, NeedPrivilegeOperate operate) {
-        if(AuthPrivilegeUtil.permitAccess(requiredRole, currentRole, ownerid, userid)) {
-            System.out.println(requiredRole + currentRole + userid);
-            return operate.run();
-        }
-        return ResultCache.getCache(3);
-    };
-
-
     @Override
     public Result deleteDatum(int id, Integer userid, String currentRole) {
         Datum datum = datumDAO.getDatumById(id);
@@ -62,25 +53,20 @@ public class DatumServiceImpl implements DatumService {
         }
         User dataOwner = userDAO.getUserByName(datum.getDataPublish());
 
-        return datumOperate(dataOwner.getId(), userid, "member", currentRole,
+        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.deleteDatum(id) == 1 ? ResultCache.OK : ResultCache.FAILURE);
-
     }
 
     @Override
     public Result updateDatum(Datum datum, Integer userid, String currentRole) {
-
         // 当前存储的资料，用来判断是否是拥有者
         Datum ownerDatum = datumDAO.getDatumById(datum.getId());
-
         if(ownerDatum == null) {
             return ResultCache.FAILURE;
         }
-
         User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
-        System.out.println("userid" + userid);
 
-        return datumOperate(dataOwner.getId(), userid, "member", currentRole,
+        return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.updateDatum(datum) == 1 ? ResultCache.OK : ResultCache.FAILURE);
     }
 

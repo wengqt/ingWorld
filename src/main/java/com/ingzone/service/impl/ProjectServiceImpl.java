@@ -1,5 +1,6 @@
 package com.ingzone.service.impl;
 
+import com.ingzone.base.NeedPrivilegeOperate;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.ProjectDAO;
@@ -7,6 +8,7 @@ import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.Project;
 import com.ingzone.model.vo.ProjectVO;
 import com.ingzone.service.ProjectService;
+import com.ingzone.util.AuthPrivilegeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Propagation;
@@ -39,6 +41,7 @@ public class ProjectServiceImpl implements ProjectService {
         projectDAO.insertProject(project);
         return ResultCache.getCache(1);
     }
+
 
     @Override
     public Result modifyProject(Project project) {

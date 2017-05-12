@@ -1,0 +1,22 @@
+1、批量插入
+2、事务 
+ A 原子性
+ C 一致性
+ I 隔离性
+ D 持久性
+
+隔离级别 
+ read uncommitted
+ read committed
+ repeatable read
+ serializable
+脏读
+不可重复读
+幻读
+
+传播行为
+3、结果工厂
+4、登录接口
+5、使用λ表达式
+6、数据接收问题（复杂对象处理）
+7、数据库字段

@@ -41,11 +41,6 @@ public class MemberController {
     @Autowired
     private ProjectService projectService;
 
-    @RequestMapping(value = "test", method = RequestMethod.GET)
-    public void test(@ModelAttribute("userid") Integer userid) {
-        System.out.println(userid);
-    }
-
     @RequestMapping(value = "/getDatum", method = RequestMethod.GET)
     public Result getDatum(Page page) {
         if (page.getPage() <= 0 || page.getRows() <= 0) {
@@ -86,8 +81,8 @@ public class MemberController {
 
     @Transactional
     @RequestMapping(value = "/vote", method = RequestMethod.POST)
-    public Result vote(Vote vote ,@SessionAttribute("id") int id ) {
-        return noticeService.vote(vote , id);
+    public Result vote(Vote vote , HttpSession session) {
+        return noticeService.vote(vote , (int)session.getAttribute("id"));
     }
 
 

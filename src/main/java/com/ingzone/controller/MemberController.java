@@ -5,10 +5,13 @@ import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.Datum;
 import com.ingzone.model.dto.Page;
+import com.ingzone.model.dto.User;
 import com.ingzone.model.dto.Vote;
 import com.ingzone.service.DatumService;
 import com.ingzone.service.NoticeService;
+import com.ingzone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
 import javax.servlet.http.HttpSession;
@@ -27,6 +30,9 @@ public class MemberController {
     @Autowired
     private DatumService datumService;
 
+    @Autowired
+    private UserService userService;
+
     @RequestMapping(value = "/getDatum", method = RequestMethod.GET)
     public Result getDatum(Page page) {
         if (page.getPage() <= 0 || page.getRows() <= 0) {
@@ -37,7 +43,7 @@ public class MemberController {
 
     @RequestMapping(value = "uploadDatum", method = RequestMethod.POST)
     public Result uploadDatum(Datum datum, HttpSession session) {
-        if(datum == null || datum.getTitle() == null || datum.getUrl() == null) {
+        if (datum == null || datum.getTitle() == null || datum.getUrl() == null) {
             return ResultCache.FAILURE;
         }
         return datumService.insertDatum(datum, (Integer) session.getAttribute("id"));
@@ -45,7 +51,7 @@ public class MemberController {
 
     @RequestMapping(value = "modifyDatum", method = RequestMethod.POST)
     public Result modifyDatum(Datum datum, HttpSession session) {
-        if(datum == null || datum.getUrl() == null) {
+        if (datum == null || datum.getUrl() == null) {
             return ResultCache.FAILURE;
         }
         return datumService.updateDatum(datum, (Integer) session.getAttribute("id"), (String) session.getAttribute("role"));
@@ -53,20 +59,27 @@ public class MemberController {
 
     @RequestMapping(value = "deleteDatum", method = RequestMethod.GET)
     public Result deleteDatum(@RequestParam("id") Integer id, HttpSession session) {
-        if(id == null) {
+        if (id == null) {
             return ResultCache.FAILURE;
         }
         return datumService.deleteDatum(id, (Integer) session.getAttribute("id"), (String) session.getAttribute("role"));
     }
+
     @RequestMapping(value = "/getNotice", method = RequestMethod.GET)
     public Result getNotice(Page page) {
         return noticeService.getNotice(page);
     }
 
 
+    @Transactional
     @RequestMapping(value = "/vote", method = RequestMethod.POST)
-    public Result vote(Vote vote) {
-        return ResultCache.FAILURE;
+    public Result vote(Vote vote ,@SessionAttribute("id") int id ) {
+        return noticeService.vote(vote , id);
     }
 
+
+    @RequestMapping(value = "/modifyUserInfo", method = RequestMethod.POST)
+    public Result modifyUserInfo(User user) {
+        return userService.modifyUserInfo(user);
+    }
 }

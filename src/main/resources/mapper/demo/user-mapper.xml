@@ -1,7 +1,13 @@
 <?xml version="1.0" encoding="UTF-8" ?>
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.UserDAO">
-
+    <update id="modifyUserInfo">
+        UPDATE users
+        SET `name` = #{name} , introduce = #{introduce} , `group` = #{group} ,
+            `from` = #{from} , blog = #{blog} , phone = #{phone} , mail = #{mail} ,
+            github = #{github} , qq = #{qq}
+        WHERE id = #{id}
+    </update>
     <select id="getUserByGroup" parameterType="int" resultType="User">
         SELECT *
         FROM users

@@ -17,4 +17,6 @@ public interface UserDAO {
     User getUserById(int id);
 
     User getUserByName(String name);
+
+    void modifyUserInfo(User user);
 }

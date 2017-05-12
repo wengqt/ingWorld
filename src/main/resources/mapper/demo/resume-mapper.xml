@@ -4,6 +4,6 @@
 
     <insert id="uploadResume" parameterType="com.ingzone.model.dto.Resume">
         INSERT INTO resume (`name`,`date`,`group`,introduce,mail,phone,qq)
-        VALUES (#{name},#{date},#{group},#{introduce},#{mail},#{phone},#{qq})
+        VALUES (#{name},now(),#{group},#{introduce},#{mail},#{phone},#{qq})
     </insert>
 </mapper>

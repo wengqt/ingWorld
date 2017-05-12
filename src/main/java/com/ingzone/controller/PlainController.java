@@ -2,20 +2,20 @@ package com.ingzone.controller;
 
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
-import com.ingzone.model.dto.IngDTO;
+import com.ingzone.model.dto.Resume;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
-import com.ingzone.service.AuthService;
-import com.ingzone.service.GroupService;
-import com.ingzone.service.IngService;
-import com.ingzone.service.ProjectService;
+import com.ingzone.model.vo.ActivityVO;
+import com.ingzone.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.web.bind.annotation.RequestBody;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
+import java.util.HashMap;
+import java.util.List;
+import java.util.Map;
 
 /**
  * Created by gzq on 17-5-10.
@@ -23,7 +23,7 @@ import javax.servlet.http.HttpSession;
 
 @RestController
 @RequestMapping("/api/plain")
-public class PlainController{
+public class PlainController {
 
     @Autowired
     private ProjectService projectService;
@@ -37,10 +37,16 @@ public class PlainController{
     @Autowired
     private IngService ingService;
 
+    @Autowired
+    private ResumeService resumeService;
+    
+    @Autowired
+    private ActivityService activityService;
+
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
-        if(page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
-            return ResultCache.getCache(0);
+        if (page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
+            return ResultCache.FAILURE;
         }
         return projectService.getProjectIntro(page);
     }
@@ -50,28 +56,39 @@ public class PlainController{
         return groupService.getGroup();
     }
 
-    @RequestMapping(value = "/getStudioIntro",method = RequestMethod.GET)
+    @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)
     public Result getStudioIntro() {
         return ResultCache.getDataOk(ingService.getStudioIntro());
     }
 
-    @RequestMapping(value = "/modifyStudio",method = RequestMethod.POST)
-    public Result modifyStudio(IngDTO ingDTO) {
-        if (ingService.modifyStudio(ingDTO)){
-            return ResultCache.OK;
-        }
-        else{
-            return ResultCache.FAILURE;
-        }
-    }
-
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(User user, HttpSession session) {
-        if(user.getPassword() == null || user.getId() == null) {
-            return ResultCache.getCache(0);
+        Map<String, String> map = new HashMap();
+
+        if (user.getPassword() == null || user.getId() == null) {
+            map.put("detail", "Wrong Parameter Format");
+            Result result = ResultCache.getCache(0);
+            result.setData(map);
+            return result;
         }
 
         return authService.login(user.getId(), user.getPassword(), session);
     }
 
+    @RequestMapping(value = "/uploadResume", method = RequestMethod.POST)
+    public Result uploadResume(Resume resume) {
+        return resumeService.uploadResume(resume);
+    }
+
+    @RequestMapping(value = "/getActivity",method = RequestMethod.GET)
+    public Result getActivity() {
+        List<ActivityVO> activityVOs = activityService.getActivity();
+        if (activityVOs!=null){
+            return ResultCache.getDataOk(activityVOs);
+        }
+        else{
+            return ResultCache.FAILURE;
+        }
+    }
+    
 }

@@ -15,6 +15,10 @@
             ( #{opt.noticeId} , #{opt.content} )
         </foreach>
     </insert>
+    <insert id="insertVote" parameterType="com.ingzone.model.dto.Vote">
+        INSERT INTO vote ( optionId , noticeId , userId , `date`)
+        VALUES (#{optionId} , #{noticeId} ,#{userId} , now())
+    </insert>
     <update id="modifyNotice">
         UPDATE notice
         SET type = #{type},

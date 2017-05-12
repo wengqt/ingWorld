@@ -2,7 +2,7 @@
 <!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
 <mapper namespace="com.ingzone.dao.ProjectDAO">
 
-    <select id="getProject" parameterType="map" resultType="Project">
+    <select id="getProject" parameterType="Page" resultType="Project">
         SELECT id, url, introduce, github, date, game
         FROM project
         ORDER BY date
@@ -24,4 +24,5 @@
         SET url = #{url}, introduce = #{introduce}, github = #{github}, date = #{date}, game = #{game}
         WHERE id = #{id}
     </update>
+
 </mapper>

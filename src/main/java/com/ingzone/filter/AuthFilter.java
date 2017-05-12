@@ -3,6 +3,7 @@ package com.ingzone.filter;
 import com.alibaba.fastjson.JSON;
 import com.fasterxml.jackson.databind.ObjectMapper;
 import com.ingzone.cache.ResultCache;
+import com.ingzone.model.dto.User;
 
 import javax.servlet.*;
 import javax.servlet.http.HttpServletRequest;

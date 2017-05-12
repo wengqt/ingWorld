@@ -9,5 +9,7 @@
         <typeAlias type="com.ingzone.model.dto.Group" alias="Group"/>
         <typeAlias type="com.ingzone.model.dto.Project" alias="Project"/>
         <typeAlias type="com.ingzone.model.dto.User" alias="User"/>
+        <typeAlias type="com.ingzone.model.dto.Datum" alias="Datum"/>
+        <typeAlias type="com.ingzone.model.dto.Page" alias="Page"/>
     </typeAliases>
 </configuration>

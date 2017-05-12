@@ -2,6 +2,7 @@ package com.ingzone.dao;
 
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Option;
+import com.ingzone.model.dto.Vote;
 import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
@@ -30,4 +31,5 @@ public interface NoticeDao {
 
     int getVoteNumber(int optionId);
 
+    void insertVote(Vote vote);
 }

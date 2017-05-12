@@ -1,0 +1,47 @@
+<?xml version="1.0" encoding="UTF-8" ?>
+<!DOCTYPE mapper PUBLIC "-//mybatis.org//DTD Mapper 3.0//EN" "http://mybatis.org/dtd/mybatis-3-mapper.dtd">
+<mapper namespace="com.ingzone.dao.DatumDAO">
+
+    <resultMap id="DatumMap" type="Datum">
+        <id column="id" property="id"/>
+        <result column="url" property="url"/>
+        <result column="title" property="title"/>
+        <result column="publisher" property="dataPublish"/>
+        <result column="date" property="publishTime"/>
+    </resultMap>
+
+    <select id="getDatumCount" resultType="int">
+        SELECT COUNT(*)
+        FROM datum
+    </select>
+
+    <select id="getDatumById" parameterType="int" resultMap="DatumMap">
+        SELECT *
+        FROM datum
+        WHERE id = #{id}
+    </select>
+
+    <select id="getDatum" parameterType="Page" resultMap="DatumMap">
+        SELECT *
+        FROM datum
+        LIMIT #{page}, #{rows}
+    </select>
+
+    <insert id="insertDatum" parameterType="Datum" useGeneratedKeys="true" keyProperty="id">
+        INSERT INTO datum(id, title, url, publisher, date)
+        VALUES(#{id}, #{title}, #{url}, #{dataPublish}, NOW())
+    </insert>
+
+    <delete id="deleteDatum" parameterType="int">
+        DELETE
+        FROM datum
+        WHERE id = #{id}
+    </delete>
+
+    <update id="updateDatum" parameterType="Datum">
+        UPDATE datum
+        SET url = #{url}
+        WHERE id = #{id}
+    </update>
+
+</mapper>

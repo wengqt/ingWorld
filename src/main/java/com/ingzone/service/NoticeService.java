@@ -3,6 +3,7 @@ package com.ingzone.service;
 import com.ingzone.base.Result;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Page;
+import com.ingzone.model.dto.Vote;
 import com.ingzone.model.vo.NoticeVO;
 
 /**
@@ -18,4 +19,5 @@ public interface NoticeService {
 
     Result modifyNotice(Notice notice);
 
+    Result vote(Vote vote, int userId);
 }

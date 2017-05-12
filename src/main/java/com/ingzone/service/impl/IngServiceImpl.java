@@ -1,7 +1,5 @@
 package com.ingzone.service.impl;
 
-import com.ingzone.base.Result;
-import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.IngDao;
 import com.ingzone.model.dto.IngDTO;
 import com.ingzone.model.vo.IngVO;

@@ -9,12 +9,18 @@ import lombok.Data;
 @Data
 public class Resume {
 
-    String name;
-    String date;
-    Integer group;
-    String introduce;
-    String mail;
-    String phone;
-    String qq;
+    private String name;
+
+    private String date;
+
+    private Integer group;
+
+    private String introduce;
+
+    private String mail;
+
+    private String phone;
+
+    private String qq;
 
 }

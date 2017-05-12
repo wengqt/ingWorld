@@ -3,7 +3,6 @@ package com.ingzone.util;
 import com.ingzone.base.NeedPrivilegeOperate;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
-import com.ingzone.model.dto.User;
 
 import java.util.HashMap;
 import java.util.Map;

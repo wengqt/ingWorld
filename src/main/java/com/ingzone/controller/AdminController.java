@@ -2,14 +2,12 @@ package com.ingzone.controller;
 
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
+import com.ingzone.model.Email;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Project;
 import com.ingzone.model.dto.ActivityDTO;
 import com.ingzone.model.dto.IngDTO;
-import com.ingzone.service.NoticeService;
-import com.ingzone.service.ProjectService;
-import com.ingzone.service.ActivityService;
-import com.ingzone.service.IngService;
+import com.ingzone.service.*;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
@@ -32,6 +30,9 @@ public class AdminController {
 
     @Autowired
     private IngService ingService;
+
+    @Autowired
+    private EmailService emailService;
 
     @Transactional
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
@@ -56,9 +57,7 @@ public class AdminController {
         if (project == null) {
             return ResultCache.getCache(0);
         }
-
         return projectService.uploadProject(project);
-
     }
 
     @RequestMapping(value = "/modifyProject", method = RequestMethod.POST)
@@ -116,7 +115,5 @@ public class AdminController {
         else{
             return ResultCache.FAILURE;
         }
-
     }
-
 }

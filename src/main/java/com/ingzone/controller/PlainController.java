@@ -64,14 +64,12 @@ public class PlainController {
     @RequestMapping(value = "/login", method = RequestMethod.POST)
     public Result login(User user, HttpSession session) {
         Map<String, String> map = new HashMap();
-
         if (user.getPassword() == null || user.getId() == null) {
             map.put("detail", "Wrong Parameter Format");
             Result result = ResultCache.getCache(0);
             result.setData(map);
             return result;
         }
-
         return authService.login(user.getId(), user.getPassword(), session);
     }
 

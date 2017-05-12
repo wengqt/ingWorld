@@ -65,12 +65,10 @@ public class AuthFilter implements Filter {
             writer.flush();
             return ;
         }
-
         filterChain.doFilter(servletRequest, servletResponse);
     }
 
     @Override
     public void destroy() {
-
     }
 }

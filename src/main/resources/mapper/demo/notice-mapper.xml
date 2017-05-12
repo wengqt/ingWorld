@@ -36,15 +36,20 @@
         SELECT  count(*)
         FROM notice
     </select>
-    <select id="getNotice" resultType="com.ingzone.model.dto.Notice">
+    <select id="getNotice" resultMap="noticeMap">
         SELECT *
         FROM notice
         LIMIT #{begin},#{rows}
     </select>
-    <select id="getOptions" parameterType="int" resultType="com.ingzone.model.dto.Option">
+    <select id="getOptions" parameterType="int" resultMap="optionMap">
         SELECT *
         FROM options
         WHERE noticeId = #{noticeId}
+    </select>
+    <select id="getVoteNumber" parameterType="int" resultType="int">
+        SELECT count(*)
+        FROM vote
+        WHERE optionId = #{optionId}
     </select>
 
     <resultMap id="noticeMap" type="com.ingzone.model.dto.Notice">
@@ -56,5 +61,10 @@
         <result property="deadline" column="deadline"/>
         <collection property="option" column="id" select="getOptions"/>
     </resultMap>
-
+    <resultMap id="optionMap" type="com.ingzone.model.dto.Option">
+        <id property="id" column="id"/>
+        <result property="noticeId" column="noticeId"/>
+        <result property="content" column="content"/>
+        <association property="sum" column="id" select="getVoteNumber"/>
+    </resultMap>
 </mapper>

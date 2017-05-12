@@ -27,15 +27,4 @@ public class DateFormatUtil {
     public static String formatDateToString(Date date) {
         return dateFormatThreadLocal.get().format(date);
     }
-
-    public static void main(String[] args) {
-        Notice notice = new Notice(1, "title", "content", "2016-08-09 09:09:09");
-        Option opt1 = new Option("a");
-        Option opt2 = new Option("b");
-        List<Option> option= new ArrayList<>(2);
-        option.add(opt1);
-        option.add(opt2);
-        notice.setOption(option);
-        System.out.println(JSON.toJSONString(notice));
-    }
 }

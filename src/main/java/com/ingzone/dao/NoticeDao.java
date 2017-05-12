@@ -28,4 +28,6 @@ public interface NoticeDao {
 
     void deleteOptions(int id);
 
+    int getVoteNumber(int optionId);
+
 }

@@ -2,6 +2,7 @@ package com.ingzone.controller;
 
 import com.ingzone.base.Result;
 import com.ingzone.model.dto.Group;
+import com.ingzone.model.dto.User;
 import com.ingzone.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.web.bind.annotation.RequestMapping;

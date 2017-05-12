@@ -31,7 +31,6 @@ public class GroupServiceImpl implements GroupService {
         for (Group group : groups) {
             group.setMembers(userDAO.getUserByGroup(group.getTechStack()));
         }
-
         return ResultCache.getDataOk(groups);
     }
 

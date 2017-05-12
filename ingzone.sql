@@ -138,6 +138,7 @@ CREATE TABLE `project` (
   `github` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
   `join` varchar(255) DEFAULT NULL,
+  `ownerId` int(11) DEFAULT NULL,
   `game` varchar(255) DEFAULT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `project_id_uindex` (`id`)

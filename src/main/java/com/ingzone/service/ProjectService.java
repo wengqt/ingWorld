@@ -11,7 +11,7 @@ public interface ProjectService {
 
     Result getProjectIntro(Page page);
 
-    Result uploadProject(Project project);
+    Result uploadProject(Project project, Integer userid);
 
-    Result modifyProject(Project project);
+    Result modifyProject(Project project, Integer userid, String role);
 }

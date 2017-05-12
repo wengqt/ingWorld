@@ -17,8 +17,6 @@ public class Project {
 
     private Integer id;
 
-    private Integer ownerId;
-
     private String url;
 
     private String introduce;
@@ -29,5 +27,7 @@ public class Project {
     private Timestamp date;
 
     private String game;
+
+    private Integer ownerId;
 
 }

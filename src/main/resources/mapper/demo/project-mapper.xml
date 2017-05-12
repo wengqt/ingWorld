@@ -14,6 +14,12 @@
         FROM project
     </select>
 
+    <select id="getProjectById" parameterType="int" resultType="Project">
+        SELECT *
+        FROM project
+        WHERE id = #{id}
+    </select>
+
     <insert id="insertProject" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO project(url, introduce, github, date, game)
         VALUES (#{url}, #{introduce}, #{github}, #{date}, #{game})

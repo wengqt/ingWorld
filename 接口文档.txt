@@ -201,7 +201,7 @@ response:
 	}
 }
 上传项目
-URL:/api/admin/uploadProject
+URL:/api/member/uploadProject
 method:POST
 request:
 {
@@ -219,7 +219,7 @@ response:
 }
 
 修改项目
-URL:/api/admin/modifyProject
+URL:/api/member/modifyProject
 method:POST
 request:
 {

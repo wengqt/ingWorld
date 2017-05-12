@@ -4,7 +4,6 @@ import com.ingzone.base.Result;
 import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.Vote;
-import com.ingzone.model.vo.NoticeVO;
 
 /**
  * Created by gzq on 17-5-10.

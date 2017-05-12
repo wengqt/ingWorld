@@ -3,7 +3,6 @@ package com.ingzone.controller;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.Notice;
-import com.ingzone.model.dto.Project;
 import com.ingzone.model.dto.ActivityDTO;
 import com.ingzone.model.dto.IngDTO;
 import com.ingzone.service.NoticeService;
@@ -14,7 +13,6 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
-import javax.servlet.http.HttpSession;
 
 /**
  * Created by gzq on 17-5-10.
@@ -28,7 +26,7 @@ public class AdminController {
 
     @Autowired
     private ProjectService projectService;
-    
+
     @Autowired
     private ActivityService activityService;
 
@@ -51,7 +49,7 @@ public class AdminController {
     public Result modifyNotice(@RequestBody Notice notice) {
         return noticeService.modifyNotice(notice);
     }
-    
+
     @Transactional
     @RequestMapping(value = "/uploadActivity", method = RequestMethod.POST)
     public Result uploadActivity(ActivityDTO activityDTO) {

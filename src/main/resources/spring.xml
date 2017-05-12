@@ -13,4 +13,5 @@
     </context:component-scan>
     <!--引入jdbc相关配置文件-->
     <import resource="classpath:spring-jdbc.xml"/>
+    <import resource="classpath:spring-mail.xml"/>
 </beans>

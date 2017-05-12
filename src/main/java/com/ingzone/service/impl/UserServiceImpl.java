@@ -6,7 +6,6 @@ import com.ingzone.dao.UserDAO;
 import com.ingzone.model.dto.User;
 import com.ingzone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
-import org.springframework.stereotype.Repository;
 import org.springframework.stereotype.Service;
 
 /**

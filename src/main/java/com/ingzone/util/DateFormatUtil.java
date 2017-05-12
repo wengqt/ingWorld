@@ -1,14 +1,8 @@
 package com.ingzone.util;
 
-import com.alibaba.fastjson.JSON;
-import com.ingzone.model.dto.Notice;
-import com.ingzone.model.dto.Option;
-
 import java.text.ParseException;
 import java.text.SimpleDateFormat;
-import java.util.ArrayList;
 import java.util.Date;
-import java.util.List;
 
 /**
  * Created by gzq on 17-5-10.

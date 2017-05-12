@@ -15,8 +15,4 @@ public class Option {
     private String content;
     private Integer sum;
 
-
-    public Option(String content) {
-        this.content = content;
-    }
 }

@@ -1,7 +1,6 @@
 package com.ingzone.service;
 
 import com.ingzone.base.Result;
-import org.springframework.web.bind.annotation.RestController;
 
 import javax.servlet.http.HttpSession;
 

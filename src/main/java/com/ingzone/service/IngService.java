@@ -1,6 +1,5 @@
 package com.ingzone.service;
 
-import com.ingzone.base.Result;
 import com.ingzone.model.dto.IngDTO;
 import com.ingzone.model.vo.IngVO;
 

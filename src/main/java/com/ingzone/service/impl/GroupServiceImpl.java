@@ -5,7 +5,6 @@ import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.GroupDAO;
 import com.ingzone.dao.UserDAO;
 import com.ingzone.model.dto.Group;
-import com.ingzone.model.dto.User;
 import com.ingzone.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;

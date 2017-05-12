@@ -7,6 +7,7 @@ import com.ingzone.model.dto.Notice;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.Vote;
 import com.ingzone.model.vo.NoticeVO;
+import com.ingzone.service.EmailService;
 import com.ingzone.service.NoticeService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
@@ -24,10 +25,14 @@ public class NoticeServiceImpl implements NoticeService {
     @Autowired
     private NoticeDao noticeDao;
 
+    @Autowired
+    private EmailService emailService;
+
     @Override
     public Result uploadNotice(Notice notice) {
         try {
             noticeDao.uploadNotice(notice);
+            emailService.sendNoticeToEveryOne(notice);
             if (notice.getType() == 0) {
                 return ResultCache.OK;
             }

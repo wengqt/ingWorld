@@ -25,5 +25,9 @@
         FROM users
         where name = #{name}
     </select>
+    <select id="getALLUserEmail" resultType="java.lang.String">
+        SELECT mail
+        FROM users
+    </select>
 
 </mapper>

@@ -19,4 +19,6 @@ public interface UserDAO {
     User getUserByName(String name);
 
     void modifyUserInfo(User user);
+
+    List<String> getALLUserEmail();
 }

@@ -8,6 +8,8 @@ import com.ingzone.service.UserService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import java.util.List;
+
 /**
  * Created by gzq on 17-5-12.
  */
@@ -27,5 +29,10 @@ public class UserServiceImpl implements UserService {
             e.printStackTrace();
             return ResultCache.FAILURE;
         }
+    }
+
+    @Override
+    public List<String> getALLUserEmail() {
+        return userDAO.getALLUserEmail();
     }
 }

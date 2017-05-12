@@ -1,4 +1,73 @@
-#mainBody{
+
+.mainBody{
     height: 90%;
     background-color: #e4eff5;
+}
+
+#mainBody_1{
+    display: none;
+}
+#mainBody_1 img{
+    padding: 10% 0 0 15%;
+}
+#mainBody_1_pdiv{
+    font-size: 135%;
+    color: #636b6c;
+    float: right;
+    width: 35%;
+    padding: 9% 18% 0 0;
+    line-height: 126%;
+}
+#mainBody_1_pdiv h1{
+    text-align: center;
+    color: #3870ac;
+    font-size: 200%;
+}
+
+
+
+
+.diamondDiv{
+
+    padding: 14%;
+    /* margin: 0%; */
+
+    /* margin: 7%; */
+    padding: 0%;
+    width: 10em;
+    height: 10em;
+    background-color: yellow;
+    transform: rotate(45deg);
+    -ms-transform: rotate(45deg);
+    -moz-transform: rotate(45deg);
+    -webkit-transform: rotate(45deg);
+    -o-transform: rotate(45deg);
+}
+
+.outDiamondDiv{
+    height: 94%;
+
+}
+
+#firstLineDiv{
+    height: 35%;
+
+    padding-top: 6%;
+    padding-left: 7%;
+}
+.firstline{
+    float: left;
+    padding: 2% 1% 0 10%;
+}
+
+#secondLineDiv{
+    height: 35%;
+
+    padding-top: 6%;
+    padding-left: 7%;
+}
+
+.secondline{
+    float: left;
+    padding: 2% 1% 0 10%;
 }

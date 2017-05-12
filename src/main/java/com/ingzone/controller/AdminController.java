@@ -14,6 +14,8 @@ import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpSession;
+
 /**
  * Created by gzq on 17-5-10.
  */
@@ -52,21 +54,20 @@ public class AdminController {
 
 
     @RequestMapping(value = "/uploadProject", method = RequestMethod.POST)
-    public Result uploadProject(Project project) {
+    public Result uploadProject(Project project, HttpSession session) {
         if (project == null) {
             return ResultCache.getCache(0);
         }
 
-        return projectService.uploadProject(project);
-
+        return projectService.uploadProject(project, (Integer) session.getAttribute("id"));
     }
 
     @RequestMapping(value = "/modifyProject", method = RequestMethod.POST)
-    public Result modifyProject(@RequestBody Project project) {
+    public Result modifyProject(@RequestBody Project project, HttpSession session) {
         if (project == null) {
             return ResultCache.getCache(0);
         }
-        return projectService.modifyProject(project);
+        return projectService.modifyProject(project, (Integer) session.getAttribute("id"), (String) session.getAttribute("role"));
     }
     
     @Transactional

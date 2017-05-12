@@ -28,4 +28,6 @@ public class Project {
 
     private String game;
 
+    private Integer ownerId;
+
 }

@@ -1,11 +1,13 @@
-
+body{
+    background-color: #e4eff5;
+}
 .mainBody{
     height: 90%;
     background-color: #e4eff5;
 }
 
 #mainBody_1{
-    display: none;
+    /*display: none;*/
 }
 #mainBody_1 img{
     padding: 10% 0 0 15%;
@@ -228,9 +230,9 @@
 
 
 /*********************************************å¼€å§‹ç‰¹è‰²æ´»åŠ¨ä»‹ç»***************************************/
-/*#mainBody_4{*/
-    /*display: none;*/
-/*}*/
+#mainBody_4{
+    display: none;
+}
 .diamondDiv_4{
 
     padding: 14%;

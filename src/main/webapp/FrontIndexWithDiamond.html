@@ -17,20 +17,23 @@
         <div id="headDiv_back" href="#"><img src="images/back.png"></div>
         <div id="headDiv_right" href="#"><img src="images/confirm.png"></div>
 
-
+        <div id="ulDiv">
         <ul id="headUl">
-            <li class="head_intro">总体介绍 </li>
-            <li class="head_intro">组别介绍 </li>
-            <li class="head_intro">项目介绍 </li>
-            <li class="head_intro">特色活动 </li>
+            <li class="head_intro"><span id="head_1">总体介绍</span> </li>
+            <li class="head_intro" ><span id="head_2">组别介绍 </span></li>
+            <li class="head_intro" ><span id="head_3">项目介绍</span> </li>
+            <li class="head_intro" ><span id="head_4">特色活动</span> </li>
         </ul>
+        </div>
     </div>
     <!--*************************************************总体介绍********************************************-->
 
         <div id="mainBody_1" class="mainBody">
             <img src="images/firstIntroImg.gif">
 
-            <div id="mainBody_1_pdiv"><h1>此处应有文字标题</h1><br><br>
+            <div id="mainBody_1_pdiv">
+                <div><h1>此处应有文字标题</h1></div>
+                    <br><br>
                 <p>此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文
                     字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处
                     应有文字此处应有文字此处应有文字此处1应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应有文字此处应
@@ -177,4 +180,28 @@
     </div>
 
 </body>
+
+<script src="js/FrontIndexWithDiamond.js"></script>
+<script>
+    /**
+     * Created by 延松松松松 on 2017/5/13.
+     */
+
+    document.getElementById("head_1").onclick=function () {
+        document.getElementsByClassName("mainBody").style.display="none";
+        document.getElementById("mainBody_1").style.display="block";
+    };
+    document.getElementById("head_2").onclick=function () {
+        document.getElementsByClassName("mainBody").style.display="none";
+        document.getElementById("mainBody_2").style.display="block";
+    };
+    document.getElementById("head_3").onclick=function () {
+        document.getElementsByClassName("mainBody").style.display="none";
+        document.getElementById("mainBody_3").style.display="block";
+    };
+    document.getElementById("head_4").onclick=function () {
+        document.getElementsByClassName("mainBody").style.display="none";
+        document.getElementById("mainBody_4").style.display="block";
+    };
+</script>
 </html>

@@ -23,6 +23,19 @@ body{
     float: right;
     padding: 1% 4% 0 3%;
 }
+
+#head_1{
+    text-decoration: none;
+    border-bottom: 10px solid #f0726c ;
+}
+
+#ulDiv{
+    /* width: 71%; */
+    height: 80%;
+    padding-left: 18%;
+    padding-right: 18%;
+    padding-top: 0.5%;
+}
 ul{
     list-style: none;
     /* text-align: center; */
@@ -31,8 +44,8 @@ ul{
     float: left;
     font-size: 155%;
     /* text-align: center; */
-    padding-left: 7%;
-    padding-top: 1.5%;
-    padding-right: 6.5%;
+    padding-left: 10%;
+    padding-right: 4%;
+    padding-top: 2.5%;
     color: #ffffff;
 }

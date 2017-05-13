@@ -6,11 +6,13 @@ import com.ingzone.model.vo.IngVO;
 import com.ingzone.service.IngService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
+import org.springframework.transaction.annotation.Transactional;
 
 /**
  * Created by Ji Shaokang on 2017/5/9.
  */
 @Service("ingService")
+@Transactional
 public class IngServiceImpl implements IngService {
 
     @Autowired

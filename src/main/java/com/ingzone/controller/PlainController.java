@@ -58,7 +58,6 @@ public class PlainController {
         return groupService.getGroup();
     }
 
-    @Transactional
     @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)
     public Result getStudioIntro() {
         IngVO ingVO = ingService.getStudioIntro();

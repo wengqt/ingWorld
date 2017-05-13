@@ -50,7 +50,6 @@ public class AdminController {
         return noticeService.modifyNotice(notice);
     }
 
-    @Transactional
     @RequestMapping(value = "/uploadActivity", method = RequestMethod.POST)
     public Result uploadActivity(ActivityDTO activityDTO) {
 
@@ -63,7 +62,6 @@ public class AdminController {
 
     }
 
-    @Transactional
     @RequestMapping(value = "/modifyStudio",method = RequestMethod.POST)
     public Result modifyStudio(IngDTO ingDTO) {
         if (ingService.modifyStudio(ingDTO)){
@@ -74,7 +72,6 @@ public class AdminController {
         }
     }
 
-    @Transactional
     @RequestMapping(value = "/modifyActivity", method = RequestMethod.POST)
     public Result modifyActivity(ActivityDTO activityDTO) {
 
@@ -87,7 +84,6 @@ public class AdminController {
 
     }
 
-    @Transactional
     @RequestMapping(value = "/deleteActivity", method = RequestMethod.GET)
     public Result deleteActivity(int id) {
 

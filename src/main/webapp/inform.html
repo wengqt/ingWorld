@@ -24,20 +24,31 @@
         }
         .inform_vote .body{
             margin: 50px 0;
+            padding: 20px;
+            border-radius: 10px;
+            background-color: white;
         }
 
         .inform_vote .body .introduce {
-            background-color: green;
             font-size: 1rem;
+            word-break: break-word;
         }
 
         .inform_vote .body .vote {
+            padding-left: 50px;
             float: right;
+            line-height: 200%;
             font-size: 1rem;
-            background-color: red;
+            font-weight: 300;
+            max-width: 300px;
+            word-break: break-all;
+        }
+        .inform_vote .body .vote *{
+            font-size: 1rem;
+            font-weight: 300;
         }
 
-        .inform_ordinary, .part_inform {
+        .inform_vote{
             display: none;
         }
     </style>
@@ -86,10 +97,16 @@
         <div class="title">【投票】ING主页上线啦</div>
     </div>
     <div class="body">
-        <div class="vote">dddddddddddd</div>
-        <div class="introduce">
-            x
+        <div class="vote">
+            <input type="radio" name="option" value="1">ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1<br>
+            <input type="radio" name="option" value="2">ING1<br>
+            <input type="radio" name="option" value="3">ING1<br>
+            <input type="submit" value="确认投票">
         </div>
+        <div class="introduce">
+            ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1
+        </div>
+        <div style="clear: both"></div>
     </div>
 </div>
 <script>

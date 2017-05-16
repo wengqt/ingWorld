@@ -32,7 +32,7 @@ body{
     padding: 0;
     background-color: #e4eff5;
     width: 100%;
-    overflow: hidden;
+    overflow-x: hidden;
     font-family: "Microsoft YaHei UI", serif;
 }
 a{
@@ -72,8 +72,9 @@ li{
     width: 180px;
     top: 55px;
     bottom: 0;
-    position: fixed;
+    position: absolute;
     left: 0;
+    min-height: 500px;
 }
 .permission-level{
     box-sizing: border-box;
@@ -104,30 +105,11 @@ li{
 }
 
 /*主体部分*/
-
-/*导航*/
-.nav_bar{
-    background-color: #5f92c7;
+.body {
+    margin-left: 185px;
+    position: relative;
+    overflow-x: hidden;
+}
+.body .nav_bar{
     position: absolute;
-    top: 0;
-    height: 50px;
-    width: 100%;
-    padding: 0 5px;
-}
-.nav_bar .nav_bar_back,.nav_bar .nav_bar_confirm{
-    display: inline-block;
-    margin: 0 40px;
-    position: absolute;
-    top: 50%;
-    transform: translateY(-50%);
-}
-.nav_bar .nav_bar_back{
-    left: 0;
-}
-.nav_bar .nav_bar_confirm{
-    right: 0;
-}
-.nav_bar .nav_bar_back img,.nav_bar .nav_bar_confirm img{
-    width: 40px;
-    height: 40px;
 }

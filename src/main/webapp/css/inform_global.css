@@ -1,0 +1,21 @@
+/*全局*/
+body{
+    margin: 0;
+    padding: 0;
+    background-color: #e4eff5;
+    width: 100%;
+    overflow-x: hidden;
+}
+a{
+    color: #fff;
+}
+a:hover{
+    color: #ffffff;
+}
+*{
+    font-size: 0;
+    font-family: "Microsoft YaHei UI", serif;
+}
+html{
+    font-size: initial;
+}

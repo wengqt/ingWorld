@@ -1,0 +1,60 @@
+<!DOCTYPE html>
+<html>
+<head>
+	<title></title>
+	<meta charset="utf-8">
+	<link rel="stylesheet" type="text/css" href="css/RecruitmentContent.css">
+</head>
+<body>
+	<div class="nav">
+		<img class="leftimg" src="img/A.png">
+		<img class="rightimg" src="img/B.png">
+	</div>
+	<div class="form">
+		<div class="leftform">
+			<form class="formstyle">
+				<span class="form_name">姓&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;名：<input type="text" name=""></span>
+				<span class="form_sex">性&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;别：<input list="sex" name="">
+						<datalist id="sex">
+							<option value="男">
+							<option value="女">		
+						</datalist>
+				</span>
+				<br>
+				<span class="form_birthday">出生日期：<input type="date" name=""></span>
+				<br>
+				<span class="form_major">专&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;业：<input type="text" name=""></span>
+				<span class="form_class">班&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;级：<input type="text" name=""></span>
+				<br>
+				<span class="form_group">意向组别：<input list="group" name="group">
+						<datalist id="group">
+							<option value="前端"></option>
+							<option value="后台"></option>
+							<option value="安卓"></option>
+							<option value="IOS"></option>
+							<option value="游戏"></option>
+							<option value="设计"></option>
+						</datalist>
+				</span>
+			</form>
+		</div>
+		<div class="rightform">
+			<div class="photo" id="photo">
+				<input id="addimg" type="file" name="photo">
+				<p>+&nbsp;添&nbsp;加&nbsp;图&nbsp;片</p>
+				<img id="imgPre" src="" width="100%" height="200px" style="display: block;" /> 
+			</div>
+		</div>
+		<hr> 
+		<div class="bottomform">
+			<span>个人简介：</span>
+
+			<textarea  name="introduce"></textarea>
+			<form>
+				<input type="submit" value="提&nbsp;交&nbsp;简&nbsp;历">
+			</form>
+		</div>
+	</div>
+	<script src="js/RecruitmentContent.js"></script>
+</body>
+</html>

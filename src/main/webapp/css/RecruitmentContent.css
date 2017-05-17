@@ -1,0 +1,119 @@
+*{
+	margin: 0;
+	padding: 0;
+}
+body{
+	background-color: #e4eff5;
+	min-width: 1140px;
+}
+.nav{
+	background-color: #5f92c7;
+	position: relative;
+	height: 56px;
+}
+.nav .leftimg{
+	position: absolute;
+	left: 5%;
+	top: 6px;
+
+}
+.nav .rightimg{
+	position: absolute;
+	right:5%;
+	top: 6px;
+}
+.form{
+	color:  #1a4b7e;
+	width:66%;
+	min-width: 800px;
+	margin: 80px auto 0 auto;
+}
+.leftform{
+	width: 60%;
+	float: left;
+	height: 250px;
+	
+}
+.rightform{
+	width: 40%;
+	float: right;
+	height: 250px;
+	position: relative;
+}
+.rightform input{
+	width: 99%;
+	position: absolute;
+	margin-left: 0%;
+	height: 200px;
+	opacity: 0;
+	cursor: pointer;
+	z-index: 1
+	
+}
+hr{
+	border:1px solid #6596c9;
+}
+.formstyle span{
+	height: 30px;
+	line-height: 50px;
+	width: 20%;
+}
+input{
+	width: 24%;
+	margin-left: 2%;
+	height: 24px;
+	border:1px solid #6596c9;
+	border-radius: 5px;
+	padding-left: 1px;
+	margin-right: 2%;
+}
+.photo{
+	width: 38%;
+	height: 200px;
+	background-color: #fff;
+	border:1px solid #6596c9;
+	margin-left: 30%;
+	position: relative;
+	min-width: 150px;
+	
+}
+.photo p{
+	line-height: 200px;
+	text-align: center;
+	color: #6596c9;
+	cursor: pointer;
+}
+.photo img{
+	position: absolute;
+	top: 0;
+
+}
+.bottomform{
+	margin-top: 30px;
+}
+textarea{
+	margin-left: 2%;
+	width: 76%;
+	height: 150px;
+	border:1px solid #6596c9;
+	display: block;
+	resize: none;
+	float: left;
+	border-radius: 10px;
+	font-size: 16px;
+	padding: 4px;
+	margin-bottom: 20px;
+}
+.bottomform span{
+	float: left;
+}
+.bottomform input{
+	display: block;
+	margin:0 auto;
+	height: 30px;
+	width: 20%;
+	background-color: #5f92c7;
+	color: #fff;
+	font-size: 20px;
+	font-weight: 100;
+}

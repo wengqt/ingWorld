@@ -103,17 +103,17 @@ li{
     letter-spacing: 3px;
     text-align: center;
 }
-.content{
-    
+.body{
+
     position: absolute;
     left: 200px;
     width: 86%;
     min-width: 1020px;
 }
 .nav{
-    
+
     background-color: #5f92c7;
-    
+
     height: 44px;
     position: relative;
 }

@@ -3,10 +3,10 @@
     background-color: #85b3e2;
 }
 .blue-medium{
-    background-color: #78a2cf
+    background-color: #78a2cf;
 }
 .blue-deep{
-    background-color: #5f92c7
+    background-color: #5f92c7;
 }
 
 /*字体尺寸*/
@@ -107,9 +107,14 @@ li{
 /*主体部分*/
 .body {
     margin-left: 185px;
-    position: relative;
+    position: absolute;
     overflow-x: hidden;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    top: 55px;
 }
 .body .nav_bar{
-    position: absolute;
+    /*position: absolute;*/
+    position: relative;
 }

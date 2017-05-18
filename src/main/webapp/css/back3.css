@@ -105,22 +105,22 @@ li{
 }
 
 
-.content{
+.body{
     width: 56%;
      position: absolute; 
     left: 320px;
     margin-top: 50px;
 }
-.content p{
+.body p{
     height: 30px;
     line-height: 30px;
     background-color: #a6c5e3;
 }
-.content table{
+.body table{
     width: 100%;
     border-collapse:collapse;
 }
-.content tr{
+.body tr{
     background-color: #fff;
     height: 30px;
     line-height: 30px;  
@@ -163,7 +163,7 @@ tr.lineone{
 .thirdspan{
     margin-left: 52%;
 }
-.content{
+.body{
     min-width: 674px;
 }
 .colfive{

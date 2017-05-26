@@ -1,3 +1,17 @@
 .inform_vote .head{
     color: #555;
 }
+
+
+
+
+@media screen and (max-width: 1080px){
+    .inform_container .item_wrapper{
+        width: 50%;
+    }
+}
+@media screen and (max-width: 720px){
+    .inform_container .item_wrapper{
+        width: 100%;
+    }
+}

@@ -1,0 +1,68 @@
+.body p{
+    height: 30px;
+    line-height: 30px;
+    background-color: #a6c5e3;
+}
+.body table{
+    width: 100%;
+    border-collapse:collapse;
+}
+.body tr{
+    background-color: #fff;
+    height: 30px;
+    line-height: 30px;  
+    margin-bottom: 10px;
+    border-bottom: 10px solid #e4eff5;
+}
+tr.lineone{
+    height: 20px;
+    background-color: #e4eff5;
+    border-bottom: none;
+    
+}
+.square{
+    width: 30px;
+    height: 30px;
+    background-color: #a6c5e3;
+    margin-left: 8px;
+}
+.icon{
+    width: 10%;
+}
+.colone{
+    width: 25%;
+}
+.coltwo{
+    width: 20%;
+}
+.colthree{
+    width: 20%;
+}
+.colfour{
+    width: 20%;
+}
+.firstspan{
+    margin-left: 10%;
+}
+.secondspan{
+    margin-left: 5%;
+}
+.thirdspan{
+    margin-left: 52%;
+}
+.body{
+    min-width: 674px;
+}
+.colfive{
+    position: absolute;
+    right: -60px;
+}
+.deletebtn{
+    background-color: #5f92c7;
+    border:none;
+    height: 26px;
+    line-height: 26px;
+    color: #fff;
+    width: 46px;
+    border-radius: 8px;
+}

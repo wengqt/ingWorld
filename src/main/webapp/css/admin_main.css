@@ -1,3 +1,10 @@
+/*
+*后台框架stylesheet
+*/
+
+
+
+
 /*模板色*/
 .blue-light{
     background-color: #85b3e2;
@@ -114,7 +121,29 @@ body>.body {
     bottom: 0;
     top: 55px;
 }
-.body .nav_bar{
-    /*position: absolute;*/
+.body>.nav_bar{
+    background-color: #5f92c7;
     position: relative;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding: 0 5px;
+    z-index: 2;
+}
+.body>.nav_bar .nav_bar_back,.body>.nav_bar .nav_bar_confirm{
+    display: inline-block;
+    margin: 0 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.body>.nav_bar .nav_bar_back{
+    left: 0;
+}
+.body>.nav_bar .nav_bar_confirm{
+    right: 0;
+}
+.body>.nav_bar .nav_bar_back img,.body>.nav_bar .nav_bar_confirm img{
+    width: 40px;
+    height: 40px;
 }

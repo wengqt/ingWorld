@@ -1,0 +1,85 @@
+.nav_bar{
+    background-color: #5f92c7;
+    position: fixed;
+    top: 0;
+    height: 50px;
+    width: 100%;
+    padding: 0 5px;
+    z-index: 2;
+}
+.nav_bar .nav_bar_back,.nav_bar .nav_bar_confirm{
+    display: inline-block;
+    margin: 0 40px;
+    position: absolute;
+    top: 50%;
+    transform: translateY(-50%);
+}
+.nav_bar .nav_bar_back{
+    left: 0;
+}
+.nav_bar .nav_bar_confirm{
+    right: 0;
+}
+.nav_bar .nav_bar_back img,.nav_bar .nav_bar_confirm img{
+    width: 40px;
+    height: 40px;
+}
+
+
+.message{
+    width: 56%;
+    position: absolute; 
+    left: 14%;
+    margin-top: 80px;
+  
+    color: #5f92c7;
+}
+span.info{
+    width: 200px;
+    display: inline-block;
+    line-height: 70px;
+    height: 30px;
+}
+.message img{
+    position: absolute;
+    right: 0px;
+    top: 0px;
+    width: 150px;
+    height: 200px;
+}
+.state{
+    position: absolute;
+    right: 320px;
+    font-size: 12px;
+    bottom: -36px;
+}
+.delete_resume{
+    position: absolute;
+    right: 160px;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}
+.hide_resume{
+    position: absolute;
+    right: 0;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+}

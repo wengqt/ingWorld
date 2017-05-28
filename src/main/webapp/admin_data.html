@@ -4,13 +4,12 @@
     <meta charset="UTF-8">
     <title>管理页</title>
     <style>
-        .body{
-            margin-left: 185px;
-            position: relative;
-            background-color: white;
+        table *{
+            font-size: initial;
         }
     </style>
-    <link rel="stylesheet" href="css/back3.css">
+    <link rel="stylesheet" href="css/admin_data.css">
+    <link rel="stylesheet" href="css/admin_main.css">
 </head>
 <body>
 <div class="head fs-large blue-deep">ING工作室后台管理</div>
@@ -29,16 +28,19 @@
         <a href="#" class="fs-big">招聘部分</a>
     </div>
 </div>
-<div class="content">
-    <div class="nav"></div>
-    <p><span class="firstspan">全部</span><span class="secondspan">筛选</span><span class="thirdspan">上传</span></p>
+<div class="body">
+    <div class="nav_bar">
+        <div class="nav_bar_back" href="#"><img src="images/back.png"></div>
+        <div class="nav_bar_confirm" href="#"><img src="images/confirm.png"></div>
+    </div>
+    <p><span class="firstspan fs-small">全部</span><span class="secondspan fs-small">筛选</span><span class="thirdspan fs-small">上传</span></p>
         <table>
             <tr class="lineone">
                 <td class="icon"></td>
-                <td class="colone">名称</td>
-                <td class="coltwo">上传日期</td>
-                <td class="colthree">上传者</td>
-                <td class="colfour">GitHub网址</td>
+                <td class="colone fs-small">名称</td>
+                <td class="coltwo fs-small">上传日期</td>
+                <td class="colthree fs-small">上传者</td>
+                <td class="colfour fs-small">GitHub网址</td>
                 
             </tr>
             <tr>

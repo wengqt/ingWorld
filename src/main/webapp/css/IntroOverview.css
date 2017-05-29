@@ -49,11 +49,11 @@ body{
 	top: 6px;
 }
 
-.body{
+.content{
 	width: 60%;
 	margin: 0 auto;
 }
-.body img{
+.content img{
 
 	width: 30%;
 	float: left;

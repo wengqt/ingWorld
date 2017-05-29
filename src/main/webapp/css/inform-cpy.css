@@ -33,12 +33,12 @@
 
 /*主体*/
 .part_inform{
-    width: 35%;
+    width: 70%;
     margin: 100px 0;
-    padding: 0 7.5%;
+    padding: 0 15%;
     position: relative;
-    display: inline-block;
-    vertical-align: top;
+    left: 0;
+    top: 0;
 }
 .part_inform>.title{
     font-size: 1.8rem;
@@ -119,10 +119,12 @@
 
 /*普通通知*/
 .inform_ordinary{
-    width:35%;
+    width:70%;
     margin: 100px 0;
-    padding: 0 7.5%;
-    display: inline-block;
+    padding: 0 15%;
+    position: absolute;
+    left: 100%;
+    top: 0;
 }
 .inform_ordinary .head{
     width: 100%;
@@ -156,11 +158,12 @@
 
 /*投票通知*/
 .inform_vote {
-    width: 35%;
+    width: 70%;
     margin: 100px 0;
-    padding: 0 7.5%;
-    display: inline-block;
-    position: relative;
+    padding: 0 15%;
+    position: absolute;
+    left: 0%;
+    top: 0;
 }
 
 .inform_vote>.head .title{
@@ -199,17 +202,6 @@
 }
 
 
-.inform-screen{
-    width: 100%;
-    overflow: hidden;
-}
-.inform-container{
-    width: 200%;
-    position: relative;
-    left: 0;
-}
-
-
 
 
 /*响应式*/
@@ -221,9 +213,9 @@
 }
 
 /*动画效果*/
-.inform-container{
+.part_inform,.inform_ordinary,.inform_vote{
     transition-duration: .3s;
-    transition-property: left;
+    transition-property: transform;
     transition-timing-function: ease-in-out;
 }
 /*.part_inform{*/

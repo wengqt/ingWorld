@@ -27,12 +27,11 @@
 
 
 .message{
-    width: 56%;
-    position: absolute; 
-    left: 14%;
-    margin-top: 80px;
-  
+    margin-top: 30px;
+    width: 60%;
+    margin-left: 20%;
     color: #5f92c7;
+    position: relative;
 }
 span.info{
     width: 200px;

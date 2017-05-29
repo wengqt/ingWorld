@@ -14,7 +14,7 @@
 	height: 50px;
 	color: #cf3130;
 	font-size: 24px;
-	font-size: 100;
+
 }
 .change{
 	height: 10px;
@@ -172,7 +172,8 @@
 		transform-origin: left;
 		transform: rotateY(90deg) translate(0, -50%);
 	}	
-	to{
+	to {
 		transform-origin: left;
 		transform: rotateY(0deg) translate(0, -50%);
+	}
 }

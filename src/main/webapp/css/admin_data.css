@@ -4,7 +4,9 @@
     background-color: #a6c5e3;
 }
 .body table{
-    width: 100%;
+    margin: 0 10%;
+    width: 80%;
+    position: relative;
     border-collapse:collapse;
 }
 .body tr{
@@ -50,9 +52,9 @@ tr.lineone{
 .thirdspan{
     margin-left: 52%;
 }
-.body{
-    min-width: 674px;
-}
+/*.body{*/
+    /*min-width: 674px;*/
+/*}*/
 .colfive{
     position: absolute;
     right: -60px;

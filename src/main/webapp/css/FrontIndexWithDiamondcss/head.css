@@ -13,6 +13,7 @@ body{
     width: 100%;
     /* margin: 0; */
     background-color: #5f92c7;
+    min-width: 1165px;
 }
 #headDiv_back{
     float: left;
@@ -33,8 +34,13 @@ body{
 #ulDiv{
 
     height: 80px;
+
     padding-left: 18%;
+
     padding-right: 18%;
+
+    /* min-width: 1060px; */
+
     /* padding-top: 0.5%; */
 }
 ul{

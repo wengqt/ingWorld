@@ -1,0 +1,116 @@
+#mainBody_3{
+
+    min-width: 1165px;
+}
+.diamondDiv_3{
+
+    position: relative;
+
+    padding: 14%;
+
+    /* margin: 0%; */
+
+    /* margin: 7%; */
+
+    padding: 0%;
+
+    font-size: 16px;
+
+    width: 8em;
+
+    height: 8em;
+
+    background-color: rgba(255, 255, 0, 0);
+
+    transform: rotate(45deg);
+
+    -ms-transform: rotate(45deg);
+
+    -moz-transform: rotate(45deg);
+
+    -webkit-transform: rotate(45deg);
+
+    -o-transform: rotate(45deg);
+
+    overflow: hidden;
+
+    border: 8px solid;
+
+    border-color: #5f92c7;
+}
+
+.outDiamondDiv_3{
+    height: 94%;
+
+}
+
+#firstLineDiv_3{
+    height: 35%;
+    padding-top: 5%;
+    /* padding-left: 10%; */
+    width: 60%;
+    margin: 0 auto;
+    /* font-size: 16px; */
+    min-width: 1041px;
+}
+.firstline_3{
+    float: left;
+    padding: 2% 7% 0 7%;
+    /* font-size: 16px; */
+}
+
+#secondLineDiv_3{
+    height: 35%;
+    /* padding-top: 25%; */
+    /* padding-left: 10%; */
+    width: 60%;
+    margin: 0 auto;
+    min-width: 1060px;
+}
+
+.secondline_3{
+    float: left;
+    padding: 10% 7% 0 7%;
+}
+
+.uptranlge_3{
+    left: 41%;
+    top: 50%;
+    z-index: -1;
+    position: absolute;
+    width: 206px;
+    height: 186px;
+    /* font-size: 20px; */
+    /* margin-left: 0%; */
+    /* padding-left: 1em; */
+    padding-right: 37%;
+    /* padding-left: 83%; */
+    /* margin-top: 0%; */
+    padding-top: 25%;
+    background-color: #b9d1e6;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    text-align: center;
+    font-size: 87%;
+}
+.downtranlge_3{
+    width: 18em;
+    height: 29em;
+    /* margin-left: 0%; */
+    /* padding-left: 1em; */
+    padding-right: 37%;
+    padding-left: 83%;
+    /* margin-top: 0%; */
+    padding-top: 25%;
+    background-color: #b9d1e6;
+    transform: rotate(-45deg);
+    -ms-transform: rotate(-45deg);
+    -moz-transform: rotate(-45deg);
+    -webkit-transform: rotate(-45deg);
+    -o-transform: rotate(-45deg);
+    text-align: center;
+    font-size: 148%;
+}

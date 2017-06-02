@@ -1,0 +1,29 @@
+body{
+    font-size: 14px;
+}
+
+#showScreen{
+    width: 75%;
+    height: auto;
+    margin: 0 auto;
+    padding: 7% 0;
+    /*background-color: #975d5d;*/
+}
+
+.applicant{
+    width: 30%;
+    height: 145px;
+    /* padding: 2%; */
+    margin: 0% 1% 5% 1%;
+    background-color: #8bb1d8;
+    display: inline-block;
+    /* border: 0px; */
+    border-radius: 13px;
+}
+
+.applicant p{
+    font-size: 40px;
+    text-align: center;
+    /* line-height: 40px; */
+    color: #ffffff;
+}

@@ -74,19 +74,19 @@
 }
 
 .uptranlge_3{
-    left: 41%;
-    top: 50%;
+    left: 24%;
+    top: 14%;
     z-index: -1;
     position: absolute;
-    width: 206px;
-    height: 186px;
+    width: 227%;
+    height: 227%;
     /* font-size: 20px; */
     /* margin-left: 0%; */
     /* padding-left: 1em; */
-    padding-right: 37%;
+    /* padding-right: 37%; */
     /* padding-left: 83%; */
     /* margin-top: 0%; */
-    padding-top: 25%;
+    padding-top: 17%;
     background-color: #b9d1e6;
     transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -94,17 +94,22 @@
     -webkit-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     text-align: center;
-    font-size: 87%;
+    font-size: 120%;
 }
 .downtranlge_3{
-    width: 18em;
-    height: 29em;
+    left: 24%;
+    top: 14%;
+    z-index: -1;
+    position: absolute;
+    width: 227%;
+    height: 227%;
+    /* font-size: 20px; */
     /* margin-left: 0%; */
     /* padding-left: 1em; */
-    padding-right: 37%;
-    padding-left: 83%;
+    /* padding-right: 37%; */
+    /* padding-left: 83%; */
     /* margin-top: 0%; */
-    padding-top: 25%;
+    padding-top: 17%;
     background-color: #b9d1e6;
     transform: rotate(-45deg);
     -ms-transform: rotate(-45deg);
@@ -112,5 +117,5 @@
     -webkit-transform: rotate(-45deg);
     -o-transform: rotate(-45deg);
     text-align: center;
-    font-size: 148%;
+    font-size: 120%;
 }

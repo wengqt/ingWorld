@@ -33,7 +33,7 @@ body{
 .nav ul li a:active{
 	color: green;
 }
-#display{
+.display{
 	border-bottom: 10px solid #f0726c;
 	border-bottom-width: 10px;
 }
@@ -70,4 +70,7 @@ body{
 	text-align: center;
 	color: #3870ac;
 	margin-bottom: 30px;
+}
+.display--none{
+	display: none;
 }

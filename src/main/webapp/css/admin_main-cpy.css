@@ -34,21 +34,13 @@
 }
 
 /*全局*/
-html{
-    height: 100%;
-}
 body{
     margin: 0;
-    padding: 0;
-    background-color: #e4eff5;
-    width: 100%;
-    /*overflow-x: hidden;*/
     font-family: "Microsoft YaHei UI", serif;
-
-    /*min-width: 720px;*/
-    min-height: 500px;
+    background-color: #e4eff5;
     position: relative;
-    height: 100%;
+    min-width: 1140px;
+
 }
 a{
     color: #fff;
@@ -72,6 +64,7 @@ li{
 }
 /*头部*/
 .head{
+    z-index: 999;
     width: 100%;
     height: 50px;
     text-align: center;
@@ -80,16 +73,17 @@ li{
     font-weight: 300;
     line-height: 200%;
     white-space: nowrap;
+    position: fixed;
+    left: 0;
+    top:0;
 }
 
 /*侧边栏*/
 .side-bar{
     width: 180px;
-    top: 55px;
-    bottom: 0;
-    position: absolute;
-    left: 0;
-    /*min-height: 500px;*/
+    position: relative;
+    float: left;
+    vertical-align: top;
 }
 .permission-level{
     box-sizing: border-box;
@@ -121,13 +115,10 @@ li{
 
 /*主体部分*/
 body>.body {
+    vertical-align: top;
+    margin-top: 55px;
     margin-left: 185px;
-    position: absolute;
-    overflow-x: hidden;
-    left: 0;
-    right: 0;
-    /*bottom: 0;*/
-    top: 55px;
+    position: relative;
 }
 .body>.nav_bar{
     background-color: #5f92c7;

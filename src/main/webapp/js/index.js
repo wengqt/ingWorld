@@ -11,6 +11,7 @@ var all=document.getElementById("all");
 var message=document.getElementById("message");
 var content=document.getElementById("content");
 var login=document.getElementById("login");
+var mainlink=document.getElementById("mainlink");
 var clickState=0;
 var clicktarget=[one,two,three,four];
 clicktarget[0].style.backgroundColor="#747676";
@@ -93,18 +94,20 @@ function reset(){
                     switch(i){
                         case 0:
                             console.log(0);
-                            message.innerHTML="关&nbsp;于&nbsp;我&nbsp;们";
-                            message.style.color="#cf3130";
+                            mainlink.innerHTML="关&nbsp;于&nbsp;我&nbsp;们";
+                            mainlink.style.color="#cf3130";
                             content.style.borderColor="#5e92c7";
+                            mainlink.href="introduce.html";
                             login.style.color="#3870ac";
                             word.innerHTML="&nbsp;";
                             total.src="img/0.png";
                             break;
                         case 1:
                             console.log(1);
-                            message.innerHTML="通&nbsp;&nbsp;&nbsp;&nbsp;知";
-                            message.style.color="#fff";
+                            mainlink.innerHTML="通&nbsp;&nbsp;&nbsp;&nbsp;知";
+                            mainlink.style.color="#fff";
                             content.style.borderColor="#fff";
+                            mainlink.href="inform.html"
                             login.style.color="#fff";
                             word.innerHTML="文字文字文字文字";
                             word.style.color="#fff";
@@ -112,8 +115,9 @@ function reset(){
                             break;
                         case 2:
                             console.log(2);
-                            message.innerHTML="资&nbsp;料&nbsp;共&nbsp;享";
-                            message.style.color="#fff";
+                            mainlink.innerHTML="资&nbsp;料&nbsp;共&nbsp;享";
+                            mainlink.style.color="#fff";
+                            mainlink.href="data_center.html";
                             content.style.borderColor="#fff";
                             login.style.color="#fff";
                             word.innerHTML="文字文字文字文字";
@@ -122,8 +126,9 @@ function reset(){
                             break;
                         case 3:
                             console.log(3);
-                            message.innerHTML="招&nbsp;聘&nbsp;信&nbsp;息";
-                            message.style.color="#fff";
+                            mainlink.innerHTML="招&nbsp;聘&nbsp;信&nbsp;息";
+                            mainlink.style.color="#fff";
+                            mainlink.href="resume.html";
                             content.style.borderColor="#fff";
                             login.style.color="#fff";
                             word.innerHTML="文字文字文字文字";

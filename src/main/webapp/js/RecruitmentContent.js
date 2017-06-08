@@ -1,4 +1,8 @@
 var addimg=document.getElementById("addimg");
+var leftimg=document.getElementById("leftimg");
+leftimg.onclick=function () {
+    location.href="index.html?page3";
+}
 addimg.onchange=function() {
 	var url = getFileURL(); 
   	var img= document.getElementById("imgPre"); 

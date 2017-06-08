@@ -7,7 +7,7 @@
 </head>
 <body>
 	<div class="nav">
-		<img class="leftimg" src="img/A.png">
+		<img class="leftimg" id="leftimg" style="cursor: pointer" src="img/A.png">
 		<img class="rightimg" src="img/B.png">
 	</div>
 	<div class="content">
@@ -84,6 +84,12 @@
 				<td>aa</td>
 			</tr>
 		</table>
+		<script>
+            var leftimg=document.getElementById("leftimg");
+            leftimg.onclick=function () {
+                window.location.href="index.html";
+            }
+		</script>
 	</div>
 </body>
 </html>

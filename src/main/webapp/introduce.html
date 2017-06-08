@@ -5,11 +5,11 @@
 	<link rel="stylesheet" type="text/css" href="css/IntroOverview.css">
 	<link rel="stylesheet" type="text/css" href="css/FrontIndexWithDiamondcss/reset.css">
 	<link rel="stylesheet" type="text/css" href="css/FrontIndexWithDiamondcss/mainBody.css">
-	<title></title>
+	<title>关于我们</title>
 </head>
 <body>
 	<div class="nav">
-		<img class="leftimg" src="img/A.png">
+		<img class="leftimg" id="leftimg" style="cursor: pointer" src="img/A.png">
 		<ul>
 			<li><a href="#" class="display page-key">总体介绍</a></li>
 			<li><a href="#" class="page-key">组别介绍</a></li>
@@ -33,7 +33,7 @@
 		<div class="sonOfMainBody_tran">
 			<div id="firstLineDiv_2">
 				<div class="outDiamondDiv_2 firstline_2">
-					<div class="diamondDiv_2 ">
+					<div class="diamondDiv_2">
 						<div class="uptranlge_2">组别</div>
 					</div>
 				</div>
@@ -282,6 +282,11 @@
 
             },true);
 		})
+		var leftimg=document.getElementById("leftimg");
+		leftimg.onclick=function () {
+   		 	window.location.href="index.html";
+
+		}
 	</script>
 </body>
 </html>

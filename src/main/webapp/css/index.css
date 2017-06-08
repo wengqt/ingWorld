@@ -142,6 +142,10 @@
 	animation-delay: 0.9s;
 
 }
+#mainlink{
+	color: #cf3130;
+	text-decoration: none;
+}
 
 
 @keyframes backwardRotateFirst{

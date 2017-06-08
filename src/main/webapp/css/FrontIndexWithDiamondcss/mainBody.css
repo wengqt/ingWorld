@@ -176,13 +176,13 @@ body{
     height: 35%;
     padding-top: 5%;
     /* padding-left: 10%; */
+    min-width: 1060px;
     width: 60%;
     margin: 0 auto;
-    min-width: 1060px;
 }
 .firstline_3{
     float: left;
-    padding: 2% 7% 0 7%;
+    padding: 2% 6% 0 10%;
 }
 
 #secondLineDiv_3{
@@ -190,13 +190,13 @@ body{
     /* padding-top: 25%; */
     /* padding-left: 10%; */
     width: 60%;
-    margin: 0 auto;
     min-width: 1060px;
+    margin: 0 auto;
 }
 
 .secondline_3{
     float: left;
-    padding: 10% 7% 0 7%;
+    padding: 10% 6% 0 10%;
 }
 
 .uptranlge_3{

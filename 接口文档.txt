@@ -182,10 +182,12 @@ response:
 	{
 		total:2001,											//总通知数量，用以显示页数
 		notice:[
+		{
 			"id":1											//通知id，用于上传
 			"type":0										//0常规通知1单选2多选
 			"title":"string"								//通知标题
 			"content":"string"								//通知内容(md)
+			"date":"string"
 			"option":[										//通知选项，普通通知就不用了
 			{
 				id:123,										//通知选项ID

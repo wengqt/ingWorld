@@ -93,7 +93,7 @@ function reset(){
                     clicktarget[(i+4)%4].style.backgroundColor="#747676";
                     switch(i){
                         case 0:
-                            console.log(0);
+
                             mainlink.innerHTML="关&nbsp;于&nbsp;我&nbsp;们";
                             mainlink.style.color="#cf3130";
                             content.style.borderColor="#5e92c7";
@@ -103,7 +103,7 @@ function reset(){
                             total.src="img/0.png";
                             break;
                         case 1:
-                            console.log(1);
+
                             mainlink.innerHTML="通&nbsp;&nbsp;&nbsp;&nbsp;知";
                             mainlink.style.color="#fff";
                             content.style.borderColor="#fff";
@@ -114,7 +114,7 @@ function reset(){
                             total.src="img/1.png";
                             break;
                         case 2:
-                            console.log(2);
+
                             mainlink.innerHTML="资&nbsp;料&nbsp;共&nbsp;享";
                             mainlink.style.color="#fff";
                             mainlink.href="data_center.html";
@@ -125,7 +125,7 @@ function reset(){
                             total.src="img/2.png";
                             break;
                         case 3:
-                            console.log(3);
+
                             mainlink.innerHTML="招&nbsp;聘&nbsp;信&nbsp;息";
                             mainlink.style.color="#fff";
                             mainlink.href="resume.html";
@@ -141,3 +141,69 @@ function reset(){
     }
 })()
 
+var param=window.location.search;
+if(/page/.test(param)) {
+    var num = param.substr(5, 1);
+
+    clicktarget[(parseInt(num)+1)%4].style.backgroundColor="";
+    clicktarget[(parseInt(num)+2)%4].style.backgroundColor="";
+    clicktarget[(parseInt(num)+3)%4].style.backgroundColor="";
+    clicktarget[(parseInt(num)+4)%4].style.backgroundColor="#747676";
+    switch(parseInt(num)){
+        case 0:
+            mainlink.innerHTML="关&nbsp;于&nbsp;我&nbsp;们";
+            mainlink.style.color="#cf3130";
+            content.style.borderColor="#5e92c7";
+            mainlink.href="introduce.html";
+            login.style.color="#3870ac";
+            word.innerHTML="&nbsp;";
+            total.src="img/0.png";
+            leftUp.src="img/0_1.png";
+            leftBottom.src="img/0_1.png";
+            rightUp.src="img/0_2.png";
+            rightBottom.src="img/0_2.png";
+            break;
+        case 1:
+            mainlink.innerHTML="通&nbsp;&nbsp;&nbsp;&nbsp;知";
+            mainlink.style.color="#fff";
+            content.style.borderColor="#fff";
+            mainlink.href="inform.html"
+            login.style.color="#fff";
+            word.innerHTML="文字文字文字文字";
+            word.style.color="#fff";
+            total.src="img/1.png";
+            leftUp.src="img/1_1.png";
+            leftBottom.src="img/1_1.png";
+            rightUp.src="img/1_2.png";
+            rightBottom.src="img/1_2.png";
+            break;
+        case 2:
+            mainlink.innerHTML="资&nbsp;料&nbsp;共&nbsp;享";
+            mainlink.style.color="#fff";
+            mainlink.href="data_center.html";
+            content.style.borderColor="#fff";
+            login.style.color="#fff";
+            word.innerHTML="文字文字文字文字";
+            word.style.color="#fff";
+            total.src="img/2.png";
+            leftUp.src="img/2_1.png";
+            leftBottom.src="img/2_1.png";
+            rightUp.src="img/2_2.png";
+            rightBottom.src="img/2_2.png";
+            break;
+        case 3:
+            mainlink.innerHTML="招&nbsp;聘&nbsp;信&nbsp;息";
+            mainlink.style.color="#fff";
+            mainlink.href="resume.html";
+            content.style.borderColor="#fff";
+            login.style.color="#fff";
+            word.innerHTML="文字文字文字文字";
+            word.style.color="#010101";
+            total.src="img/3.png";
+            leftUp.src="img/3_1.png";
+            leftBottom.src="img/3_1.png";
+            rightUp.src="img/3_2.png";
+            rightBottom.src="img/3_2.png";
+            break;
+    }
+}

@@ -68,32 +68,28 @@
     </div>
 </div>
 <script>
-    var scroller = new function () {
-
-
-        var informContainer = document.getElementsByClassName('inform-container')[0];
-        var back = document.getElementsByClassName('nav_bar_back')[0];
-//    var items = document.getElementsByClassName('item');
-//    Array.prototype.forEach.call(items, function (v, index) {
-//        v.addEventListener("click", function () {
-//            slideToRight();
-//        });
-//    });
-        back.onclick = backToIndex;
-
-        this.slideToLeft = function slideToLeft() {
-            informContainer.style.left = "0";
-            back.onclick = backToIndex;
-        };
-        this.slideToRight = function slideToRight() {
-            informContainer.style.left = "-100%";
-            back.onclick = this.slideToLeft;
-        };
+    var scroller = (function () {
 
         function backToIndex() {
             window.location.href = "index.html";
         }
-    }
+
+        var informContainer = document.getElementsByClassName('inform-container')[0];
+        var back = document.getElementsByClassName('nav_bar_back')[0];
+        back.onclick = backToIndex;
+
+        return {
+            slideToLeft: function slideToLeft() {
+                informContainer.style.left = "0";
+                back.onclick = backToIndex;
+            },
+            slideToRight: function slideToRight() {
+                informContainer.style.left = "-100%";
+                back.onclick = this.slideToLeft;
+            }
+        }
+
+    })();
 </script>
 <script src="js/utils.js"></script>
 <script src="js/informController.js"></script>

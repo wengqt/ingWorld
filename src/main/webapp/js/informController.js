@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/6/7.
  */
-function InformController(informContainer, informButtons,informDetail) {
+function InformController(informContainer, informButtons, informDetail) {
     this.container = informContainer;
     this.buttons = informButtons;
     this.detailPage = informDetail;
@@ -10,30 +10,13 @@ function InformController(informContainer, informButtons,informDetail) {
     this.container.innerHTML = "";
     this.buttons.innerHTML = "";
 
-    this.show = function (page) {
-        if (typeof page !== "number" || page < 1) {
-            page = 1;
-        }
-        this.curPage = page;
-        var http = new Ajax("test.json", "get", handleResponse.bind(this));
-        http.send();
-    };
-    this.setNumPerPage = function (num) {
-        this.numPerPage = num;
-    };
-    this.getNumPerPage = function () {
-        return this.numPerPage;
-    };
     this.numPerPage = 6;
     this.curPage = 1;
 
 
 
-
-
-
-
-
+}
+InformController.prototype = (function () {
 
     function handleResponse(res) {
         res = JSON.parse(res);
@@ -58,7 +41,7 @@ function InformController(informContainer, informButtons,informDetail) {
             this.container.appendChild(node);
 
 
-            node.addEventListener("click",(function (item) {
+            node.addEventListener("click", (function (item) {
                 return function () {
 
                     updateDetailPage(this.detailPage, notices[item]);
@@ -69,43 +52,44 @@ function InformController(informContainer, informButtons,informDetail) {
 
         }
     }
-    function updateDetailPage(detailPage,json) {
-        switch (json.type){
+
+    function updateDetailPage(detailPage, json) {
+        switch (json.type) {
             case 0:
                 detailPage.classList.add("inform_ordinary");
                 break;
-            case 1:case 2:
+            case 1:
+            case 2:
                 detailPage.classList.add("inform_vote");
                 break;
         }
-
 
 
         detailPage.innerHTML = "";
 
         var head = document.createElement("DIV");
         head.classList.add("head");
-        head.innerHTML = '<div class="date">'+(json.type ===0?"":"【投票】")+json.date+'</div>'
-                        +'<div class="title">'+json.title+'</div>';
+        head.innerHTML = '<div class="date">' + (json.type === 0 ? "" : "【投票】") + json.date + '</div>'
+            + '<div class="title">' + json.title + '</div>';
 
         var body = document.createElement("DIV");
         body.classList.add("body")
-        if (json.type === 0){
+        if (json.type === 0) {
             body.innerHTML = json.content;
-        }else {
+        } else {
             var vote = document.createElement("DIV");
             vote.classList.add("vote");
 
             var options = json.option;
-            for (var i = 0;i<options.length;i++){
+            for (var i = 0; i < options.length; i++) {
                 var input = document.createElement("INPUT");
-                input.type = json.type===1?"radio":"checkbox";
+                input.type = json.type === 1 ? "radio" : "checkbox";
                 input.name = "option";
                 input.value = i;
                 vote.appendChild(input);
-                vote.innerHTML += options[i].content+"<br>";
+                vote.innerHTML += options[i].content + "<br>";
             }
-            vote.innerHTML+='<input type="submit" value="确认投票">';
+            vote.innerHTML += '<input type="submit" value="确认投票">';
 
             var introduce = document.createElement("DIV");
             introduce.classList.add("introduce");
@@ -119,6 +103,7 @@ function InformController(informContainer, informButtons,informDetail) {
         detailPage.appendChild(body);
 
     }
+
     function createNoticeNode(json) {
         var itemWrapper = document.createElement("DIV");
         itemWrapper.classList.add("item_wrapper");
@@ -148,4 +133,24 @@ function InformController(informContainer, informButtons,informDetail) {
 
     }
 
-}
+
+
+
+
+    return {
+        show: function (page) {
+            if (typeof page !== "number" || page < 1) {
+                page = 1;
+            }
+            this.curPage = page;
+            var http = new Ajax("test.json", "get", handleResponse.bind(this));
+            http.send();
+        },
+        setNumPerPage: function (num) {
+            this.numPerPage = num;
+        },
+        getNumPerPage: function () {
+            return this.numPerPage;
+        }
+    }
+})();

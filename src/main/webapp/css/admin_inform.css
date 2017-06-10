@@ -8,6 +8,8 @@
     transition-duration: .5s;
 }
 
+
+
 @media screen and (max-width: 1080px){
     .inform_container .item_wrapper{
         width: 50%;

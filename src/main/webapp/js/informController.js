@@ -13,7 +13,8 @@ function InformController(informContainer, informButtons, informDetail) {
     this.numPerPage = 6;
     this.curPage = 1;
 
-
+    //权限，默认为 0 只能查看通知
+    this.authority = 0;
 
 }
 InformController.prototype = (function () {
@@ -41,14 +42,37 @@ InformController.prototype = (function () {
             this.container.appendChild(node);
 
 
-            node.addEventListener("click", (function (item) {
-                return function () {
+            // node.addEventListener("click", (function (item) {
+            //     return function () {
+            //
+            //         updateDetailPage(this.detailPage, notices[item]);
+            //         scroller.slideToRight();
+            //
+            //     }
+            // })(item).bind(this));
 
-                    updateDetailPage(this.detailPage, notices[item]);
-                    scroller.slideToRight();
+            node.onmousedown = (function (item,node) {
 
-                }
-            })(item).bind(this));
+                return (function (e) {
+                    var pos_x = e.x;
+                    var pos_y = e.y;
+
+                    if (!(e.button === 0)){
+                        return;
+                    }
+
+                    node.onmouseup = (function (e) {
+                        if (pos_x === e.x && pos_y === e.y) {
+
+                            updateDetailPage(this.detailPage, notices[item]);
+                            scroller.slideToRight();
+
+                        }
+                    }).bind(this);
+
+                }).bind(this);
+
+            }).bind(this)(item,node);
 
         }
     }
@@ -70,7 +94,7 @@ InformController.prototype = (function () {
         var head = document.createElement("DIV");
         head.classList.add("head");
         head.innerHTML = '<div class="date">' + (json.type === 0 ? "" : "【投票】") + json.date + '</div>'
-            + '<div class="title">' + json.title + '</div>';
+            + '<div class="title" title=' + json.title + '>' + json.title + '</div>';
 
         var body = document.createElement("DIV");
         body.classList.add("body")
@@ -117,6 +141,7 @@ InformController.prototype = (function () {
 
         var date = document.createElement("DIV");
         date.classList.add("date");
+        date.title = json.date;
         date.appendChild(document.createTextNode(json.date));
 
         var content = document.createElement("DIV");
@@ -133,10 +158,6 @@ InformController.prototype = (function () {
 
     }
 
-
-
-
-
     return {
         show: function (page) {
             if (typeof page !== "number" || page < 1) {
@@ -151,6 +172,15 @@ InformController.prototype = (function () {
         },
         getNumPerPage: function () {
             return this.numPerPage;
+        },
+
+        changeAuthority:function (x) {
+            this.authority = x;
+        },
+        showEditPage:function (x) {
+            if (this.authority !== 1){
+                return;
+            }
         }
     }
 })();

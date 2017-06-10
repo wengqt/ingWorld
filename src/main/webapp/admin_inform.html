@@ -4,10 +4,37 @@
     <meta charset="UTF-8">
     <title>后台通知管理</title>
     <style>
-        body .inform_vote {
-            display: none;
+        .admin-buttons{
+            text-align: right;
+        }
+        .admin-buttons [class^=custom-button]{
+            margin: 0 10px;
+            font-size: 1rem;
         }
 
+
+        [class^=custom-button]{
+
+            display: inline-block;
+            padding: .8em 1em;
+            border-radius: 3px;
+
+            transition-property: box-shadow;
+            transition-duration: .2s;
+        }
+        [class^=custom-button]:hover{
+            cursor: pointer;
+        }
+        .custom-button--lightblue{
+            background-color: #a6c5e3;
+        }
+        .custom-button--red{
+            background-color: #f0726c;
+        }
+        .custom-button--red:hover{
+            /*background-color: #ce6161;*/
+            box-shadow: 0px 0px 1em .2em rgba(50,50,50,.3) inset;
+        }
     </style>
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/inform.css">
@@ -40,108 +67,62 @@
             <div class="inform-container">
                 <div class="part_inform">
                     <div class="title">通知</div>
+
+                    <div class="admin-buttons">
+                        <div class="custom-button--red plain fs">发布通知</div>
+                        <div class="custom-button--red vote">发布投票</div>
+                    </div>
+
                     <div class="inform_container">
-                        <div class="item_wrapper">
-                            <div class="item">
-                                <div class="title">ING首页来啦</div>
-                                <div class="date">5月11日20:10</div>
-                                <div class="content">
-                                    我估计现在2ch上的年轻人是不会怎么怀念昭和的,因为软绵绵的平成对它们来说正相宜。中年人大约会有一部分怀念昭和,不过就我个人意见,昭和确实是个比平成要辉煌不少
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
 
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
+                    </div>
 
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
+                    <div class="inform_buttons">
+                        <a href="#" class="btn_pre">上一页</a>
+                        <a href="#" class="btn_num">1</a>
+                        <a href="#" class="btn_num">2</a>
+                        <a href="#" class="btn_num">3</a>
+                        <a href="#" class="btn_num">4</a>
+                        <a href="#" class="btn_next">下一页</a>
                     </div>
                 </div>
-                <div class="inform_ordinary">
-                    <div class="head">
-                        <div class="date">2017-5-11 21:29</div>
-                        <div class="title">ING首页来啦</div>
-                    </div>
-                    <div class="body">
-                        我的ING
-                    </div>
-                </div>
-                <div class="inform_vote">
-                    <div class="head">
-                        <div class="date">2017-5-11 23：03</div>
-                        <div class="title">【投票】ING主页上线啦</div>
-                    </div>
-                    <div class="body">
-                        <div class="vote">
-                            <input type="radio" name="option" value="1">ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1<br>
-                            <input type="radio" name="option" value="2">ING1<br>
-                            <input type="radio" name="option" value="3">ING1<br>
-                            <input type="submit" value="确认投票">
-                        </div>
-                        <div class="introduce">
-                            ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1
-                        </div>
-                        <div style="clear: both"></div>
-                    </div>
+                <div class="inform_detail inform_ordinary">
+
                 </div>
             </div>
         </div>
-        <script>
-            var informContainer = document.getElementsByClassName('inform-container')[0];
-            var back = document.getElementsByClassName('nav_bar_back')[0];
-            var items = document.getElementsByClassName('item');
-            console.log(informContainer)
-            Array.prototype.forEach.call(items, function (v, index) {
-                v.addEventListener("click", function () {
-                    slideToRight();
-                    back.addEventListener("click", slideToLeft);
-                });
-            });
-
-            function slideToLeft() {
-                informContainer.style.left = "0";
-                back.removeEventListener("click", slideToLeft);
-            }
-            function slideToRight() {
-                informContainer.style.left = "-100%";
-            }
-        </script>
     </div>
 </div>
+
+<script>
+    var scroller = (function () {
+
+        function backToIndex() {
+            window.location.href = "index.html";
+        }
+
+        var informContainer = document.getElementsByClassName('inform-container')[0];
+        var back = document.getElementsByClassName('nav_bar_back')[0];
+        back.onclick = backToIndex;
+
+        return {
+            slideToLeft: function slideToLeft() {
+                informContainer.style.left = "0";
+                back.onclick = backToIndex;
+            },
+            slideToRight: function slideToRight() {
+                informContainer.style.left = "-100%";
+                back.onclick = this.slideToLeft;
+            }
+        }
+
+    })();
+</script>
+<script src="js/utils.js"></script>
+<script src="js/informController.js"></script>
+<script>
+    var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
+    informController.show(1);
+</script>
 </body>
 </html>

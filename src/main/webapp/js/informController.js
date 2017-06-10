@@ -179,7 +179,29 @@ InformController.prototype = (function () {
         },
         showEditPage:function (x) {
             if (this.authority !== 1){
+                throw new Error("无权限");
                 return;
+            }
+
+            this.detailPage.classList.remove("inform_ordinary");
+            this.detailPage.classList.remove("inform_vote");
+
+            if (x === 1){
+                // 普通通知
+                this.detailPage.innerHTML = ''
+                    +'<form>'
+                    +'<input class="title" name="title">'
+                    +'<div class="date">2017-7-7</div>'
+                    +'<textarea class="content" name="content">'
+                    +'</textarea>'
+                    +'<div style="text-align: center" >'
+                    +'<div class="submit custom-button--red">发布通知</div>'
+                    +'</div>'
+                    +'</form>';
+            }else if (x === 2){
+                // 投票通知
+            }else {
+                throw new Error("参数非法 "+x);
             }
         }
     }

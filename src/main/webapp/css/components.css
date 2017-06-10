@@ -1,0 +1,45 @@
+/*按钮*/
+[class*='custom-button']{
+
+    display: inline-block ;
+    padding: .8em 1em;
+    border-radius: 3px;
+
+    transition-property: box-shadow;
+    transition-duration: .2s;
+}
+[class*='custom-button']:hover{
+    cursor: pointer ;
+    box-shadow: 0px 0px 1em .2em rgba(50,50,50,.3) inset !important;
+}
+.custom-button--lightblue{
+    background-color: #a6c5e3;
+}
+.custom-button--red{
+    background-color: #f0726c;
+}
+
+/*按钮2*/
+[class*='custom-no-bg-button']{
+
+    display: inline-block ;
+    padding: .5em 1em;
+    border-radius: 3px;
+
+    /*background-color: transparent;*/
+
+    transition-property: background;
+    transition-duration: .2s;
+}
+[class*='custom-no-bg-button']:hover{
+    cursor: pointer ;
+}
+.custom-no-bg-button--lightblue:hover,.custom-no-bg-button--lightblue.active{
+    background-color: #a6c5e3;
+}
+.custom-no-bg-button--red:hover{
+    background-color: #f0726c;
+}
+{
+
+}

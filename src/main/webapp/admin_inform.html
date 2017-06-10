@@ -4,41 +4,74 @@
     <meta charset="UTF-8">
     <title>后台通知管理</title>
     <style>
-        .admin-buttons{
+        .admin-buttons {
             text-align: right;
         }
-        .admin-buttons [class^=custom-button]{
+
+        .admin-buttons [class^=custom-button] {
             margin: 0 10px;
             font-size: 1rem;
         }
 
-
-        [class^=custom-button]{
-
+        .inform_ordinary--edit,.inform_vote--edit {
+            width: 35%;
+            margin: 100px 0;
+            padding: 0 7.5%;
             display: inline-block;
-            padding: .8em 1em;
-            border-radius: 3px;
+        }
 
-            transition-property: box-shadow;
-            transition-duration: .2s;
+        .inform_ordinary--edit .title {
+            font-size: 1.5rem;
+
+            margin-bottom: 10px;
         }
-        [class^=custom-button]:hover{
-            cursor: pointer;
+
+        .inform_ordinary--edit .date {
+            font-size: 1rem;
+            float: right;
         }
-        .custom-button--lightblue{
-            background-color: #a6c5e3;
+
+        .inform_ordinary--edit .content {
+            width: 100%;
+            font-size: 1rem;
+
+            height: 300px;
         }
-        .custom-button--red{
-            background-color: #f0726c;
+
+        .inform_ordinary--edit .submit {
+
+            margin-top: 5px;
+            font-size: 1rem;
         }
-        .custom-button--red:hover{
-            /*background-color: #ce6161;*/
-            box-shadow: 0px 0px 1em .2em rgba(50,50,50,.3) inset;
+
+
+        .inform_vote--edit .title-box *{
+            font-size: 1.5rem;
         }
+        .inform_vote--edit .title-box input{
+            border: none;
+        }
+        .inform_vote--edit .controller-box *{
+            font-size: 1rem;
+            margin: 5px 10px;
+        }
+        .inform_vote--edit .content{
+            display: flex;
+            background-color: white;
+        }
+        .inform_vote--edit .left,.inform_vote--edit .right{
+            margin: 10px;
+            font-size: 1rem;
+            flex-shrink: 1;
+            flex-grow: 1;
+            flex-basis: 50%;
+        }
+
     </style>
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/inform.css">
     <link rel="stylesheet" href="css/admin_inform.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 <div class="head fs-large blue-deep">ING工作室后台管理</div>
@@ -69,7 +102,7 @@
                     <div class="title">通知</div>
 
                     <div class="admin-buttons">
-                        <div class="custom-button--red plain fs">发布通知</div>
+                        <div class="custom-button--red plain">发布通知</div>
                         <div class="custom-button--red vote">发布投票</div>
                     </div>
 
@@ -86,8 +119,20 @@
                         <a href="#" class="btn_next">下一页</a>
                     </div>
                 </div>
-                <div class="inform_detail inform_ordinary">
-
+                <div class="inform_detail inform_vote--edit">
+                    <form>
+                        <div class="title-box"><span>【投票】</span><input class="title" name="title"></div>
+                        <div class="controller-box">
+                            <div class="custom-no-bg-button--lightblue active">单选</div>
+                            <div class="custom-no-bg-button--lightblue">多选</div>
+                        </div>
+                        <div class="content">
+                            <textarea class="left"></textarea>
+                            <div class="right">
+                                <input type="radio" name="option" value="xxxxxx">好的<br>
+                            </div>
+                        </div>
+                    </form>
                 </div>
             </div>
         </div>
@@ -105,6 +150,9 @@
         var back = document.getElementsByClassName('nav_bar_back')[0];
         back.onclick = backToIndex;
 
+//***************************DEBUG*********************
+        informContainer.style.left = "-100%";
+
         return {
             slideToLeft: function slideToLeft() {
                 informContainer.style.left = "0";
@@ -121,8 +169,8 @@
 <script src="js/utils.js"></script>
 <script src="js/informController.js"></script>
 <script>
-    var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
-    informController.show(1);
+    //    var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
+    //    informController.show(1);
 </script>
 </body>
 </html>

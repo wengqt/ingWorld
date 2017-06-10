@@ -13,7 +13,7 @@
             font-size: 1rem;
         }
 
-        .inform_ordinary--edit,.inform_vote--edit {
+        .inform_ordinary--edit, .inform_vote--edit {
             width: 35%;
             margin: 100px 0;
             padding: 0 7.5%;
@@ -44,27 +44,62 @@
             font-size: 1rem;
         }
 
-
-        .inform_vote--edit .title-box *{
+        .inform_vote--edit .title-box * {
             font-size: 1.5rem;
         }
-        .inform_vote--edit .title-box input{
+
+        .inform_vote--edit .title-box input {
             border: none;
         }
-        .inform_vote--edit .controller-box *{
+
+        .inform_vote--edit .controller-box * {
             font-size: 1rem;
             margin: 5px 10px;
         }
-        .inform_vote--edit .content{
+
+        .inform_vote--edit .content {
             display: flex;
             background-color: white;
         }
-        .inform_vote--edit .left,.inform_vote--edit .right{
+
+        .inform_vote--edit .left, .inform_vote--edit .right {
             margin: 10px;
             font-size: 1rem;
             flex-shrink: 1;
             flex-grow: 1;
             flex-basis: 50%;
+        }
+
+        .inform_vote--edit .right * {
+            font-size: 1rem;
+        }
+
+        .inform_vote--edit .right input {
+            width: 100%;
+        }
+
+        .inform_vote--edit .right .option-wrapper{
+            position: relative;
+            margin-bottom: 5px;
+        }
+        .inform_vote--edit .right .option-wrapper:hover .icon-delete{
+            opacity: 1;
+        }
+        .inform_vote--edit .right .icon-delete {
+            width: 1.3em;
+            height: 1.3em;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            opacity: 0;
+            transition-property: opacity ,transform;
+            transition-duration: .2s;
+        }
+        .inform_vote--edit .right .icon-delete:hover{
+            transform: translateY(-50%) scale(1.1);
+            cursor: pointer;
         }
 
     </style>
@@ -119,20 +154,8 @@
                         <a href="#" class="btn_next">下一页</a>
                     </div>
                 </div>
-                <div class="inform_detail inform_vote--edit">
-                    <form>
-                        <div class="title-box"><span>【投票】</span><input class="title" name="title"></div>
-                        <div class="controller-box">
-                            <div class="custom-no-bg-button--lightblue active">单选</div>
-                            <div class="custom-no-bg-button--lightblue">多选</div>
-                        </div>
-                        <div class="content">
-                            <textarea class="left"></textarea>
-                            <div class="right">
-                                <input type="radio" name="option" value="xxxxxx">好的<br>
-                            </div>
-                        </div>
-                    </form>
+                <div class="inform_detail">
+
                 </div>
             </div>
         </div>
@@ -151,7 +174,7 @@
         back.onclick = backToIndex;
 
 //***************************DEBUG*********************
-        informContainer.style.left = "-100%";
+//        informContainer.style.left = "-100%";
 
         return {
             slideToLeft: function slideToLeft() {
@@ -169,8 +192,19 @@
 <script src="js/utils.js"></script>
 <script src="js/informController.js"></script>
 <script>
-    //    var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
-    //    informController.show(1);
+        var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
+        informController.show(1);
+
+        informController.changeAuthority(1);
+
+        var controllerPlain = document.querySelector(".admin-buttons .plain");
+        var controllerVote = document.querySelector(".admin-buttons .vote");
+        controllerPlain.addEventListener("click",function () {
+            informController.showEditPage(1);
+        });
+        controllerVote.addEventListener("click",function () {
+            informController.showEditPage(2);
+        })
 </script>
 </body>
 </html>

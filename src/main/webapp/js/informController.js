@@ -197,9 +197,47 @@ InformController.prototype = (function () {
                     +'<div style="text-align: center" >'
                     +'<div class="submit custom-button--red">发布通知</div>'
                     +'</div>'
+                    +'<input type="submit" hidden>'
                     +'</form>';
+
+                this.detailPage.classList.add("inform_ordinary--edit");
+
+                scroller.slideToRight();
             }else if (x === 2){
                 // 投票通知
+                this.detailPage.innerHTML = '' +
+                    '<form>'
+                    +'<div class="title-box"><span>【投票】</span><input class="title" name="title"></div>'
+                    +'<div class="controller-box">'
+                    +'<div class="custom-no-bg-button--lightblue active">单选</div>'
+                    +'<div class="custom-no-bg-button--lightblue">多选</div>'
+                    +'</div>'
+                    +'<div class="content">'
+                    +'<textarea class="left"></textarea>'
+                    +'<div class="right">'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div style="text-align: center">'
+                    +'<div class="add-option custom-no-bg-button--lightblue">+添加选项</div>'
+                    +'</div>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div style="text-align: center;margin-top: 10px"><div class="custom-button--red fs-small">发布投票</div> </div>'
+                    +'</form>';
+
+                this.detailPage.classList.add("inform_vote--edit");
+
+                scroller.slideToRight();
             }else {
                 throw new Error("参数非法 "+x);
             }

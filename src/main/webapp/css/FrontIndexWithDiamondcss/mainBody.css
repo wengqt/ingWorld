@@ -348,6 +348,7 @@ body{
 #mainBody_group_1{
     /*display: none;*/
     min-width: 1165px;
+    display: block;
 }
 .diamondDiv_group_1{
 
@@ -494,7 +495,7 @@ body{
     width: 60%;
     margin: 0 auto;
 }
-.personalIntroText p{
+.personalIntroTextP{
     word-break: break-all;
     padding-top: 40%;
     padding-bottom: 50%;

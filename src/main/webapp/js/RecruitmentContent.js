@@ -1,3 +1,5 @@
+
+
 var addimg=document.getElementById("addimg");
 var leftimg=document.getElementById("leftimg");
 leftimg.onclick=function () {
@@ -19,4 +21,35 @@ function getFileURL(){
 	} 
 	console.log(url);
 return url; 
+}
+
+var postInfo={
+	name:"String", //投递人
+	group:"String",	//投递方向
+	introduce:"String",	//自我介绍
+	mail:"String",	//个人邮箱
+	phone:"String",	//个人电话
+	qq:"String"	//个人QQ
+}
+function postResume()
+{
+
+console.log(postInfo);
+postInfo.name=document.getElementsByTagName('input')[0].value;
+postInfo.group=document.getElementsByTagName('input')[5].value;
+postInfo.introduce=document.getElementsByTagName('textarea')[0].value;
+console.log(postInfo);
+    var xhr = new XMLHttpRequest();
+
+    xhr.open("POST", API.postResume, true);
+
+    xhr.onreadystatechange = function(){
+        var XMLHttpReq = xhr;
+        if (XMLHttpReq.readyState == 4) {
+            if (XMLHttpReq.status == 200) {
+
+            }
+        }
+    };
+    xhr.send(postInfo);
 }

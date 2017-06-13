@@ -37,7 +37,6 @@ function reset(){
 
 (all.onclick=function(){
 
-
     for(var i=0;i<4;i++){
         (function(i){
             clicktarget[i].onclick=function(){
@@ -206,4 +205,16 @@ if(/page/.test(param)) {
             rightBottom.src="img/3_2.png";
             break;
     }
+}
+
+
+//login
+var login = document.getElementById("login");
+var logindiv=document.getElementById("logindiv")
+var close = document.getElementById("close");
+login.onclick=function(){
+    logindiv.style.display="block";
+}
+close.onclick=function(){
+    logindiv.style.display="none";
 }

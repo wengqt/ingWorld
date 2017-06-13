@@ -146,6 +146,36 @@
 	color: #cf3130;
 	text-decoration: none;
 }
+.logindiv{
+	background-color: #eee;
+	line-height: 50px;
+	width: 20%;
+	height: 150px;
+	padding: 20px;
+	min-width: 200px;
+	position: absolute;
+	top: 50%;
+	left: 50%;
+	-webkit-transform: translate(-50%, -50%);
+	-moz-transform: translate(-50%, -50%);
+	-ms-transform: translate(-50%, -50%);
+	-o-transform: translate(-50%, -50%);
+	transform: translate(-50%, -50%);
+	display: none;
+
+}
+.logindiv input{
+	width: 60%;
+}
+
+.close{
+	position: absolute;
+	top: -10px;
+	right: 0;
+	font-size: 40px;
+	cursor: pointer;
+}
+
 
 
 @keyframes backwardRotateFirst{

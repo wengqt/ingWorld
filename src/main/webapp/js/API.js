@@ -1,0 +1,10 @@
+/**
+ * Created by zhou on 2017/6/13.
+ */
+var base = 'http://wangjingxin.top:8080'
+
+ var API = {
+    base,
+    postResume:this.base+'/api/plain/uploadResume'
+
+}

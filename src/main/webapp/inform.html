@@ -3,11 +3,6 @@
 <head>
     <meta charset="UTF-8">
     <title>通知</title>
-    <style>
-        body .inform_vote {
-            display: none;
-        }
-    </style>
     <link rel="stylesheet" href="css/inform.css">
     <link rel="stylesheet" href="css/inform_global.css">
 </head>
@@ -18,12 +13,14 @@
 <div class="inform-screen">
     <div class="inform-container">
         <div class="part_inform">
+
             <div class="title">通知</div>
 
 
             <div class="inform_container">
 
             </div>
+
             <div class="inform_buttons">
                 <a href="#" class="btn_pre">上一页</a>
                 <a href="#" class="btn_num">1</a>
@@ -33,67 +30,34 @@
                 <a href="#" class="btn_next">下一页</a>
             </div>
 
-
         </div>
-        <div class="inform_detail inform_ordinary">
-
+        <div class="inform_detail">
         </div>
-        <!--<div class="inform_vote">-->
-        <!--<div class="head">-->
-        <!--<div class="date">2017-5-11 23：03</div>-->
-        <!--<div class="title">【投票】ING主页上线啦</div>-->
-        <!--</div>-->
-        <!--<div class="body">-->
-        <!--<div class="vote">-->
-        <!--<input type="radio" name="option" value="1">ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1<br>-->
-        <!--<input type="radio" name="option" value="2">ING1<br>-->
-        <!--<input type="radio" name="option" value="3">ING1<br>-->
-        <!--<input type="submit" value="确认投票">-->
-        <!--</div>-->
-        <!--<div class="introduce">-->
-        <!--ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1-->
-        <!--</div>-->
-        <!--<div style="clear: both"></div>-->
-        <!--</div>-->
-        <!--</div>-->
-        <!--<div class="inform_ordinary">-->
-        <!--<div class="head">-->
-        <!--<div class="title">ING首页来啦</div>-->
-        <!--<div class="date">2017-5-11 21:29</div>-->
-        <!--</div>-->
-        <!--<div class="body">-->
-        <!--我的ING-->
-        <!--</div>-->
-        <!--</div>-->
     </div>
 </div>
 <script>
-    var scroller = new function () {
+    var scroller = (function () {
 
+        function backToIndex() {
+            window.location.href = "index.html";
+        }
 
         var informContainer = document.getElementsByClassName('inform-container')[0];
         var back = document.getElementsByClassName('nav_bar_back')[0];
-//    var items = document.getElementsByClassName('item');
-//    Array.prototype.forEach.call(items, function (v, index) {
-//        v.addEventListener("click", function () {
-//            slideToRight();
-//        });
-//    });
         back.onclick = backToIndex;
 
-        this.slideToLeft = function slideToLeft() {
-            informContainer.style.left = "0";
-            back.onclick = backToIndex;
-        };
-        this.slideToRight = function slideToRight() {
-            informContainer.style.left = "-100%";
-            back.onclick = this.slideToLeft;
-        };
-
-        function backToIndex() {
-            window.location.href = "index.html?page1";
+        return {
+            slideToLeft: function slideToLeft() {
+                informContainer.style.left = "0";
+                back.onclick = backToIndex;
+            },
+            slideToRight: function slideToRight() {
+                informContainer.style.left = "-100%";
+                back.onclick = this.slideToLeft;
+            }
         }
-    }
+
+    })();
 </script>
 <script src="js/utils.js"></script>
 <script src="js/informController.js"></script>

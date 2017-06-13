@@ -4,14 +4,109 @@
     <meta charset="UTF-8">
     <title>后台通知管理</title>
     <style>
-        body .inform_vote {
-            display: none;
+        .admin-buttons {
+            text-align: right;
+        }
+
+        .admin-buttons [class^=custom-button] {
+            margin: 0 10px;
+            font-size: 1rem;
+        }
+
+        .inform_ordinary--edit, .inform_vote--edit {
+            width: 35%;
+            margin: 100px 0;
+            padding: 0 7.5%;
+            display: inline-block;
+        }
+
+        .inform_ordinary--edit .title {
+            font-size: 1.5rem;
+
+            margin-bottom: 10px;
+        }
+
+        .inform_ordinary--edit .date {
+            font-size: 1rem;
+            float: right;
+        }
+
+        .inform_ordinary--edit .content {
+            width: 100%;
+            font-size: 1rem;
+
+            height: 300px;
+        }
+
+        .inform_ordinary--edit .submit {
+
+            margin-top: 5px;
+            font-size: 1rem;
+        }
+
+        .inform_vote--edit .title-box * {
+            font-size: 1.5rem;
+        }
+
+        .inform_vote--edit .title-box input {
+            border: none;
+        }
+
+        .inform_vote--edit .controller-box * {
+            font-size: 1rem;
+            margin: 5px 10px;
+        }
+
+        .inform_vote--edit .content {
+            display: flex;
+            background-color: white;
+        }
+
+        .inform_vote--edit .left, .inform_vote--edit .right {
+            margin: 10px;
+            font-size: 1rem;
+            flex-shrink: 1;
+            flex-grow: 1;
+            flex-basis: 50%;
+        }
+
+        .inform_vote--edit .right * {
+            font-size: 1rem;
+        }
+
+        .inform_vote--edit .right input {
+            width: 100%;
+        }
+
+        .inform_vote--edit .right .option-wrapper{
+            position: relative;
+            margin-bottom: 5px;
+        }
+        .inform_vote--edit .right .option-wrapper:hover .icon-delete{
+            opacity: 1;
+        }
+        .inform_vote--edit .right .icon-delete {
+            width: 1.3em;
+            height: 1.3em;
+            position: absolute;
+            right: 0;
+            top: 50%;
+            transform: translateY(-50%);
+
+            opacity: 0;
+            transition-property: opacity ,transform;
+            transition-duration: .2s;
+        }
+        .inform_vote--edit .right .icon-delete:hover{
+            transform: translateY(-50%) scale(1.1);
+            cursor: pointer;
         }
 
     </style>
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/inform.css">
     <link rel="stylesheet" href="css/admin_inform.css">
+    <link rel="stylesheet" href="css/components.css">
 </head>
 <body>
 <div class="head fs-large blue-deep">ING工作室后台管理</div>
@@ -40,108 +135,76 @@
             <div class="inform-container">
                 <div class="part_inform">
                     <div class="title">通知</div>
+
+                    <div class="admin-buttons">
+                        <div class="custom-button--red plain">发布通知</div>
+                        <div class="custom-button--red vote">发布投票</div>
+                    </div>
+
                     <div class="inform_container">
-                        <div class="item_wrapper">
-                            <div class="item">
-                                <div class="title">ING首页来啦</div>
-                                <div class="date">5月11日20:10</div>
-                                <div class="content">
-                                    我估计现在2ch上的年轻人是不会怎么怀念昭和的,因为软绵绵的平成对它们来说正相宜。中年人大约会有一部分怀念昭和,不过就我个人意见,昭和确实是个比平成要辉煌不少
-                                </div>
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
 
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
+                    </div>
 
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
-                        <div class="item_wrapper">
-                            <div class="item">
-
-                            </div>
-                        </div>
+                    <div class="inform_buttons">
+                        <a href="#" class="btn_pre">上一页</a>
+                        <a href="#" class="btn_num">1</a>
+                        <a href="#" class="btn_num">2</a>
+                        <a href="#" class="btn_num">3</a>
+                        <a href="#" class="btn_num">4</a>
+                        <a href="#" class="btn_next">下一页</a>
                     </div>
                 </div>
-                <div class="inform_ordinary">
-                    <div class="head">
-                        <div class="date">2017-5-11 21:29</div>
-                        <div class="title">ING首页来啦</div>
-                    </div>
-                    <div class="body">
-                        我的ING
-                    </div>
-                </div>
-                <div class="inform_vote">
-                    <div class="head">
-                        <div class="date">2017-5-11 23：03</div>
-                        <div class="title">【投票】ING主页上线啦</div>
-                    </div>
-                    <div class="body">
-                        <div class="vote">
-                            <input type="radio" name="option" value="1">ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1<br>
-                            <input type="radio" name="option" value="2">ING1<br>
-                            <input type="radio" name="option" value="3">ING1<br>
-                            <input type="submit" value="确认投票">
-                        </div>
-                        <div class="introduce">
-                            ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1ING1
-                        </div>
-                        <div style="clear: both"></div>
-                    </div>
+                <div class="inform_detail">
+
                 </div>
             </div>
         </div>
-        <script>
-            var informContainer = document.getElementsByClassName('inform-container')[0];
-            var back = document.getElementsByClassName('nav_bar_back')[0];
-            var items = document.getElementsByClassName('item');
-            console.log(informContainer)
-            Array.prototype.forEach.call(items, function (v, index) {
-                v.addEventListener("click", function () {
-                    slideToRight();
-                    back.addEventListener("click", slideToLeft);
-                });
-            });
-
-            function slideToLeft() {
-                informContainer.style.left = "0";
-                back.removeEventListener("click", slideToLeft);
-            }
-            function slideToRight() {
-                informContainer.style.left = "-100%";
-            }
-        </script>
     </div>
 </div>
+
+<script>
+    var scroller = (function () {
+
+        function backToIndex() {
+            window.location.href = "index.html";
+        }
+
+        var informContainer = document.getElementsByClassName('inform-container')[0];
+        var back = document.getElementsByClassName('nav_bar_back')[0];
+        back.onclick = backToIndex;
+
+//***************************DEBUG*********************
+//        informContainer.style.left = "-100%";
+
+        return {
+            slideToLeft: function slideToLeft() {
+                informContainer.style.left = "0";
+                back.onclick = backToIndex;
+            },
+            slideToRight: function slideToRight() {
+                informContainer.style.left = "-100%";
+                back.onclick = this.slideToLeft;
+            }
+        }
+
+    })();
+</script>
+<script src="js/utils.js"></script>
+<script src="js/informController.js"></script>
+<script>
+        var informController = new InformController(document.querySelector(".inform_container"), document.querySelector(".inform_buttons"), document.querySelector(".inform_detail"));
+        informController.show(1);
+
+        informController.changeAuthority(1);
+
+        var controllerPlain = document.querySelector(".admin-buttons .plain");
+        var controllerVote = document.querySelector(".admin-buttons .vote");
+        controllerPlain.addEventListener("click",function () {
+            informController.showEditPage(1);
+        });
+        controllerVote.addEventListener("click",function () {
+            informController.showEditPage(2);
+        })
+</script>
 </body>
 </html>

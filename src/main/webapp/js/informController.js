@@ -1,7 +1,7 @@
 /**
  * Created by Administrator on 2017/6/7.
  */
-function InformController(informContainer, informButtons,informDetail) {
+function InformController(informContainer, informButtons, informDetail) {
     this.container = informContainer;
     this.buttons = informButtons;
     this.detailPage = informDetail;
@@ -10,30 +10,14 @@ function InformController(informContainer, informButtons,informDetail) {
     this.container.innerHTML = "";
     this.buttons.innerHTML = "";
 
-    this.show = function (page) {
-        if (typeof page !== "number" || page < 1) {
-            page = 1;
-        }
-        this.curPage = page;
-        var http = new Ajax("test.json", "get", handleResponse.bind(this));
-        http.send();
-    };
-    this.setNumPerPage = function (num) {
-        this.numPerPage = num;
-    };
-    this.getNumPerPage = function () {
-        return this.numPerPage;
-    };
     this.numPerPage = 6;
     this.curPage = 1;
 
+    //权限，默认为 0 只能查看通知
+    this.authority = 0;
 
-
-
-
-
-
-
+}
+InformController.prototype = (function () {
 
     function handleResponse(res) {
         res = JSON.parse(res);
@@ -58,54 +42,78 @@ function InformController(informContainer, informButtons,informDetail) {
             this.container.appendChild(node);
 
 
-            node.addEventListener("click",(function (item) {
-                return function () {
+            // node.addEventListener("click", (function (item) {
+            //     return function () {
+            //
+            //         updateDetailPage(this.detailPage, notices[item]);
+            //         scroller.slideToRight();
+            //
+            //     }
+            // })(item).bind(this));
 
-                    updateDetailPage(this.detailPage, notices[item]);
-                    scroller.slideToRight();
+            node.onmousedown = (function (item,node) {
 
-                }
-            })(item).bind(this));
+                return (function (e) {
+                    var pos_x = e.x;
+                    var pos_y = e.y;
+
+                    if (!(e.button === 0)){
+                        return;
+                    }
+
+                    node.onmouseup = (function (e) {
+                        if (pos_x === e.x && pos_y === e.y) {
+
+                            updateDetailPage(this.detailPage, notices[item]);
+                            scroller.slideToRight();
+
+                        }
+                    }).bind(this);
+
+                }).bind(this);
+
+            }).bind(this)(item,node);
 
         }
     }
-    function updateDetailPage(detailPage,json) {
-        switch (json.type){
+
+    function updateDetailPage(detailPage, json) {
+        switch (json.type) {
             case 0:
                 detailPage.classList.add("inform_ordinary");
                 break;
-            case 1:case 2:
+            case 1:
+            case 2:
                 detailPage.classList.add("inform_vote");
                 break;
         }
-
 
 
         detailPage.innerHTML = "";
 
         var head = document.createElement("DIV");
         head.classList.add("head");
-        head.innerHTML = '<div class="date">'+(json.type ===0?"":"【投票】")+json.date+'</div>'
-                        +'<div class="title">'+json.title+'</div>';
+        head.innerHTML = '<div class="date">' + (json.type === 0 ? "" : "【投票】") + json.date + '</div>'
+            + '<div class="title" title=' + json.title + '>' + json.title + '</div>';
 
         var body = document.createElement("DIV");
         body.classList.add("body")
-        if (json.type === 0){
+        if (json.type === 0) {
             body.innerHTML = json.content;
-        }else {
+        } else {
             var vote = document.createElement("DIV");
             vote.classList.add("vote");
 
             var options = json.option;
-            for (var i = 0;i<options.length;i++){
+            for (var i = 0; i < options.length; i++) {
                 var input = document.createElement("INPUT");
-                input.type = json.type===1?"radio":"checkbox";
+                input.type = json.type === 1 ? "radio" : "checkbox";
                 input.name = "option";
                 input.value = i;
                 vote.appendChild(input);
-                vote.innerHTML += options[i].content+"<br>";
+                vote.innerHTML += options[i].content + "<br>";
             }
-            vote.innerHTML+='<input type="submit" value="确认投票">';
+            vote.innerHTML += '<input type="submit" value="确认投票">';
 
             var introduce = document.createElement("DIV");
             introduce.classList.add("introduce");
@@ -119,6 +127,7 @@ function InformController(informContainer, informButtons,informDetail) {
         detailPage.appendChild(body);
 
     }
+
     function createNoticeNode(json) {
         var itemWrapper = document.createElement("DIV");
         itemWrapper.classList.add("item_wrapper");
@@ -132,6 +141,7 @@ function InformController(informContainer, informButtons,informDetail) {
 
         var date = document.createElement("DIV");
         date.classList.add("date");
+        date.title = json.date;
         date.appendChild(document.createTextNode(json.date));
 
         var content = document.createElement("DIV");
@@ -148,4 +158,89 @@ function InformController(informContainer, informButtons,informDetail) {
 
     }
 
-}
+    return {
+        show: function (page) {
+            if (typeof page !== "number" || page < 1) {
+                page = 1;
+            }
+            this.curPage = page;
+            var http = new Ajax("test.json", "get", handleResponse.bind(this));
+            http.send();
+        },
+        setNumPerPage: function (num) {
+            this.numPerPage = num;
+        },
+        getNumPerPage: function () {
+            return this.numPerPage;
+        },
+
+        changeAuthority:function (x) {
+            this.authority = x;
+        },
+        showEditPage:function (x) {
+            if (this.authority !== 1){
+                throw new Error("无权限");
+                return;
+            }
+
+            this.detailPage.classList.remove("inform_ordinary");
+            this.detailPage.classList.remove("inform_vote");
+
+            if (x === 1){
+                // 普通通知
+                this.detailPage.innerHTML = ''
+                    +'<form>'
+                    +'<input class="title" name="title">'
+                    +'<div class="date">2017-7-7</div>'
+                    +'<textarea class="content" name="content">'
+                    +'</textarea>'
+                    +'<div style="text-align: center" >'
+                    +'<div class="submit custom-button--red">发布通知</div>'
+                    +'</div>'
+                    +'<input type="submit" hidden>'
+                    +'</form>';
+
+                this.detailPage.classList.add("inform_ordinary--edit");
+
+                scroller.slideToRight();
+            }else if (x === 2){
+                // 投票通知
+                this.detailPage.innerHTML = '' +
+                    '<form>'
+                    +'<div class="title-box"><span>【投票】</span><input class="title" name="title"></div>'
+                    +'<div class="controller-box">'
+                    +'<div class="custom-no-bg-button--lightblue active">单选</div>'
+                    +'<div class="custom-no-bg-button--lightblue">多选</div>'
+                    +'</div>'
+                    +'<div class="content">'
+                    +'<textarea class="left"></textarea>'
+                    +'<div class="right">'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div class="option-wrapper">'
+                    +'<input name="option-1" placeholder="添加描述">'
+                    +'<img class="icon-delete" src="img/icon_delete.png">'
+                    +'</div>'
+                    +'<div style="text-align: center">'
+                    +'<div class="add-option custom-no-bg-button--lightblue">+添加选项</div>'
+                    +'</div>'
+                    +'</div>'
+                    +'</div>'
+                    +'<div style="text-align: center;margin-top: 10px"><div class="custom-button--red fs-small">发布投票</div> </div>'
+                    +'</form>';
+
+                this.detailPage.classList.add("inform_vote--edit");
+
+                scroller.slideToRight();
+            }else {
+                throw new Error("参数非法 "+x);
+            }
+        }
+    }
+})();

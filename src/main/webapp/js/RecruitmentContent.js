@@ -34,22 +34,17 @@ var postInfo={
 function postResume()
 {
 
-console.log(postInfo);
-postInfo.name=document.getElementsByTagName('input')[0].value;
-postInfo.group=document.getElementsByTagName('input')[5].value;
-postInfo.introduce=document.getElementsByTagName('textarea')[0].value;
-console.log(postInfo);
-    var xhr = new XMLHttpRequest();
 
-    xhr.open("POST", API.postResume, true);
-
-    xhr.onreadystatechange = function(){
-        var XMLHttpReq = xhr;
-        if (XMLHttpReq.readyState == 4) {
-            if (XMLHttpReq.status == 200) {
-
-            }
+	postInfo.name=document.getElementsByTagName('input')[0].value;
+	postInfo.group=document.getElementsByTagName('input')[5].value;
+	postInfo.introduce=document.getElementsByTagName('textarea')[0].value;
+	$.ajax({
+		url:API.postResume,
+		type:"POST",
+		dataType:"json",
+		data:postInfo,
+		success:function (data) {
+			console.log(data);
         }
-    };
-    xhr.send(postInfo);
+	})
 }

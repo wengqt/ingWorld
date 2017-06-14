@@ -132,7 +132,6 @@ CREATE TABLE `privilege` (
 DROP TABLE IF EXISTS `project`;
 CREATE TABLE `project` (
   `id` int(11) NOT NULL AUTO_INCREMENT,
-  `ownerId` int(11) DEFAULT NULL ,
   `introduce` text,
   `url` varchar(255) DEFAULT NULL,
   `github` varchar(255) DEFAULT NULL,
@@ -161,8 +160,8 @@ CREATE TABLE `prrelation` (
 DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
   `name` varchar(255) DEFAULT NULL,
-  `birthday` datetime DEFAULT NULL,
-  `profession` varchar(255) DEFAULT NULL,
+  `date` datetime DEFAULT NULL,
+  `major` varchar(255) DEFAULT NULL,
   `gender` VARCHAR (2) DEFAULT null,
   `class` VARCHAR (255) DEFAULT null,
   `group` int(11) DEFAULT NULL,

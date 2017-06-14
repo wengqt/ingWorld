@@ -11,9 +11,9 @@ public class Resume {
 
     private String name;
 
-    private String birthday;
+    private String date;
 
-    private String profession;
+    private String major;
 
     private Integer group;
 

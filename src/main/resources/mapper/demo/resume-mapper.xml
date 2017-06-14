@@ -3,7 +3,7 @@
 <mapper namespace="com.ingzone.dao.ResumeDao">
 
     <insert id="uploadResume" parameterType="com.ingzone.model.dto.Resume">
-        INSERT INTO resume (`name`,`birthday`, `profession`, `gender`, `class`, `group`, `introduce`, `mail`, `phone`, `qq`)
-        VALUES (#{name}, #{birthday}, #{profession}, #{gender}, #{className}, #{group}, #{introduce},#{mail},#{phone},#{qq})
+        INSERT INTO resume (`name`,`date`, `major`, `gender`, `class`, `group`, `introduce`, `mail`, `phone`, `qq`)
+        VALUES (#{name}, #{date}, #{major}, #{gender}, #{className}, #{group}, #{introduce},#{mail},#{phone},#{qq})
     </insert>
 </mapper>

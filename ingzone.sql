@@ -162,6 +162,7 @@ DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
   `name` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
+  `profession` varchar(255) DEFAULT NULL,
   `group` int(11) DEFAULT NULL,
   `introduce` text,
   `mail` varchar(255) DEFAULT NULL,

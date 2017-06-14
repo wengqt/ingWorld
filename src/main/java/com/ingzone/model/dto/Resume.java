@@ -13,6 +13,8 @@ public class Resume {
 
     private String date;
 
+    private String profession;
+
     private Integer group;
 
     private String introduce;

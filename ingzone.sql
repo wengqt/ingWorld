@@ -161,8 +161,10 @@ CREATE TABLE `prrelation` (
 DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
   `name` varchar(255) DEFAULT NULL,
-  `date` datetime DEFAULT NULL,
+  `birthday` datetime DEFAULT NULL,
   `profession` varchar(255) DEFAULT NULL,
+  `gender` VARCHAR (2) DEFAULT null,
+  `class` VARCHAR (255) DEFAULT null,
   `group` int(11) DEFAULT NULL,
   `introduce` text,
   `mail` varchar(255) DEFAULT NULL,

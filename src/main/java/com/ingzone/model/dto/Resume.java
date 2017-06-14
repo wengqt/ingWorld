@@ -17,6 +17,10 @@ public class Resume {
 
     private Integer group;
 
+    private String gender;
+
+    private String className;
+
     private String introduce;
 
     private String mail;

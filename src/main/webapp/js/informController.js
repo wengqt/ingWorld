@@ -184,7 +184,7 @@ InformController.prototype = (function () {
                 page = 1;
             }
             this.curPage = page;
-            var http = new Ajax("test.json", "get", handleResponse.bind(this));
+            var http = new Ajax(API.getNotice, "get", handleResponse.bind(this));
             http.send();
         },
         setNumPerPage: function (num) {

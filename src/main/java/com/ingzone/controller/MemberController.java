@@ -23,6 +23,7 @@ import javax.servlet.http.HttpSession;
 @RequestMapping("/api/member")
 public class MemberController {
 
+
     @Autowired
     private NoticeService noticeService;
 

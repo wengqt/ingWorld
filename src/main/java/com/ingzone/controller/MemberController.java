@@ -21,13 +21,7 @@ import javax.servlet.http.HttpSession;
  */
 @RestController
 @RequestMapping("/api/member")
-@SessionAttributes("userId")
 public class MemberController {
-
-    @ModelAttribute
-    private void init(ModelMap modelMap) {
-        modelMap.addAttribute("userId", 11);
-    }
 
     @Autowired
     private NoticeService noticeService;

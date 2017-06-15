@@ -51,13 +51,13 @@ InformController.prototype = (function () {
             //     }
             // })(item).bind(this));
 
-            node.onmousedown = (function (item,node) {
+            node.onmousedown = (function (item, node) {
 
                 return (function (e) {
                     var pos_x = e.x;
                     var pos_y = e.y;
 
-                    if (!(e.button === 0)){
+                    if (!(e.button === 0)) {
                         return;
                     }
 
@@ -72,7 +72,7 @@ InformController.prototype = (function () {
 
                 }).bind(this);
 
-            }).bind(this)(item,node);
+            }).bind(this)(item, node);
 
         }
     }
@@ -119,8 +119,25 @@ InformController.prototype = (function () {
             introduce.classList.add("introduce");
             introduce.innerHTML = json.content;
 
-            body.appendChild(vote);
             body.appendChild(introduce);
+            body.appendChild(vote);
+        }
+
+        if (this.authority === 1) {
+            var tmp = document.createElement("DIV");
+            tmp.style = "text-align:right;margin-bottom:10px";
+            var buttonDelete = document.createElement("DIV");
+            buttonDelete.className = "custom-button--red fs-tiny";
+            buttonDelete.innerHTML = "删除";
+            buttonDelete.addEventListener("click", function () {
+
+
+                // 发送一个AJAXX请求
+
+
+            });
+            tmp.appendChild(buttonDelete);
+            detailPage.appendChild(tmp);
         }
 
         detailPage.appendChild(head);
@@ -132,8 +149,11 @@ InformController.prototype = (function () {
         var itemWrapper = document.createElement("DIV");
         itemWrapper.classList.add("item_wrapper");
 
+
         var item = document.createElement("DIV");
         item.classList.add("item");
+        //用于删除等操作
+        item.dataset.id = json.id;
 
         var title = document.createElement("DIV");
         title.classList.add("title");
@@ -174,11 +194,11 @@ InformController.prototype = (function () {
             return this.numPerPage;
         },
 
-        changeAuthority:function (x) {
+        changeAuthority: function (x) {
             this.authority = x;
         },
-        showEditPage:function (x) {
-            if (this.authority !== 1){
+        showEditPage: function (x) {
+            if (this.authority !== 1) {
                 throw new Error("无权限");
                 return;
             }
@@ -186,60 +206,94 @@ InformController.prototype = (function () {
             this.detailPage.classList.remove("inform_ordinary");
             this.detailPage.classList.remove("inform_vote");
 
-            if (x === 1){
+            if (x === 1) {
                 // 普通通知
                 this.detailPage.innerHTML = ''
-                    +'<form>'
-                    +'<input class="title" name="title">'
-                    +'<div class="date">2017-7-7</div>'
-                    +'<textarea class="content" name="content">'
-                    +'</textarea>'
-                    +'<div style="text-align: center" >'
-                    +'<div class="submit custom-button--red">发布通知</div>'
-                    +'</div>'
-                    +'<input type="submit" hidden>'
-                    +'</form>';
+                    + '<form>'
+                    + '<input class="title" name="title">'
+                    + '<div class="date">2017-7-7</div>'
+                    + '<textarea class="content" name="content">'
+                    + '</textarea>'
+                    + '<div style="text-align: center" >'
+                    + '<div class="submit custom-button--red">发布通知</div>'
+                    + '</div>'
+                    + '<input type="submit" hidden>'
+                    + '</form>';
 
                 this.detailPage.classList.add("inform_ordinary--edit");
 
+
                 scroller.slideToRight();
-            }else if (x === 2){
+            } else if (x === 2) {
                 // 投票通知
                 this.detailPage.innerHTML = '' +
                     '<form>'
-                    +'<div class="title-box"><span>【投票】</span><input class="title" name="title"></div>'
-                    +'<div class="controller-box">'
-                    +'<div class="custom-no-bg-button--lightblue active">单选</div>'
-                    +'<div class="custom-no-bg-button--lightblue">多选</div>'
-                    +'</div>'
-                    +'<div class="content">'
-                    +'<textarea class="left"></textarea>'
-                    +'<div class="right">'
-                    +'<div class="option-wrapper">'
-                    +'<input name="option-1" placeholder="添加描述">'
-                    +'<img class="icon-delete" src="img/icon_delete.png">'
-                    +'</div>'
-                    +'<div class="option-wrapper">'
-                    +'<input name="option-1" placeholder="添加描述">'
-                    +'<img class="icon-delete" src="img/icon_delete.png">'
-                    +'</div>'
-                    +'<div class="option-wrapper">'
-                    +'<input name="option-1" placeholder="添加描述">'
-                    +'<img class="icon-delete" src="img/icon_delete.png">'
-                    +'</div>'
-                    +'<div style="text-align: center">'
-                    +'<div class="add-option custom-no-bg-button--lightblue">+添加选项</div>'
-                    +'</div>'
-                    +'</div>'
-                    +'</div>'
-                    +'<div style="text-align: center;margin-top: 10px"><div class="custom-button--red fs-small">发布投票</div> </div>'
-                    +'</form>';
+                    + '<div class="title-box"><span>【投票】</span><input class="title" name="title"></div>'
+                    + '<div class="controller-box">'
+                    + '<div class="custom-no-bg-button--lightblue active">单选</div>'
+                    + '<div class="custom-no-bg-button--lightblue">多选</div>'
+                    + '</div>'
+                    + '<div class="content">'
+                    + '<textarea class="left"></textarea>'
+                    + '<div class="right">'
+                    + '<div class="options"> '
+                    + '<div class="option-wrapper">'
+                    + '<input name="option-1" placeholder="添加描述">'
+                    + '<img class="icon-delete" src="img/icon_delete.png">'
+                    + '</div>'
+                    + '<div class="option-wrapper">'
+                    + '<input name="option-1" placeholder="添加描述">'
+                    + '<img class="icon-delete" src="img/icon_delete.png">'
+                    + '</div>'
+                    + '<div class="option-wrapper">'
+                    + '<input name="option-1" placeholder="添加描述">'
+                    + '<img class="icon-delete" src="img/icon_delete.png">'
+                    + '</div>'
+                    + '</div>'
+                    + '<div style="text-align: center">'
+                    + '<div class="add-option custom-no-bg-button--lightblue">+添加选项</div>'
+                    + '</div>'
+                    + '</div>'
+                    + '</div>'
+                    + '<div style="text-align: center;margin-top: 10px"><div class="custom-button--red fs-small">发布投票</div> </div>'
+                    + '</form>';
 
                 this.detailPage.classList.add("inform_vote--edit");
 
+                var addOption = this.detailPage.querySelector(".add-option");
+                addOption.addEventListener("click", makeAddOptionListener());
+
                 scroller.slideToRight();
-            }else {
-                throw new Error("参数非法 "+x);
+
+                function makeAddOptionListener() {
+                    var optionContainer = this.detailPage.querySelector(".options");
+
+
+                    return function () {
+                        var optionWrapper = document.createElement("DIV");
+                        optionWrapper.classList.add("option-wrapper");
+
+                        var input = document.createElement("INPUT");
+                        input.name = "option";
+                        input.placeholder = "添加描述";
+
+                        var img = document.createElement("IMG");
+                        img.classList.add("icon-delete");
+                        img.src = 'img/icon_delete.png';
+                        img.addEventListener("click", function () {
+                            optionContainer.removeChild(optionWrapper);
+                        });
+
+                        optionWrapper.appendChild(input);
+                        optionWrapper.appendChild(img);
+
+                        optionContainer.appendChild(optionWrapper);
+
+                    }
+                }
+
+            } else {
+                throw new Error("参数非法 " + x);
             }
         }
     }

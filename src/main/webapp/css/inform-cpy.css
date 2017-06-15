@@ -186,28 +186,21 @@
     padding: 20px;
     border-radius: 10px;
     background-color: white;
-
-    display: flex;
 }
 
 .inform_vote .body .introduce {
     font-size: 1rem;
     word-break: break-word;
-
-    flex-basis: 50%;
 }
 
 .inform_vote .body .vote {
     padding-left: 50px;
-    /*float: right;*/
+    float: right;
     line-height: 200%;
     font-size: 1rem;
     font-weight: 300;
     max-width: 300px;
     word-break: break-all;
-
-
-    flex-basis: 50%;
 }
 .inform_vote .body .vote *{
     font-size: 1rem;

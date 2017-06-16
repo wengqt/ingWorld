@@ -19,13 +19,20 @@
 
 </div>
 <div  class="login" style="cursor: pointer;">
-	<span id="login">登录</span>
+	<span id="login">登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录</span>
 </div>
 <div id="logindiv" class="logindiv">
 	<p>账号：<input id="id" type="text" name=""></p>
 	<p>密码：<input id="password" type="password" name=""></p>
-	<input class="submit" onclick="login()" type="button" value="提交">
-	<p class="close" id="close">×</p>
+	<input class="submit" id="loginSubmit" type="button" value="提交">
+	<p class="inputError" id="inputError">账号或密码错误！</p>
+	<p class="inputEmpty" id="inputEmpty">账号或密码不能为空！</p>
+	<p class="close" id="closeForlogin">×</p>
+</div>
+<div class="loginChange" id="loginChange">
+	<input type="button" id="exit" value="退出登录">
+	<input type="button" id="changeId" value="更换账号">
+	<p class="close" id="closeForchange">×</p>
 </div>
 <div id="word" class="word">
 	<span>&nbsp;</span>

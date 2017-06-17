@@ -184,7 +184,7 @@ InformController.prototype = (function () {
                 page = 1;
             }
             this.curPage = page;
-            var http = new Ajax(API.getNotice, "get", handleResponse.bind(this));
+            var http = new Ajax(API.getNotice + "?page="+page+"&rows="+this.numPerPage, "get", handleResponse.bind(this));
             http.send();
         },
         setNumPerPage: function (num) {
@@ -294,6 +294,25 @@ InformController.prototype = (function () {
 
             } else {
                 throw new Error("参数非法 " + x);
+            }
+        },
+
+        postNotice:function () {
+            if (this.detailPage.classList.contains('inform_ordinary--edit')){
+            //    普通通知
+                var form = document.getElementsByTagName("form")[0];
+                var json = {
+                    type:0,
+                    title:form.querySelector(".title"),
+                    content:form.querySelector(".content")
+                }
+
+                var ajax = new Ajax(API)
+            }else if (this.detailPage.classList.contains("inform_vote--edit")){
+            //    投票通知
+
+            }else {
+                throw new Error("非法");
             }
         }
     }

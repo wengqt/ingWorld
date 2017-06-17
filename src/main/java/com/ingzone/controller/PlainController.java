@@ -8,12 +8,14 @@ import com.ingzone.model.dto.User;
 import com.ingzone.model.vo.ActivityVO;
 import com.ingzone.model.vo.IngVO;
 import com.ingzone.service.*;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.RequestMapping;
 import org.springframework.web.bind.annotation.RequestMethod;
 import org.springframework.web.bind.annotation.RestController;
 
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.List;
@@ -69,7 +71,7 @@ public class PlainController {
     }
 
     @RequestMapping(value = "/login", method = RequestMethod.POST)
-    public Result login(User user, HttpSession session) {
+    public Result login(User user, HttpSession session, HttpServletResponse response) {
         Map<String, String> map = new HashMap();
         if (user.getPassword() == null || user.getId() == null) {
             map.put("detail", "Wrong Parameter Format");
@@ -77,7 +79,7 @@ public class PlainController {
             result.setData(map);
             return result;
         }
-        return authService.login(user.getId(), user.getPassword(), session);
+        return authService.login(user.getId(), user.getPassword(), session ,response);
     }
 
     @RequestMapping(value = "/uploadResume", method = RequestMethod.POST)

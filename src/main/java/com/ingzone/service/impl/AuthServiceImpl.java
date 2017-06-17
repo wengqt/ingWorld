@@ -6,9 +6,13 @@ import com.ingzone.dao.UserDAO;
 import com.ingzone.model.dto.User;
 import com.ingzone.service.AuthService;
 import com.ingzone.util.CryptUtil;
+import com.sun.deploy.net.HttpResponse;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
+import javax.servlet.http.Cookie;
+import javax.servlet.http.HttpServletRequest;
+import javax.servlet.http.HttpServletResponse;
 import javax.servlet.http.HttpSession;
 import java.util.HashMap;
 import java.util.Map;
@@ -24,7 +28,7 @@ public class AuthServiceImpl implements AuthService {
     private UserDAO userDAO;
 
     @Override
-    public Result login(int id, String password, HttpSession session) {
+    public Result login(int id, String password, HttpSession session , HttpServletResponse response) {
         Map<String, String> map = new HashMap();
         User user = userDAO.getUserById(id);
 
@@ -44,6 +48,9 @@ public class AuthServiceImpl implements AuthService {
 
         session.setAttribute("id", id);
         session.setAttribute("role", user.getRole());
+
+        Cookie loginCookie = new Cookie("login","1");
+        response.addCookie(loginCookie);
 
         return ResultCache.getDataOk(map);
     }

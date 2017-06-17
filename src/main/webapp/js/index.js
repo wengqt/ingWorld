@@ -208,13 +208,4 @@ if(/page/.test(param)) {
 }
 
 
-//login
-var login = document.getElementById("login");
-var logindiv=document.getElementById("logindiv")
-var close = document.getElementById("close");
-login.onclick=function(){
-    logindiv.style.display="block";
-}
-close.onclick=function(){
-    logindiv.style.display="none";
-}
+

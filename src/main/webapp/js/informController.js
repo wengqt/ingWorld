@@ -222,6 +222,9 @@ InformController.prototype = (function () {
 
                 this.detailPage.classList.add("inform_ordinary--edit");
 
+                // 绑定发送通知监听器
+                var submitBtn = this.detailPage.querySelector(".submit");
+                submitBtn.addEventListener("click",this.postNotice.bind(this));
 
                 scroller.slideToRight();
             } else if (x === 2) {
@@ -237,31 +240,33 @@ InformController.prototype = (function () {
                     + '<textarea class="left"></textarea>'
                     + '<div class="right">'
                     + '<div class="options"> '
-                    + '<div class="option-wrapper">'
-                    + '<input name="option-1" placeholder="添加描述">'
-                    + '<img class="icon-delete" src="img/icon_delete.png">'
-                    + '</div>'
-                    + '<div class="option-wrapper">'
-                    + '<input name="option-1" placeholder="添加描述">'
-                    + '<img class="icon-delete" src="img/icon_delete.png">'
-                    + '</div>'
-                    + '<div class="option-wrapper">'
-                    + '<input name="option-1" placeholder="添加描述">'
-                    + '<img class="icon-delete" src="img/icon_delete.png">'
-                    + '</div>'
                     + '</div>'
                     + '<div style="text-align: center">'
                     + '<div class="add-option custom-no-bg-button--lightblue">+添加选项</div>'
                     + '</div>'
                     + '</div>'
                     + '</div>'
-                    + '<div style="text-align: center;margin-top: 10px"><div class="custom-button--red fs-small">发布投票</div> </div>'
+                    + '<div style="text-align: center;margin-top: 10px"><div class="submit custom-button--red fs-small">发布投票</div> </div>'
                     + '</form>';
 
                 this.detailPage.classList.add("inform_vote--edit");
 
                 var addOption = this.detailPage.querySelector(".add-option");
-                addOption.addEventListener("click", makeAddOptionListener());
+                addOption.addEventListener("click", makeAddOptionListener.bind(this)());
+
+                // 绑定发送通知监听器
+                var submitBtn = this.detailPage.querySelector(".submit");
+                submitBtn.addEventListener("click",this.postNotice.bind(this));
+
+                // 绑定单选多选监听器
+                var controllerBox = this.detailPage.querySelector(".controller-box");
+                controllerBox.addEventListener("click",function (e) {
+                    var buttonGroup = controllerBox.querySelectorAll("[class*=button]");
+                    if (!e.currentTarget.classList.contains("active")){
+                        buttonGroup[0].classList.toggle("active");
+                        buttonGroup[1].classList.toggle("active");
+                    }
+                })
 
                 scroller.slideToRight();
 
@@ -281,6 +286,7 @@ InformController.prototype = (function () {
                         img.classList.add("icon-delete");
                         img.src = 'img/icon_delete.png';
                         img.addEventListener("click", function () {
+                            console.log("ddd")
                             optionContainer.removeChild(optionWrapper);
                         });
 
@@ -297,19 +303,39 @@ InformController.prototype = (function () {
             }
         },
 
-        postNotice:function () {
+        postNotice:function (e) {
+
+            e.currentTarget.classList.add("disabled");
+
             if (this.detailPage.classList.contains('inform_ordinary--edit')){
             //    普通通知
                 var form = document.getElementsByTagName("form")[0];
                 var json = {
                     type:0,
-                    title:form.querySelector(".title"),
-                    content:form.querySelector(".content")
+                    title:form.querySelector(".title").innerHTML,
+                    content:form.querySelector(".content").innerHTML
                 }
 
-                var ajax = new Ajax(API)
+                var ajax = new Ajax(API.uploadNotice,"POST",function() {
+                    console.log("success");
+                });
+                ajax.setRequestHeader("content-type","application/json");
+                ajax.send(JSON.stringify(json));
+
             }else if (this.detailPage.classList.contains("inform_vote--edit")){
             //    投票通知
+                var form = document.getElementsByTagName("form")[0];
+                var json = {
+                    type:0,
+                    title:form.querySelector(".title").innerHTML,
+                    content:form.querySelector(".content").innerHTML
+                }
+
+                var ajax = new Ajax(API.uploadNotice,"POST",function() {
+                    console.log("success");
+                });
+                ajax.setRequestHeader("content-type","application/json");
+                ajax.send(JSON.stringify(json));
 
             }else {
                 throw new Error("非法");

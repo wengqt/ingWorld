@@ -6,16 +6,16 @@ function Ajax(url, method, succeed) {
         return;
     }
 
-    httpRequest = new XMLHttpRequest();
-    httpRequest.open(method,url);
+    this.httpRequest = new XMLHttpRequest();
+    this.httpRequest.open(method,url);
 
-    httpRequest.onreadystatechange = function () {
-        if (httpRequest.readyState === 4 && httpRequest.status === 200){
+    this.httpRequest.onreadystatechange = (function () {
+        if (this.httpRequest.readyState === 4 && this.httpRequest.status === 200){
             if (typeof succeed === "function"){
-                succeed.call(null,httpRequest.responseText);
+                succeed.call(null,this.httpRequest.responseText);
             }
         }
-    }
+    }).bind(this);
 
 }
 Ajax.prototype = {
@@ -26,6 +26,6 @@ Ajax.prototype = {
         }
     },
     send:function (data) {
-        httpRequest.send(data);
+        this.httpRequest.send(data);
     }
 }

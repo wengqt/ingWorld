@@ -18,6 +18,12 @@
 .custom-button--red{
     background-color: #f0726c;
 }
+[class*='custom-button'].disabled{
+    /*background-color: #606060;*/
+    opacity: .7;
+    cursor: default;
+    pointer-events: none;
+}
 
 /*按钮2*/
 [class*='custom-no-bg-button']{

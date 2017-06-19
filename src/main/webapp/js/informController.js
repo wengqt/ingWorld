@@ -10,7 +10,7 @@ function InformController(informContainer, informButtons, informDetail) {
     this.container.innerHTML = "";
     this.buttons.innerHTML = "";
 
-    this.numPerPage = 6;
+    this.numPerPage = 999;
     this.curPage = 1;
 
     //权限，默认为 0 只能查看通知
@@ -64,7 +64,7 @@ InformController.prototype = (function () {
                     node.onmouseup = (function (e) {
                         if (pos_x === e.x && pos_y === e.y) {
 
-                            updateDetailPage(this.detailPage, notices[item]);
+                            updateDetailPage.call(this,this.detailPage, notices[item]);
                             scroller.slideToRight();
 
                         }
@@ -133,6 +133,16 @@ InformController.prototype = (function () {
 
 
                 // 发送一个AJAXX请求
+
+                var deleteRequest = new Ajax(API.deleteNotice+"?id="+json.id,"GET",function (res) {
+                    res = JSON.parse(res);
+
+                    if (res.status===200){
+                        alert("chengong!");
+                    }
+                });
+                deleteRequest.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                deleteRequest.send();
 
 
             });
@@ -233,8 +243,8 @@ InformController.prototype = (function () {
                     '<form>'
                     + '<div class="title-box"><span>【投票】</span><input class="title" name="title"></div>'
                     + '<div class="controller-box">'
-                    + '<div class="custom-no-bg-button--lightblue active">单选</div>'
-                    + '<div class="custom-no-bg-button--lightblue">多选</div>'
+                    + '<div class="custom-no-bg-button--lightblue active radio">单选</div>'
+                    + '<div class="custom-no-bg-button--lightblue checkbox">多选</div>'
                     + '</div>'
                     + '<div class="content">'
                     + '<textarea class="left"></textarea>'
@@ -308,12 +318,12 @@ InformController.prototype = (function () {
             e.currentTarget.classList.add("disabled");
 
             if (this.detailPage.classList.contains('inform_ordinary--edit')){
-            //    普通通知
+                //    普通通知
                 var form = document.getElementsByTagName("form")[0];
                 var json = {
                     type:0,
-                    title:form.querySelector(".title").innerHTML,
-                    content:form.querySelector(".content").innerHTML
+                    title:form.querySelector(".title").value,
+                    content:form.querySelector(".content").value
                 }
 
                 var ajax = new Ajax(API.uploadNotice,"POST",function() {
@@ -323,13 +333,31 @@ InformController.prototype = (function () {
                 ajax.send(JSON.stringify(json));
 
             }else if (this.detailPage.classList.contains("inform_vote--edit")){
-            //    投票通知
+                //    投票通知
                 var form = document.getElementsByTagName("form")[0];
                 var json = {
                     type:0,
-                    title:form.querySelector(".title").innerHTML,
-                    content:form.querySelector(".content").innerHTML
+                    title:form.querySelector(".title").value,
+                    content:form.querySelector(".content textarea").value
                 }
+                // 包装json
+                var type = form.querySelector(".controller-box .active");
+                if (type.classList.contains("checkbox")){
+                    json.type = 2;
+                }else {
+                    json.type = 1;
+                }
+
+                var options = form.querySelectorAll("[name=option]");
+                var tmp = [];
+                for (var i = 0;i<options.length;i++){
+                    tmp.push({
+                        content: options[i].value
+                    });
+                };
+                json.option = tmp;
+
+
 
                 var ajax = new Ajax(API.uploadNotice,"POST",function() {
                     console.log("success");

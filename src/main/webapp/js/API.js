@@ -9,5 +9,6 @@ var base = 'http://wangjingxin.top:8080'
     introduce:this.base+'/api/plain/getStudioIntro',
      login:this.base+'/api/plain/login',
      getNotice:this.base+'/api/member/getNotice',
-     uploadNotice:this.base+'/api/admin/uploadNotice'
+     uploadNotice:this.base+'/api/admin/uploadNotice',
+     deleteNotice:this.base+'/api/admin/deleteNotice'
 }

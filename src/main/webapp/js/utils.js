@@ -5,7 +5,6 @@ function Ajax(url, method, succeed) {
     if (!(method.toLowerCase() === "get" || method.toLowerCase() === "post")){
         return;
     }
-
     this.httpRequest = new XMLHttpRequest();
     this.httpRequest.open(method,url);
 

@@ -64,8 +64,8 @@ InformController.prototype = (function () {
                     node.onmouseup = (function (e) {
                         if (pos_x === e.x && pos_y === e.y) {
 
-                            updateDetailPage.call(this,this.detailPage, notices[item]);
-                            scroller.slideToRight();
+                            updateDetailPage.call(this, this.detailPage, notices[item]);
+                            this.slideToRight();
 
                         }
                     }).bind(this);
@@ -129,23 +129,29 @@ InformController.prototype = (function () {
             var buttonDelete = document.createElement("DIV");
             buttonDelete.className = "custom-button--red fs-tiny";
             buttonDelete.innerHTML = "删除";
-            buttonDelete.addEventListener("click", function () {
+            buttonDelete.addEventListener("click", (function (e) {
 
 
+                e.currentTarget.classList.add("disabled");
                 // 发送一个AJAXX请求
 
-                var deleteRequest = new Ajax(API.deleteNotice+"?id="+json.id,"GET",function (res) {
+                var deleteRequest = new Ajax(API.deleteNotice + "?id=" + json.id, "GET", (function (res) {
                     res = JSON.parse(res);
 
-                    if (res.status===200){
+                    if (res.status === 200) {
                         alert("chengong!");
+                        this.show(this.curPage);
+                        this.slideToLeft();
+                    } else {
+                        e.currentTarget.classList.remove("disabled");
+                        alert("失败");
                     }
-                });
-                deleteRequest.setRequestHeader("content-type","application/x-www-form-urlencoded");
+                }).bind(this));
+                deleteRequest.setRequestHeader("content-type", "application/x-www-form-urlencoded");
                 deleteRequest.send();
 
 
-            });
+            }).bind(this));
             tmp.appendChild(buttonDelete);
             detailPage.appendChild(tmp);
         }
@@ -188,13 +194,27 @@ InformController.prototype = (function () {
 
     }
 
+
+    // 与详细页面切换相关
+    function backToIndex() {
+        window.location.href = "index.html";
+    }
+
+    var informContainer = document.getElementsByClassName('inform-container')[0];
+    console.log(informContainer);
+    var back = document.getElementsByClassName('nav_bar_back')[0];
+    back.onclick = backToIndex;
+
+
     return {
         show: function (page) {
             if (typeof page !== "number" || page < 1) {
                 page = 1;
             }
             this.curPage = page;
-            var http = new Ajax(API.getNotice + "?page="+page+"&rows="+this.numPerPage, "get", handleResponse.bind(this));
+
+            var http = new Ajax(API.getNotice + "?page=" + page + "&rows=" + this.numPerPage, "get", handleResponse.bind(this));
+
             http.send();
         },
         setNumPerPage: function (num) {
@@ -234,9 +254,9 @@ InformController.prototype = (function () {
 
                 // 绑定发送通知监听器
                 var submitBtn = this.detailPage.querySelector(".submit");
-                submitBtn.addEventListener("click",this.postNotice.bind(this));
+                submitBtn.addEventListener("click", this.postNotice.bind(this));
 
-                scroller.slideToRight();
+                this.slideToRight();
             } else if (x === 2) {
                 // 投票通知
                 this.detailPage.innerHTML = '' +
@@ -266,13 +286,13 @@ InformController.prototype = (function () {
 
                 // 绑定发送通知监听器
                 var submitBtn = this.detailPage.querySelector(".submit");
-                submitBtn.addEventListener("click",this.postNotice.bind(this));
+                submitBtn.addEventListener("click", this.postNotice.bind(this));
 
                 // 绑定单选多选监听器
                 var controllerBox = this.detailPage.querySelector(".controller-box");
-                controllerBox.addEventListener("click",function (e) {
+                controllerBox.addEventListener("click", function (e) {
                     var buttonGroup = controllerBox.querySelectorAll("[class*=button]");
-                    if (!e.currentTarget.classList.contains("active")){
+                    if (!e.currentTarget.classList.contains("active")) {
                         buttonGroup[0].classList.toggle("active");
                         buttonGroup[1].classList.toggle("active");
                     }
@@ -313,61 +333,74 @@ InformController.prototype = (function () {
             }
         },
 
-        postNotice:function (e) {
+        postNotice: function (e) {
 
             e.currentTarget.classList.add("disabled");
 
-            if (this.detailPage.classList.contains('inform_ordinary--edit')){
+            if (this.detailPage.classList.contains('inform_ordinary--edit')) {
                 //    普通通知
                 var form = document.getElementsByTagName("form")[0];
                 var json = {
-                    type:0,
-                    title:form.querySelector(".title").value,
-                    content:form.querySelector(".content").value
+                    type: 0,
+                    title: form.querySelector(".title").value,
+                    content: form.querySelector(".content").value
                 }
 
-                var ajax = new Ajax(API.uploadNotice,"POST",function() {
+                var ajax = new Ajax(API.uploadNotice, "POST", function () {
                     console.log("success");
                 });
-                ajax.setRequestHeader("content-type","application/json");
+                ajax.setRequestHeader("content-type", "application/json");
                 ajax.send(JSON.stringify(json));
 
-            }else if (this.detailPage.classList.contains("inform_vote--edit")){
+            } else if (this.detailPage.classList.contains("inform_vote--edit")) {
                 //    投票通知
                 var form = document.getElementsByTagName("form")[0];
                 var json = {
-                    type:0,
-                    title:form.querySelector(".title").value,
-                    content:form.querySelector(".content textarea").value
+                    type: 0,
+                    title: form.querySelector(".title").value,
+                    content: form.querySelector(".content textarea").value
                 }
                 // 包装json
                 var type = form.querySelector(".controller-box .active");
-                if (type.classList.contains("checkbox")){
+                if (type.classList.contains("checkbox")) {
                     json.type = 2;
-                }else {
+                } else {
                     json.type = 1;
                 }
 
                 var options = form.querySelectorAll("[name=option]");
                 var tmp = [];
-                for (var i = 0;i<options.length;i++){
+                for (var i = 0; i < options.length; i++) {
                     tmp.push({
                         content: options[i].value
                     });
-                };
+                }
+                ;
                 json.option = tmp;
 
 
-
-                var ajax = new Ajax(API.uploadNotice,"POST",function() {
+                var ajax = new Ajax(API.uploadNotice, "POST", function () {
                     console.log("success");
                 });
-                ajax.setRequestHeader("content-type","application/json");
+                ajax.setRequestHeader("content-type", "application/json");
                 ajax.send(JSON.stringify(json));
 
-            }else {
+            } else {
                 throw new Error("非法");
             }
+        },
+
+
+        slideToLeft: function slideToLeft() {
+            informContainer.style.left = "0";
+            back.onclick = backToIndex;
+        },
+        slideToRight: function slideToRight() {
+            informContainer.style.left = "-100%";
+            back.onclick = this.slideToLeft;
         }
+
+
     }
+
 })();

@@ -116,7 +116,7 @@
     <link rel="stylesheet" href="css/inform.css">
     <link rel="stylesheet" href="css/admin_inform.css">
     <link rel="stylesheet" href="css/components.css">
-    <script src="js/API.js"></script>
+    <!--<script src="js/API.js"></script>-->
 </head>
 <body>
 <div class="head fs-large blue-deep">ING工作室后台管理</div>
@@ -180,31 +180,7 @@
     </div>
 </div>
 
-<script>
-    var scroller = (function () {
-
-        function backToIndex() {
-            window.location.href = "index.html";
-        }
-
-        var informContainer = document.getElementsByClassName('inform-container')[0];
-        var back = document.getElementsByClassName('nav_bar_back')[0];
-        back.onclick = backToIndex;
-
-
-        return {
-            slideToLeft: function slideToLeft() {
-                informContainer.style.left = "0";
-                back.onclick = backToIndex;
-            },
-            slideToRight: function slideToRight() {
-                informContainer.style.left = "-100%";
-                back.onclick = this.slideToLeft;
-            }
-        }
-
-    })();
-</script>
+<script src="js/API.js"></script>
 <script src="js/utils.js"></script>
 <script src="js/informController.js"></script>
 <script>
@@ -212,7 +188,6 @@
     informController.show(1);
 
     informController.changeAuthority(1);
-
     //        为按钮添加点击事件
     var controllerPlain = document.querySelector(".admin-buttons .plain");
     var controllerVote = document.querySelector(".admin-buttons .vote");

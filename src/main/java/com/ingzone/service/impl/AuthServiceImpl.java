@@ -50,6 +50,7 @@ public class AuthServiceImpl implements AuthService {
         session.setAttribute("role", user.getRole());
 
         Cookie loginCookie = new Cookie("login","1");
+        loginCookie.setPath("/");
         response.addCookie(loginCookie);
 
         return ResultCache.getDataOk(map);

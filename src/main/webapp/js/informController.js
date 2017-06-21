@@ -472,9 +472,10 @@ InformController.prototype = (function () {
             }
             json.optionId = s.join();
 
-            var request = new Ajax(API.vote,"GET",function () {
+            var request = new Ajax(API.vote+"?noticeId="+json.optionId+"&optionId="+json.noticeId,"GET",function () {
                 console.log("success")
-            })
+            });
+            request.send();
         }
     }
 

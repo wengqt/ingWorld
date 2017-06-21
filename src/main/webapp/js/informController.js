@@ -394,6 +394,7 @@ InformController.prototype = (function () {
         slideToLeft: function slideToLeft() {
             informContainer.style.left = "0";
             back.onclick = backToIndex;
+            this.show(this.curPage)
         },
         slideToRight: function slideToRight() {
             informContainer.style.left = "-100%";

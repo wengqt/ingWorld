@@ -298,7 +298,7 @@ InformController.prototype = (function () {
                     }
                 })
 
-                scroller.slideToRight();
+                this.slideToRight();
 
                 function makeAddOptionListener() {
                     var optionContainer = this.detailPage.querySelector(".options");

@@ -37,7 +37,7 @@ InformController.prototype = (function () {
         // 遍历data更新通知内容
         this.container.innerHTML = "";
         var notices = this.data.notice;
-        for (var item in notices) {
+        for (var  item = notices.length-1;item>=0;item--) {
 
             var node = createNoticeNode(notices[item]);
             this.container.appendChild(node);
@@ -77,24 +77,46 @@ InformController.prototype = (function () {
 
         this.buttons.innerHTML = "";
         if (this.curPage !== 1){
-            this.buttons.innerHTML += '<a href="#" class="btn_pre">上一页</a>';
+            var tmp = document.createElement("A");
+            tmp.href = "javascript:void(0);";
+            tmp.classList.add("btn_pre");
+            tmp.innerHTML = "上一页";
+            tmp.addEventListener("click",(function () {
+                return (function () {
+                    this.show(this.curPage-1)
+                }).bind(this);
+            }).call(this))
+            this.buttons.appendChild(tmp);
         }
         for (var i = 0;i<sum;i++){
             var tmp = document.createElement("A");
-            tmp.href = "#";
+            tmp.href = "javascript:void(0);";
             tmp.classList.add("btn_num");
             tmp.innerHTML = i+1;
             if (this.curPage === i+1){
                 tmp.classList.add("cur_page");
             }
 
-            tmp.addEventListener("click",(function(page){this.show(page)})(i+1));
+            tmp.addEventListener("click",(function(page){
+                return (function(){
+                    this.show(page);
+                }).bind(this);
+            }).call(this,i+1));
 
             this.buttons.appendChild(tmp);
         }
 
         if (this.curPage < sum){
-            this.buttons.innerHTML += '<a href="#" class="btn_next">下一页</a>';
+            var tmp = document.createElement("A");
+            tmp.href = "javascript:void(0);";
+            tmp.classList.add("btn_next");
+            tmp.innerHTML = "下一页";
+            tmp.addEventListener("click",(function () {
+                return (function () {
+                    this.show(this.curPage+1)
+                }).bind(this);
+            }).call(this));
+            this.buttons.appendChild(tmp);
         }
     }
 
@@ -109,6 +131,9 @@ InformController.prototype = (function () {
                 break;
         }
 
+        // 保存数据
+        this.detailPage.dataset.type = json.type;
+        this.detailPage.dataset.id = json.id;
 
         detailPage.innerHTML = "";
 
@@ -135,6 +160,7 @@ InformController.prototype = (function () {
                 vote.innerHTML += options[i].content + "<br>";
             }
             vote.innerHTML += '<input type="submit" value="确认投票">';
+            vote.querySelector("[type=submit]").addEventListener("click",this.sendVote.bind(this));
 
             var introduce = document.createElement("DIV");
             introduce.classList.add("introduce");
@@ -220,7 +246,6 @@ InformController.prototype = (function () {
     function backToIndex() {
         window.location.href = "index.html";
     }
-
     var informContainer = document.getElementsByClassName('inform-container')[0];
     var back = document.getElementsByClassName('nav_bar_back')[0];
     back.onclick = backToIndex;
@@ -419,9 +444,38 @@ InformController.prototype = (function () {
         slideToRight: function slideToRight() {
             informContainer.style.left = "-100%";
             back.onclick = this.slideToLeft.bind(this);
+        },
+
+
+        sendVote:function () {
+            var options = this.detailPage.querySelectorAll("input[name=option]");
+            var type = this.detailPage.dataset.type;
+            var json = {};
+            json.noticeId = this.detailPage.dataset.id;
+            json.optionId = "";
+
+            var s = [];
+            if (parseInt(type) === 1){
+                // 单选
+                for (var i = 0;i<options.length;i++){
+                    if (options[i].checked){
+                        s.push(i);
+                        break;
+                    }
+                }
+            }else if (parseInt(type) === 2){
+                for (var i = 0;i<options.length;i++){
+                    if (options[i].checked){
+                        s.push(i);
+                    }
+                }
+            }
+            json.optionId = s.join();
+
+            var request = new Ajax(API.vote,"GET",function () {
+                console.log("success")
+            })
         }
-
-
     }
 
 })();

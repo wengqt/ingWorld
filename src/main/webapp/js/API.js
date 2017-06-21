@@ -9,5 +9,6 @@ var API = {
     login: this.base + '/api/plain/login',
     getNotice: this.base + '/api/member/getNotice',
     uploadNotice: this.base + '/api/admin/uploadNotice',
-    deleteNotice: this.base + '/api/admin/deleteNotice'
+    deleteNotice: this.base + '/api/admin/deleteNotice',
+    vote:this.base + '/api/member/vote'
 }

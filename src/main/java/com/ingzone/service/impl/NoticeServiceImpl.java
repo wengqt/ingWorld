@@ -32,10 +32,12 @@ public class NoticeServiceImpl implements NoticeService {
     public Result uploadNotice(Notice notice) {
         try {
             noticeDao.uploadNotice(notice);
-            emailService.sendNoticeToEveryOne(notice);
             if (notice.getType() == 0) {
                 return ResultCache.OK;
             }
+            notice.getOption().forEach(((option)->{
+                option.setNoticeId(notice.getId());
+            }));
             noticeDao.insertOptions(notice.getOption());
             return ResultCache.OK;
         } catch (Exception e) {

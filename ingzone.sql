@@ -87,18 +87,6 @@ CREATE TABLE `notice` (
   UNIQUE KEY `notice_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
-#
-# Structure for table "option"
-#
-
-DROP TABLE IF EXISTS `option`;
-CREATE TABLE `option` (
-  `id` int(11) NOT NULL AUTO_INCREMENT,
-  `noticeId` int(11) DEFAULT NULL,
-  `content` varchar(255) DEFAULT NULL,
-  PRIMARY KEY (`id`),
-  UNIQUE KEY `option_id_uindex` (`id`)
-) ENGINE=InnoDB DEFAULT CHARSET=utf8;
 
 #
 # Structure for table "options"

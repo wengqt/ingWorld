@@ -165,7 +165,7 @@
 
                     <div class="inform_buttons">
                         <a href="#" class="btn_pre">上一页</a>
-                        <a href="#" class="btn_num">1</a>
+                        <a href="#" class="btn_num cur_page">1</a>
                         <a href="#" class="btn_num">2</a>
                         <a href="#" class="btn_num">3</a>
                         <a href="#" class="btn_num">4</a>
@@ -188,7 +188,7 @@
     informController.show(1);
 
     informController.changeAuthority(1);
-    //        为按钮添加点击事件
+    //        为按钮添加点击事件,懒得封装进去了。。。。。
     var controllerPlain = document.querySelector(".admin-buttons .plain");
     var controllerVote = document.querySelector(".admin-buttons .vote");
     controllerPlain.addEventListener("click", function () {

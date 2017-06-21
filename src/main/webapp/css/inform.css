@@ -268,3 +268,7 @@
 .inform_buttons>.btn_num{
     margin: 0 0.5em;
 }
+.btn_num.cur_page{
+    pointer-events: none;
+    text-decoration: underline;
+}

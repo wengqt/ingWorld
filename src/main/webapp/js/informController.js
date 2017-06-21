@@ -8,9 +8,9 @@ function InformController(informContainer, informButtons, informDetail) {
     this.data = {};
 
     this.container.innerHTML = "";
-    this.buttons.innerHTML = "";
+    // this.buttons.innerHTML = "";
 
-    this.numPerPage = 999;
+    this.numPerPage = 9;
     this.curPage = 1;
 
     //权限，默认为 0 只能查看通知
@@ -21,6 +21,7 @@ InformController.prototype = (function () {
 
     function handleResponse(res) {
         res = JSON.parse(res);
+        this.data = res;
 
         if (res.status !== 200) {
             return;
@@ -65,6 +66,35 @@ InformController.prototype = (function () {
 
             }).bind(this)(item, node);
 
+        }
+
+        // 更新button组
+        updateButtonGroup.call(this);
+    }
+
+    function updateButtonGroup() {
+        var sum = Math.ceil(this.data.total / this.numPerPage);
+
+        this.buttons.innerHTML = "";
+        if (this.curPage !== 1){
+            this.buttons.innerHTML += '<a href="#" class="btn_pre">上一页</a>';
+        }
+        for (var i = 0;i<sum;i++){
+            var tmp = document.createElement("A");
+            tmp.href = "#";
+            tmp.classList.add("btn_num");
+            tmp.innerHTML = i+1;
+            if (this.curPage === i+1){
+                tmp.classList.add("cur_page");
+            }
+
+            tmp.addEventListener("click",(function(page){this.show(page)})(i+1));
+
+            this.buttons.appendChild(tmp);
+        }
+
+        if (this.curPage < sum){
+            this.buttons.innerHTML += '<a href="#" class="btn_next">下一页</a>';
         }
     }
 
@@ -192,7 +222,6 @@ InformController.prototype = (function () {
     }
 
     var informContainer = document.getElementsByClassName('inform-container')[0];
-    console.log(informContainer);
     var back = document.getElementsByClassName('nav_bar_back')[0];
     back.onclick = backToIndex;
 

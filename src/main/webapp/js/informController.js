@@ -42,15 +42,6 @@ InformController.prototype = (function () {
             this.container.appendChild(node);
 
 
-            // node.addEventListener("click", (function (item) {
-            //     return function () {
-            //
-            //         updateDetailPage(this.detailPage, notices[item]);
-            //         scroller.slideToRight();
-            //
-            //     }
-            // })(item).bind(this));
-
             node.onmousedown = (function (item, node) {
 
                 return (function (e) {
@@ -394,11 +385,11 @@ InformController.prototype = (function () {
         slideToLeft: function slideToLeft() {
             informContainer.style.left = "0";
             back.onclick = backToIndex;
-            this.show(this.curPage)
+            this.show(this.curPage);
         },
         slideToRight: function slideToRight() {
             informContainer.style.left = "-100%";
-            back.onclick = this.slideToLeft;
+            back.onclick = this.slideToLeft.bind(this);
         }
 
 

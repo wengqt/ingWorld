@@ -451,7 +451,7 @@ InformController.prototype = (function () {
             var options = this.detailPage.querySelectorAll("input[name=option]");
             var type = this.detailPage.dataset.type;
             var json = {};
-            json.noticeId = this.detailPage.dataset.id;
+            json.noticeId = Number(this.detailPage.dataset.id);
             json.optionId = "";
 
             var s = [];
@@ -472,10 +472,10 @@ InformController.prototype = (function () {
             }
             json.optionId = s.join();
 
-            var request = new Ajax(API.vote+"?noticeId="+json.optionId+"&optionId="+json.noticeId,"GET",function () {
-                console.log("success")
+            var request = new Ajax(API.vote,"POST",function () {
+                alert("success")
             });
-            request.send();
+            request.send(JSON.stringify(json));
         }
     }
 

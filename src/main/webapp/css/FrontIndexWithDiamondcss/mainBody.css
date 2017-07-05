@@ -335,17 +335,17 @@ body{
     min-width: 700px;
 }
 .sonOfMainBody_tran {
+    min-width: 1100px;
     width: 86%;
     margin: 0 auto;
-    height: 8;
     text-align: center;
     /* display: inline-block; */
 }
 /***************************************************group*********************************/
 #mainBody_group_1{
-    /*display: none;*/
+    /* display: none; */
     min-width: 1165px;
-    display: block;
+    /* display: block; */
 }
 .diamondDiv_group_1{
 

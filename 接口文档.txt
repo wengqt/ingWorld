@@ -155,9 +155,15 @@ request:
 	name:"String" 			//投递人
 	group:"String"			//投递方向
 	introduce:"String"			//自我介绍
-	mail:"String"				//个人邮箱
-	phone:"String"				//个人电话
-	qq:"String"					//个人QQ
+	className:"String"
+	gender:"String"
+	qq:"String"
+	email:"String"
+	birthDate:"2015-01-01 00:00:00"
+	major:"String"
+	phone:"String"
+	
+	
 }
 response:
 {

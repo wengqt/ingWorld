@@ -27,9 +27,13 @@ var postInfo={
 	name:"String", //投递人
 	group:"String",	//投递方向
 	introduce:"String",	//自我介绍
-	mail:"String",	//个人邮箱
-	phone:"String",	//个人电话
-	qq:"String"	//个人QQ
+	gender:"String",
+	className:"String",
+	major:"String",
+	phone:"String",
+	qq:"",
+	email:"",
+	birthDate:""
 }
 function postResume()
 {
@@ -38,6 +42,7 @@ function postResume()
 	postInfo.name=document.getElementsByTagName('input')[0].value;
 	postInfo.group=document.getElementsByTagName('input')[5].value;
 	postInfo.introduce=document.getElementsByTagName('textarea')[0].value;
+	postInfo.gender=document.getElementsByTagName('input')[1].value;
 	$.ajax({
 		url:API.postResume,
 		type:"POST",

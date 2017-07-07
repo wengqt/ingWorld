@@ -12,9 +12,16 @@ var inputEmpty=document.getElementById("inputEmpty");
 var inputError=document.getElementById("inputError");
 var exit=document.getElementById("exit");
 var changeId=document.getElementById("changeId");
+var changePassword=document.getElementById("changePassword");
+var submitChange=document.getElementById("submitChange");
+var cancelChange=document.getElementById("cancelChange");
 var loginInfo={
     id:"id",
     password:"password"
+}
+var passwordInfo={
+    old:"",
+    new:""
 }
 closeForlogin.onclick = function () {
     logindiv.style.display = "none";
@@ -22,10 +29,27 @@ closeForlogin.onclick = function () {
 closeForchange.onclick=function () {
     loginChange.style.display = "none";
 }
+changePassword.onclick=function () {
+    document.getElementById('changePasswordDiv').style.display='block';
+}
 
-
-
-
+cancelChange.onclick=function () {
+    document.getElementById('changePasswordDiv').style.display='none';
+}
+submitChange.onclick=function () {
+    passwordInfo.new=document.getElementById("oldPassword").value;
+    passwordInfo.old=document.getElementById("newPassword").value;
+    console.log(passwordInfo);
+    $.ajax({
+        url:API.changePassword,
+        type:'POST',
+        data:passwordInfo,
+        dataType:'JSON',
+        success:function (data) {
+            console.log(data);
+        }
+    })
+}
 
 loginSubmit.onclick=function() {
     console.log("ww");

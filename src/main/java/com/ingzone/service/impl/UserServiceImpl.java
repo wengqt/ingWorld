@@ -35,4 +35,6 @@ public class UserServiceImpl implements UserService {
     public List<String> getALLUserEmail() {
         return userDAO.getALLUserEmail();
     }
+
+
 }

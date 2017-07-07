@@ -4,16 +4,15 @@ package com.ingzone.controller;
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
 import com.ingzone.model.dto.*;
-import com.ingzone.service.DatumService;
-import com.ingzone.service.NoticeService;
-import com.ingzone.service.ProjectService;
-import com.ingzone.service.UserService;
+import com.ingzone.service.*;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.ui.Model;
 import org.springframework.ui.ModelMap;
 import org.springframework.web.bind.annotation.*;
 
+import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpSession;
 
 /**
@@ -35,6 +34,9 @@ public class MemberController {
 
     @Autowired
     private ProjectService projectService;
+
+    @Autowired
+    private AuthService authService;
 
     @RequestMapping(value = "/getDatum", method = RequestMethod.GET)
     public Result getDatum(Page page) {
@@ -76,8 +78,8 @@ public class MemberController {
 
     @Transactional
     @RequestMapping(value = "/vote", method = RequestMethod.POST)
-    public Result vote(Vote vote , HttpSession session) {
-        return noticeService.vote(vote , (int)session.getAttribute("id"));
+    public Result vote(Vote vote, HttpSession session) {
+        return noticeService.vote(vote, (int) session.getAttribute("id"));
     }
 
 
@@ -86,12 +88,20 @@ public class MemberController {
         return userService.modifyUserInfo(user);
     }
 
+
+    @RequestMapping(value = "/changePassword", method = RequestMethod.POST)
+    public Result changePassword(String old, @RequestParam("new") String newpw, HttpSession session) {
+        if (old == null || newpw == null) {
+            return ResultCache.FAILURE;
+        }
+        return authService.changePassword( old, newpw , (int)session.getAttribute("id"));
+    }
+
     @RequestMapping(value = "/uploadProject", method = RequestMethod.POST)
     public Result uploadProject(Project project, HttpSession session) {
         if (project == null) {
             return ResultCache.getCache(0);
         }
-
         return projectService.uploadProject(project, (Integer) session.getAttribute("id"));
     }
 

@@ -3,9 +3,17 @@
   <component name="FacetManager">
     <facet type="Spring" name="Spring">
       <configuration>
-        <fileset id="fileset" name="Spring Application Context" removed="false">
+        <fileset id="web application context" name="MVC application context" removed="true">
           <file>file://$MODULE_DIR$/src/main/resources/spring.xml</file>
-          <file>file://$MODULE_DIR$/src/main/resources/mapper/demo/spring-mail.xml</file>
+        </fileset>
+        <fileset id="web SpringMVC servlet context" name="MVC SpringMVC servlet context" removed="true">
+          <file>file://$MODULE_DIR$/src/main/resources/spring-mvc.xml</file>
+        </fileset>
+        <fileset id="fileset" name="Spring Application Context" removed="false">
+          <file>file://$MODULE_DIR$/src/main/resources/spring-jdbc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-mail.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring-mvc.xml</file>
+          <file>file://$MODULE_DIR$/src/main/resources/spring.xml</file>
         </fileset>
       </configuration>
     </facet>

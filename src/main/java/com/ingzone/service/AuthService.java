@@ -14,4 +14,7 @@ public interface AuthService {
 
     Result login(int id, String password, HttpSession session  , HttpServletResponse response);
 
+
+    Result changePassword(String old, String newpw, int id);
+
 }

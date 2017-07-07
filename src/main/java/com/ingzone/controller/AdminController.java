@@ -10,8 +10,18 @@ import com.ingzone.service.ProjectService;
 import com.ingzone.service.ActivityService;
 import com.ingzone.service.IngService;
 import org.springframework.beans.factory.annotation.Autowired;
+import org.springframework.context.ApplicationContext;
+import org.springframework.context.ApplicationContextAware;
 import org.springframework.transaction.annotation.Transactional;
 import org.springframework.web.bind.annotation.*;
+import org.springframework.web.context.request.RequestContextHolder;
+import org.springframework.web.context.request.ServletRequestAttributes;
+import org.springframework.web.context.support.WebApplicationContextUtils;
+import org.springframework.web.servlet.mvc.condition.RequestConditionHolder;
+import org.springframework.web.util.ServletContextPropertyUtils;
+import org.springframework.web.util.WebUtils;
+
+import javax.servlet.http.HttpServletRequest;
 
 
 /**
@@ -37,6 +47,7 @@ public class AdminController {
     @RequestMapping(value = "/uploadNotice", method = RequestMethod.POST)
     public Result uploadNotice(@RequestBody Notice notice) {
         return noticeService.uploadNotice(notice);
+
     }
 
     @RequestMapping(value = "/deleteNotice", method = RequestMethod.GET)

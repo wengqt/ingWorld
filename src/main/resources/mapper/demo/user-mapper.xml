@@ -8,6 +8,11 @@
             github = #{github} , qq = #{qq}
         WHERE id = #{id}
     </update>
+    <update id="changePassword">
+        UPDATE users
+        SET password = #{newpw}
+        WHERE id = #{id}
+    </update>
     <select id="getUserByGroup" parameterType="int" resultType="User">
         SELECT *
         FROM users

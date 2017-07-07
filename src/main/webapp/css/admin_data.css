@@ -58,6 +58,7 @@ tr.lineone{
 .colfive{
     position: absolute;
     right: -60px;
+
 }
 .deletebtn{
     background-color: #5f92c7;
@@ -67,4 +68,5 @@ tr.lineone{
     color: #fff;
     width: 46px;
     border-radius: 8px;
+    outline: mediumaquamarine;
 }

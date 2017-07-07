@@ -26,25 +26,25 @@ body{
 	color:  #1a4b7e;
 	width:66%;
 	min-width: 800px;
-	margin: 80px auto 0 auto;
+	margin: 40px auto 0 auto;
 }
 .leftform{
 	width: 60%;
 	float: left;
-	height: 250px;
-	
+	height: 300px;
+
 }
 .rightform{
 	width: 40%;
 	float: right;
-	height: 250px;
+	height: 300px;
 	position: relative;
 }
 .rightform input{
 	width: 99%;
 	position: absolute;
 	margin-left: 0%;
-	height: 200px;
+	height: 250px;
 	opacity: 0;
 	cursor: pointer;
 	z-index: 1
@@ -52,6 +52,8 @@ body{
 }
 hr{
 	border:1px solid #6596c9;
+	position: relative;
+	top:5px;
 }
 .formstyle span{
 	height: 30px;
@@ -68,28 +70,28 @@ input{
 	margin-right: 2%;
 }
 .photo{
-	width: 38%;
-	height: 200px;
+	width: 35%;
+	height: 250px;
 	background-color: #fff;
 	border:1px solid #6596c9;
-	margin-left: 30%;
+	margin-left: 20%;
 	position: relative;
-	min-width: 150px;
-	
+	min-width: 170px;
+	margin-top: 10px;
 }
 .photo p{
-	line-height: 200px;
+	line-height: 250px;
 	text-align: center;
 	color: #6596c9;
 	cursor: pointer;
 }
 .photo img{
 	position: absolute;
-	top: 0;
+	top: 0px;
 
 }
 .bottomform{
-	margin-top: 30px;
+	margin-top: 35px;
 }
 textarea{
 	margin-left: 2%;

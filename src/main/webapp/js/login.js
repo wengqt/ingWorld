@@ -37,8 +37,8 @@ cancelChange.onclick=function () {
     document.getElementById('changePasswordDiv').style.display='none';
 }
 submitChange.onclick=function () {
-    passwordInfo.new=document.getElementById("oldPassword").value;
-    passwordInfo.old=document.getElementById("newPassword").value;
+    passwordInfo.old=document.getElementById("oldPassword").value;
+    passwordInfo.new=document.getElementById("newPassword").value;
     console.log(passwordInfo);
     $.ajax({
         url:API.changePassword,

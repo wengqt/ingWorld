@@ -39,7 +39,7 @@ function reset(){
 
     for(var i=0;i<4;i++){
         (function(i){
-            console.log(123);
+
             clicktarget[i].onclick=function(){
                 if(clickState==0){
                     clickState=1;

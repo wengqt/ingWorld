@@ -4,5 +4,8 @@
 $.ajax({
     url:API.getUserInfo,
     type:"GET",
-
+    success:function (data) {
+        var json=JSON.parse(data);
+        console.log(json)
+}
 })

@@ -12,4 +12,5 @@ public interface UserService {
     Result modifyUserInfo(User user);
 
     List<String> getALLUserEmail();
+
 }

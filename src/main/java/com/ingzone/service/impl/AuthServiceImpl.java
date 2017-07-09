@@ -28,18 +28,18 @@ public class AuthServiceImpl implements AuthService {
     private UserDAO userDAO;
 
     @Override
-    public Result login(int id, String password, HttpSession session , HttpServletResponse response) {
+    public Result login(int id, String password, HttpSession session, HttpServletResponse response) {
         Map<String, String> map = new HashMap();
         User user = userDAO.getUserById(id);
 
-        if(user == null) {
+        if (user == null) {
             map.put("detail", "Wrong Parameter Format");
             Result result = ResultCache.getCache(0);
             result.setData(map);
             return result;
         }
 
-        if(!CryptUtil.getSHA1(password).equals(user.getPassword())) {
+        if (!checkPassword(user, password)) {
             map.put("detail", "Wrong Password");
             Result result = ResultCache.getCache(0);
             result.setData(map);
@@ -49,10 +49,32 @@ public class AuthServiceImpl implements AuthService {
         session.setAttribute("id", id);
         session.setAttribute("role", user.getRole());
 
-        Cookie loginCookie = new Cookie("login","1");
+        Cookie loginCookie = new Cookie("login", "1");
         loginCookie.setPath("/");
         response.addCookie(loginCookie);
 
-        return ResultCache.getDataOk(map);
+        return ResultCache.OK;
+    }
+
+    @Override
+    public Result changePassword(String old, String newpw, int id) {
+        User user = userDAO.getUserById(id);
+        if (!checkPassword(user, old)) {
+            HashMap<String, String> map = new HashMap();
+            map.put("detail","wrong old password ");
+            Result result = ResultCache.getCache(0);
+            result.setData(map);
+            return result;
+        }
+        userDAO.changePassword(id,CryptUtil.getSHA1(newpw));
+        return ResultCache.OK;
+    }
+
+
+    private boolean checkPassword(User user, String password) {
+        if (!CryptUtil.getSHA1(password).equals(user.getPassword())) {
+            return false;
+        }
+        return true;
     }
 }

@@ -1,6 +1,7 @@
 package com.ingzone.dao;
 
 import com.ingzone.model.dto.User;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -21,4 +22,7 @@ public interface UserDAO {
     void modifyUserInfo(User user);
 
     List<String> getALLUserEmail();
+
+    void changePassword(@Param("id") int id,@Param("newpw") String newpw);
+
 }

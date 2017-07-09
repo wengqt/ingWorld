@@ -162,8 +162,7 @@ request:
 	birthDate:"2015-01-01 00:00:00"
 	major:"String"
 	phone:"String"
-	
-	
+
 }
 response:
 {

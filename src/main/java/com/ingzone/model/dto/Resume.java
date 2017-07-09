@@ -23,10 +23,12 @@ public class Resume {
 
     private String introduce;
 
-    private String mail;
+    private String email;
 
     private String phone;
 
     private String qq;
+
+    private String birthDate;
 
 }

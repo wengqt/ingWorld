@@ -47,7 +47,8 @@ submitChange.onclick=function () {
         dataType:'JSON',
         success:function (data) {
             console.log(data);
-
+            document.getElementById('changePasswordDiv').style.display='none';
+            alert("修改成功");
         }
     })
 }

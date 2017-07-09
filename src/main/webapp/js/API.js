@@ -12,5 +12,7 @@ var API = {
     deleteNotice: this.base + '/api/admin/deleteNotice',
     vote:this.base + '/api/member/vote',
     changePassword:this.base+'/api/member/changePassword',
-    getDatum:this.base+'/api/member/getDatum'
+    getDatum:this.base+'/api/member/getDatum',
+    getUserInfo:this.base+'/api/member/getUserInfo',
+    modifyUserInfo:this.base+'/api/member/modifyUserInfo'
 }

@@ -41,7 +41,7 @@ body{
 	background-color: #fff;
 	height: 36px;
 	line-height: 36px;	
-	margin-bottom: 10px;
+
 	border-bottom: 10px solid #e4eff5;
 }
 tr.lineone{
@@ -79,4 +79,25 @@ tr.lineone{
 }
 .thirdspan{
 	margin-left: 60%;
+}
+.bottomSelect{
+	margin: 0 auto;
+	width:80%;
+	height: 33px;
+	line-height: 33px;
+
+}
+.option{
+	float: left;
+	width: 40px;
+	background-color: #1a4b7e;
+	list-style: none;
+	margin-right: 10px;
+	text-align: center;
+
+	cursor: pointer;
+}
+.totalPage{
+	list-style: none;
+	float: left;
 }

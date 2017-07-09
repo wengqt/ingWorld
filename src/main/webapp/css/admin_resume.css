@@ -66,8 +66,9 @@ span.info{
     border:none;
     border-radius: 5px;
     cursor: pointer;
+    outline: mediumaquamarine;
 }
-.hide_resume{
+.change_resume{
     position: absolute;
     right: 0;
     background-color: #5f92c7;
@@ -81,4 +82,5 @@ span.info{
     border:none;
     border-radius: 5px;
     cursor: pointer;
+    outline: mediumaquamarine;
 }

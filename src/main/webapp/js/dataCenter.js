@@ -18,6 +18,7 @@ for(var i=0;i<requestInfo.rows;i++){
             console.log(pageNum);
             $.ajax({
                 url:API.getDatum,
+
                 type:"GET",
                 dataType:"json",
                 data:requestInfo,

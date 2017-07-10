@@ -84,3 +84,27 @@ span.info{
     cursor: pointer;
     outline: mediumaquamarine;
 }
+.input{
+    display: inline-block;
+    font-size: 20px;
+    width: 55%;
+    border: none;
+    background-color: #e4eff5;
+    color: #5f92c7;
+    outline: mediumaquamarine;
+}
+.inputtext{
+    outline: mediumaquamarine;
+    font-family: 微软雅黑;
+    margin-top: 20px;
+    width:100%;
+    font-size:20px;
+    min-height: 200px;
+    resize: none;
+    border: none;
+    background-color: #e4eff5;
+    color: #5f92c7;
+}
+#submitChange{
+    display: none;
+}

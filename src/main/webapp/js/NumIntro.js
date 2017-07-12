@@ -5,7 +5,7 @@
 
 $.ajax(
     {
-        url:"TranTest.json",
+        url:API.GroupNumIntro,
         type:"GET",
         dataType:"json",
         success:function (data) {

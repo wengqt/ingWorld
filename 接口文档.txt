@@ -103,7 +103,10 @@ response:
 组别介绍
 url:/api/plain/getGroupIntro
 method:get
-request{}
+request
+{
+	groupId="1"
+}
 response:
 {
 	status:200,

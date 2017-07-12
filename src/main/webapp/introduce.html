@@ -31,7 +31,7 @@
 </div>
 
 <!--*************************************************组别介绍********************************************-->
-<div id="mainBody_2" class="display--none page-value mainBody">
+<div id="mainBody_2" class="display--none page-value mainBody display--none-unique">
 	<div class="sonOfMainBody_tran">
 		<div id="firstLineDiv_2">
 			<div class="outDiamondDiv_2 firstline_2">
@@ -211,6 +211,15 @@
             mainBody_group_1.style.display = "none";
             pageValues[curIndex].classList.add("display--none");
             pageValues[index].classList.remove("display--none");
+
+//			if(document.getElementsByClassName("display--none-unique").style.display == "none") {
+//					document.getElementsByClassName("display--none-unique").addEventListener("click", (function () {
+//                    console.log(i);
+//                        document.getElementsByClassName("display--none-unique").classList.add("display");
+//                    document.getElementsByClassName("display--none-unique").classList.remove("display--none");
+//
+//                }));
+//            }
 
 
             curIndex = index;

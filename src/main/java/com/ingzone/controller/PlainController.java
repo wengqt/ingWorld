@@ -56,8 +56,11 @@ public class PlainController {
     }
 
     @RequestMapping(value = "/getGroupIntro", method = RequestMethod.GET)
-    public Result getGroupIntro() {
-        return groupService.getGroup();
+    public Result getGroupIntro(Integer groupId) {
+        if (groupId == null) {
+            return ResultCache.FAILURE;
+        }
+        return groupService.getGroup(groupId);
     }
 
     @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)

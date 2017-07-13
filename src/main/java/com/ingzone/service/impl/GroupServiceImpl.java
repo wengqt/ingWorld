@@ -9,8 +9,6 @@ import com.ingzone.service.GroupService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 
-import java.util.List;
-
 /**
  * Created by omsfuk on 17-5-10.
  */
@@ -25,12 +23,10 @@ public class GroupServiceImpl implements GroupService {
     private UserDAO userDAO;
 
     @Override
-    public Result getGroup() {
-        List<Group> groups = groupDAO.getGroup();
-        for (Group group : groups) {
-            group.setMembers(userDAO.getUserByGroup(group.getTechStack()));
-        }
-        return ResultCache.getDataOk(groups);
+    public Result getGroup(Integer groupId) {
+        Group group = groupDAO.getGroupById(groupId);
+        group.setMembers(userDAO.getUserByGroup(group.getId()));
+        return ResultCache.getDataOk(group);
     }
 
     @Override

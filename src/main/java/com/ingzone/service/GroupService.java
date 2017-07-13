@@ -8,7 +8,7 @@ import com.ingzone.model.dto.Group;
  */
 public interface GroupService {
 
-    Result getGroup();
+    Result getGroup(Integer groupId);
 
     Result modifyGroup(Group group);
 }

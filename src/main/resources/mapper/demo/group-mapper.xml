@@ -3,7 +3,7 @@
 <mapper namespace="com.ingzone.dao.GroupDAO">
 
     <resultMap id="groupMap" type="Group">
-        <id column="id" property="techStack"/>
+        <id column="id" property="id"/>
         <result column="introduce" property="introduce"/>
     </resultMap>
     <update id="modifyGroup" parameterType="com.ingzone.model.dto.Group">
@@ -11,6 +11,12 @@
         SET introduce = #{introduce}
         WHERE id = #{id}
     </update>
+
+    <select id="getGroupById" parameterType="java.lang.Integer" resultMap="groupMap">
+        SELECT *
+        FROM `group`
+        WHERE id = #{id}
+    </select>
 
     <select id="getGroup" resultMap="groupMap">
         SELECT *

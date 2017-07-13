@@ -12,8 +12,6 @@ import java.util.List;
 public class Group {
     private Integer id;
 
-    private Integer techStack;
-
     private String introduce;
 
     private List<User> members;

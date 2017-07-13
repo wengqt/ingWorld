@@ -149,7 +149,7 @@ DROP TABLE IF EXISTS `resume`;
 CREATE TABLE `resume` (
   `name` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
-  'birthDate' DATETIME,
+   birthDate DATETIME,
   `major` varchar(255) DEFAULT NULL,
   `gender` VARCHAR (2) DEFAULT null,
   `class` VARCHAR (255) DEFAULT null,

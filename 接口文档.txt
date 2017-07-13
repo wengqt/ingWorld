@@ -111,7 +111,7 @@ response:
 {
 	status:200,
 	message:"OK",
-	data:[
+	data:
 		{
 		techStack	:"",			//图片链接，同时也是组id，
 		introduce	:"string",		//组介绍(md)
@@ -131,8 +131,6 @@ response:
 			....
 			]
 		}
-	]
-
 }
 
 特色活动

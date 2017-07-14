@@ -39,9 +39,20 @@
     border-color: #5f92c7;
 }
 
+.sonOfMainBody_tran{
+
+    width: 80%;
+
+    margin: 0 auto;
+}
+
 .outDiamondDiv_3{
     height: 94%;
-
+    display: inline-block;
+    width: 30%;
+    /* margin: 0 auto; */
+    /* margin: 12px; */
+    margin: 13% 0 1% 3%;
 }
 
 #firstLineDiv_3{

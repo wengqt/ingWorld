@@ -100,13 +100,10 @@ function getGroupIntro(num) {
 var a = document.getElementById("mainBody_group_1");
 function ShowGroupNumber() {
 
-
     document.getElementById("mainBody_2").classList.remove("display");
     document.getElementById("mainBody_2").classList.add("display--none");
 
     a.style.display = "block";
-
-
 
 }
 

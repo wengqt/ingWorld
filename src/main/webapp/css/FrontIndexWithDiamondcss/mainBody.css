@@ -486,6 +486,13 @@ body{
 
 
 .Intro {
+     width: 89%;
+     margin: 0 auto;
+     height: 433px;
+     /* line-height: 433px; */
+ }
+
+.projectintr{
     width: 89%;
     margin: 0 auto;
     height: 433px;

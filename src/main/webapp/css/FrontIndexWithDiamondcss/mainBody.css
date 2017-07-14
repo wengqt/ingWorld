@@ -33,36 +33,22 @@ body{
     min-width: 1165px;
 }
 .diamondDiv_2{
-
     padding: 14%;
-
     /* margin: 0%; */
-
     /* margin: 7%; */
-
     padding: 0%;
-
     width: 10em;
-
     height: 10em;
-
     background-color: rgba(255, 255, 0, 0);
-
     transform: rotate(45deg);
-
     -ms-transform: rotate(45deg);
-
     -moz-transform: rotate(45deg);
-
     -webkit-transform: rotate(45deg);
-
     -o-transform: rotate(45deg);
-
     overflow: hidden;
-
     border: 8px solid;
-
     border-color: #5f92c7;
+    cursor: pointer;
 }
 
 .outDiamondDiv_2{

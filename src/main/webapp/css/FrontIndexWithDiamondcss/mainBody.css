@@ -483,3 +483,11 @@ body{
     padding-top: 40%;
     padding-bottom: 50%;
 }
+
+
+.Intro {
+    width: 89%;
+    margin: 0 auto;
+    height: 433px;
+    /* line-height: 433px; */
+}

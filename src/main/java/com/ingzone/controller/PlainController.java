@@ -92,9 +92,12 @@ public class PlainController {
 
     @Transactional
     @RequestMapping(value = "/getActivity",method = RequestMethod.GET)
-    public Result getActivity() {
-        List<ActivityVO> activityVOs = activityService.getActivity();
-        if (activityVOs!=null){
+    public Result getActivity(Integer page, Integer rows) {
+        if (page == null || rows == null) {
+            return ResultCache.FAILURE;
+        }
+        List<ActivityVO> activityVOs = activityService.getActivity(page, rows);
+        if (activityVOs != null){
             return ResultCache.getDataOk(activityVOs);
         }
         else{

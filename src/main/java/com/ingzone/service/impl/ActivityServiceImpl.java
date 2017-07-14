@@ -52,7 +52,7 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public List<ActivityVO> getActivity() {
-        return activityDao.select();
+    public List<ActivityVO> getActivity(int page, int rows) {
+        return activityDao.select((page - 1) * rows, rows);
     }
 }

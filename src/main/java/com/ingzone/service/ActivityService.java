@@ -17,5 +17,5 @@ public interface ActivityService {
 
     boolean deleteActivity(int id);
 
-    List<ActivityVO> getActivity();
+    List<ActivityVO> getActivity(int page, int rows);
 }

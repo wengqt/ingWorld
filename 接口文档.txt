@@ -144,7 +144,9 @@ response:
 {
     "status":200,
 	"message":"OK"
-	data: [
+	data:
+	    total: 100,
+	    activities: [
         {
             id:132
             name:"第2次codereview"		//活动名字

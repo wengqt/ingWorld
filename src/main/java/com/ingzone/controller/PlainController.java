@@ -2,6 +2,7 @@ package com.ingzone.controller;
 
 import com.ingzone.base.Result;
 import com.ingzone.cache.ResultCache;
+import com.ingzone.model.dto.ActivityDTO;
 import com.ingzone.model.dto.Resume;
 import com.ingzone.model.dto.Page;
 import com.ingzone.model.dto.User;
@@ -43,12 +44,13 @@ public class PlainController {
 
     @Autowired
     private ResumeService resumeService;
-    
+
     @Autowired
     private ActivityService activityService;
 
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
+        System.out.println("xxxxxxx" + page);
         if (page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
             return ResultCache.FAILURE;
         }
@@ -66,9 +68,9 @@ public class PlainController {
     @RequestMapping(value = "/getStudioIntro", method = RequestMethod.GET)
     public Result getStudioIntro() {
         IngVO ingVO = ingService.getStudioIntro();
-        if (ingVO!=null) {
+        if (ingVO != null) {
             return ResultCache.getDataOk(ingService.getStudioIntro());
-        }else{
+        } else {
             return ResultCache.FAILURE;
         }
     }
@@ -82,7 +84,7 @@ public class PlainController {
             result.setData(map);
             return result;
         }
-        return authService.login(user.getId(), user.getPassword(), session ,response);
+        return authService.login(user.getId(), user.getPassword(), session, response);
     }
 
     @RequestMapping(value = "/uploadResume", method = RequestMethod.POST)
@@ -90,19 +92,12 @@ public class PlainController {
         return resumeService.uploadResume(resume);
     }
 
-    @Transactional
-    @RequestMapping(value = "/getActivity",method = RequestMethod.GET)
+    @RequestMapping(value = "/getActivity", method = RequestMethod.GET)
     public Result getActivity(Integer page, Integer rows) {
         if (page == null || rows == null) {
             return ResultCache.FAILURE;
         }
-        List<ActivityVO> activityVOs = activityService.getActivity(page, rows);
-        if (activityVOs != null){
-            return ResultCache.getDataOk(activityVOs);
-        }
-        else{
-            return ResultCache.FAILURE;
-        }
+        return activityService.getActivity(page, rows);
     }
-    
+
 }

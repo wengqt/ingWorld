@@ -14,9 +14,14 @@
         DELETE FROM activity
         WHERE id=#{id}
     </delete>
-    <select id="select" resultType="com.ingzone.model.vo.ActivityVO">
+    <select id="select" resultType="com.ingzone.model.dto.ActivityDTO">
         SELECT *
         FROM activity
         LIMIT #{page}, #{rows}
+    </select>
+
+    <select id="getActivityCount" resultType="int">
+        SELECT COUNT(*)
+        FROM activity
     </select>
 </mapper>

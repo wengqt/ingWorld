@@ -1,10 +1,8 @@
 package com.ingzone.service;
 
 
+import com.ingzone.base.Result;
 import com.ingzone.model.dto.ActivityDTO;
-import com.ingzone.model.vo.ActivityVO;
-
-import java.util.List;
 
 /**
  * Created by Ji Shaokang on 2017/5/9.
@@ -17,5 +15,5 @@ public interface ActivityService {
 
     boolean deleteActivity(int id);
 
-    List<ActivityVO> getActivity(int page, int rows);
+    Result getActivity(int page, int rows);
 }

@@ -1,5 +1,7 @@
 package com.ingzone.service.impl;
 
+import com.ingzone.base.Result;
+import com.ingzone.cache.ResultCache;
 import com.ingzone.dao.ActivityDao;
 import com.ingzone.model.dto.ActivityDTO;
 import com.ingzone.model.vo.ActivityVO;
@@ -7,8 +9,6 @@ import com.ingzone.service.ActivityService;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
-
-import java.util.List;
 
 @Service("activityService")
 @Transactional
@@ -52,7 +52,8 @@ public class ActivityServiceImpl implements ActivityService {
     }
 
     @Override
-    public List<ActivityVO> getActivity(int page, int rows) {
-        return activityDao.select((page - 1) * rows, rows);
+    public Result getActivity(int page, int rows) {
+        int total = activityDao.getActivityCount();
+        return ResultCache.getDataOk(new ActivityVO(total, activityDao.select((page - 1) * rows, rows)));
     }
 }

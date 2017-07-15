@@ -1,8 +1,10 @@
 package com.ingzone.model.vo;
 
+import com.ingzone.model.dto.ActivityDTO;
 import lombok.Data;
 
 import java.util.Date;
+import java.util.List;
 
 /**
  * Created by Ji Shaokang on 2017/5/10.
@@ -10,12 +12,12 @@ import java.util.Date;
 @Data
 public class ActivityVO {
 
-    private Integer id;
-    private String name;
-    private String date;
-    private String group;
-    private String shower;
-    private String github;
-    private String introduce;
+    private Integer total;
 
+    private List<ActivityDTO> activities;
+
+    public ActivityVO(Integer total, List<ActivityDTO> activities) {
+        this.total = total;
+        this.activities = activities;
+    }
 }

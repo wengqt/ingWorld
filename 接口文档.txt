@@ -1,4 +1,4 @@
-﻿全局：
+﻿﻿全局：
 {
 	status:200    //一个三位整数
 	message："OK" //一个简短的英文短语用于说明
@@ -136,16 +136,28 @@ response:
 特色活动
 URL:/api/plain/getActivity
 method:GET
-request:{}
+request:{
+    page:1
+    rows:10
+}
 response:
 {
-	id:132
-	name:"第2次codereview"		//活动名字
-	introduce:"dfdfsd"			//活动介绍(md)
- 	date:"String"				//举办时间
-	group:"String"     		     //承办组
-	shower:"String"   			//展示组
-	github:"String"			//资料下载（github地址）
+    "status":200,
+	"message":"OK"
+	data:
+	    total: 100,
+	    activities: [
+        {
+            id:132
+            name:"第2次codereview"		//活动名字
+            introduce:"dfdfsd"			//活动介绍(md)
+            date:"String"				//举办时间
+            group:"String"     		     //承办组
+            shower:"String"   			//展示组
+            github:"String"			//资料下载（github地址）
+        },
+        ...
+        ]
 }
 
 简历投递

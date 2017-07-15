@@ -12,28 +12,74 @@ function showProDetailIntro() {
 
 }
 
+function getProIntro(page,rows) {
+    $.ajax(
+        {
+            url:API.ProjectIntro+"?page="+page+"&rows="+rows,
+            type:"GET",
+            dataType:"json",
 
-var showButton_Pro = document.getElementsByClassName(" showProIntro")
-
-for(var i = 0;i<showButton_Pro.length;i++){
-    showButton_Pro[i].addEventListener("click",(function () {
-
-        var index = i;
+            success:function (data) {
 
 
+                // console.log("success")
+                console.log(data)
+                for(var i = 0;i<data.data.projects.length;i++) {
+                    var outDiamondDiv_3 = document.createElement("div");
+                    outDiamondDiv_3.className = "outDiamondDiv_3";
 
-        return function () {
+                    var showProIntro = document.createElement("div");
+                    showProIntro.className = "showProIntro";
 
-            console.log("我检查到了监听器")
-            // getGroupNumber(index+1);
-            // getGroupIntro(index+1);
+                    var ProName = document.createElement("div");
+                    ProName.innerHTML = data.data.projects[i].name;
+                    ProName.className = "ProName";
 
-            showProDetailIntro();
+
+                    // console.log(123123)
+
+
+                    showProIntro.appendChild(ProName);
+                    outDiamondDiv_3.appendChild(showProIntro);
+
+                    document.getElementById("Project").appendChild(outDiamondDiv_3);
+
+                }
+
+                    var showButton_Pro = document.getElementsByClassName("showProIntro")
+
+                    for(var i = 0;i<showButton_Pro.length;i++){
+                        showButton_Pro[i].addEventListener("click",(function () {
+                            console.log(123)
+                            var index = i;
+
+
+
+                            return function () {
+
+                                console.log("我检查到了监听器")
+                                // getGroupNumber(index+1);
+                                // getGroupIntro(index+1);
+
+                                showProDetailIntro();
+                            }
+
+
+                        })(i)) ;
+                    }
+
+
+            },
+            error:function (a,b,c) {
+                console.log(a,b,c)
+            }
+
         }
-
-
-    })(i)) ;
+    );
 }
+getProIntro(1,6);
+
+
 
 
 //点击活动菱形的时候 显示活动详细介绍

@@ -11,8 +11,13 @@ import java.util.List;
 public interface ActivityDao {
 
     int add(ActivityDTO activityDTO);
+
     int update(ActivityDTO activityDTO);
+
     int delete(int id);
-    List<ActivityVO> select(@Param("page") int page, @Param("rows") int rows);
+
+    List<ActivityDTO> select(@Param("page") int page, @Param("rows") int rows);
+
+    int getActivityCount();
 
 }

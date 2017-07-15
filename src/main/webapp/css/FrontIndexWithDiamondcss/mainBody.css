@@ -1,9 +1,14 @@
+html{
+    height: 100%;
+}
 body{
     background-color: #e4eff5;
+    height: 100%;
 }
 .mainBody{
     height: 90%;
     background-color: #e4eff5;
+    /* width: 100%; */
 }
 
 #mainBody_1{
@@ -117,6 +122,8 @@ body{
 
 #mainBody_3{
     min-width: 1165px;
+    position: relative;
+    min-height: 650px;
 }
 .diamondDiv_3{
     cursor: pointer;
@@ -223,6 +230,8 @@ body{
 
 #mainBody_4{
     min-width: 1165px;
+    position: relative;
+    min-height: 650px;
 }
 
 .showProIntro{
@@ -547,11 +556,11 @@ body{
 
 
 .Intro {
-     width: 89%;
-     margin: 0 auto;
-     height: 433px;
-     /* line-height: 433px; */
- }
+    width: 89%;
+    margin: 0 auto;
+    height: 433px;
+    /* line-height: 433px; */
+}
 
 .projectintr{
     width: 89%;
@@ -568,7 +577,9 @@ body{
     height: 75px;
     text-align: right;
     line-height: 75px;
-
+    position: absolute;
+    /* top: 90%; */
+    bottom: 5px;
 }
 
 .footerA{

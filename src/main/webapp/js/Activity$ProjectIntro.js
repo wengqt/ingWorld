@@ -2,6 +2,8 @@
  * Created by 延松松松松 on 2017/7/14.
  */
 
+var page = 1;
+
 //点击项目菱形的时候 显示项目详细介绍
 function showProDetailIntro() {
 
@@ -32,7 +34,7 @@ function getProIntro(page,rows) {
                     showProIntro.className = "showProIntro";
 
                     var ProName = document.createElement("div");
-                    ProName.innerHTML = data.data.projects[i].name;
+                    ProName.innerHTML = data.data.projects[i].id;
                     ProName.className = "ProName";
 
 
@@ -77,7 +79,22 @@ function getProIntro(page,rows) {
         }
     );
 }
-getProIntro(1,6);
+
+getProIntro(page,6);
+function nextPage() {
+    page++;
+    document.getElementById("Project").innerHTML = "";
+    getProIntro(page,6);
+}
+
+function lastPage() {
+    if(page>=2){
+        page--;
+        document.getElementById("Project").innerHTML = "";
+        getProIntro(page,6);
+    }
+}
+
 
 
 

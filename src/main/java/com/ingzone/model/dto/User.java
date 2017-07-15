@@ -26,7 +26,9 @@ public class User {
 
     private Integer group;
 
-    private String from;
+    private String major;
+
+    private String grade;
 
     private String blog;
 

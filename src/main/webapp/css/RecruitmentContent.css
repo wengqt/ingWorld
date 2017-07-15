@@ -64,10 +64,12 @@ input{
 	width: 24%;
 	margin-left: 2%;
 	height: 24px;
+
 	border:1px solid #6596c9;
 	border-radius: 5px;
 	padding-left: 1px;
 	margin-right: 2%;
+
 }
 .photo{
 	width: 35%;

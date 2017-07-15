@@ -3,6 +3,8 @@
  */
 
 var page = 1;
+var pageMax;
+
 
 //点击项目菱形的时候 显示项目详细介绍
 function showProDetailIntro() {
@@ -25,7 +27,9 @@ function getProIntro(page,rows) {
 
 
                 // console.log("success")
-                console.log(data)
+                console.log(data);
+                pageMax = Math.ceil(data.data.total/6);
+                // console.log(pageMax,"fcccccc");
                 for(var i = 0;i<data.data.projects.length;i++) {
                     var outDiamondDiv_3 = document.createElement("div");
                     outDiamondDiv_3.className = "outDiamondDiv_3";
@@ -82,9 +86,13 @@ function getProIntro(page,rows) {
 
 getProIntro(page,6);
 function nextPage() {
-    page++;
-    document.getElementById("Project").innerHTML = "";
-    getProIntro(page,6);
+
+    if(page < pageMax){
+        console.log(pageMax);
+        page++;
+        document.getElementById("Project").innerHTML = "";
+        getProIntro(page,6);
+    }
 }
 
 function lastPage() {

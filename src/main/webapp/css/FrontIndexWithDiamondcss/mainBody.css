@@ -119,7 +119,7 @@ body{
     min-width: 1165px;
 }
 .diamondDiv_3{
-
+    cursor: pointer;
     padding: 14%;
 
     /* margin: 0%; */
@@ -225,7 +225,7 @@ body{
     min-width: 1165px;
 }
 .diamondDiv_4{
-
+    cursor: pointer;
     padding: 14%;
 
     /* margin: 0%; */
@@ -497,4 +497,23 @@ body{
     margin: 0 auto;
     height: 433px;
     /* line-height: 433px; */
+}
+
+
+.footerForInput {
+    /* text-align: right; */
+    width: 91%;
+    /* height: 38%; */
+    height: 75px;
+    text-align: right;
+    line-height: 75px;
+
+}
+
+.footerA{
+    color: black;
+    cursor: pointer;
+}
+.JumpToPageButton{
+    cursor: pointer;
 }

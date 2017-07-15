@@ -12,40 +12,63 @@ function showProDetailIntro() {
 
 }
 
-function getProIntro(num) {
+function getProIntro(page,rows) {
     $.ajax(
         {
-            url:API.GroupNumIntro+"?groupId="+num,
+            url:API.ProjectIntro+"?page="+page+"&rows="+rows,
             type:"GET",
             dataType:"json",
 
             success:function (data) {
 
 
+                // console.log("success")
+                console.log(data)
+                for(var i = 0;i<data.data.projects.length;i++) {
+                    var outDiamondDiv_3 = document.createElement("div");
+                    outDiamondDiv_3.className = "outDiamondDiv_3";
 
-                for(var i = 0;i<data.data.members.length;i++)
-                {
-                    var personalIntroDiv = document.createElement("div");
-                    personalIntroDiv.className = "personalIntroDiv";
+                    var showProIntro = document.createElement("div");
+                    showProIntro.className = "showProIntro";
 
-                    var PerIntrDiv = document.createElement("div");
-                    PerIntrDiv.className = "diamondDiv_group_1";
-
-                    var personalIntroText = document.createElement("div");
-                    personalIntroText.className = "personalIntroText";
+                    var ProName = document.createElement("div");
+                    ProName.innerHTML = data.data.projects[i].name;
+                    ProName.className = "ProName";
 
 
+                    // console.log(123123)
 
-                    var personalIntroTextP = document.createElement("p");
-                    personalIntroTextP.className = "personalIntroTextP";
-                    personalIntroTextP.innerHTML = data.data.members[i].name+data.data.members[i].introduce+"aaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaaa";
 
-                    personalIntroText.appendChild(personalIntroTextP);
-                    personalIntroDiv.appendChild(PerIntrDiv);
-                    personalIntroDiv.appendChild(personalIntroText);
-                    document.getElementById("groupMumIntr").appendChild(personalIntroDiv);
+                    showProIntro.appendChild(ProName);
+                    outDiamondDiv_3.appendChild(showProIntro);
+
+                    document.getElementById("Project").appendChild(outDiamondDiv_3);
 
                 }
+
+                    var showButton_Pro = document.getElementsByClassName("showProIntro")
+
+                    for(var i = 0;i<showButton_Pro.length;i++){
+                        showButton_Pro[i].addEventListener("click",(function () {
+                            console.log(123)
+                            var index = i;
+
+
+
+                            return function () {
+
+                                console.log("我检查到了监听器")
+                                // getGroupNumber(index+1);
+                                // getGroupIntro(index+1);
+
+                                showProDetailIntro();
+                            }
+
+
+                        })(i)) ;
+                    }
+
+
             },
             error:function (a,b,c) {
                 console.log(a,b,c)
@@ -54,29 +77,9 @@ function getProIntro(num) {
         }
     );
 }
+getProIntro(1,6);
 
 
-var showButton_Pro = document.getElementsByClassName(" showProIntro")
-
-for(var i = 0;i<showButton_Pro.length;i++){
-    showButton_Pro[i].addEventListener("click",(function () {
-
-        var index = i;
-
-
-
-        return function () {
-
-            console.log("我检查到了监听器")
-            // getGroupNumber(index+1);
-            // getGroupIntro(index+1);
-
-            showProDetailIntro();
-        }
-
-
-    })(i)) ;
-}
 
 
 //点击活动菱形的时候 显示活动详细介绍

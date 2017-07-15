@@ -30,7 +30,7 @@ public class ProjectServiceImpl implements ProjectService {
 
     @Override
     public Result getProjectIntro(Page page) {
-        page.setPage(page.getPage() - 1);
+        page.setPage((page.getPage() - 1) * page.getRows());
         List<Project> projectList = projectDAO.getProject(page);
         Integer count = projectDAO.getProjectCount();
         return ResultCache.getDataOk(new ProjectVO(count, projectList));

@@ -142,13 +142,20 @@ request:{
 }
 response:
 {
-	id:132
-	name:"第2次codereview"		//活动名字
-	introduce:"dfdfsd"			//活动介绍(md)
- 	date:"String"				//举办时间
-	group:"String"     		     //承办组
-	shower:"String"   			//展示组
-	github:"String"			//资料下载（github地址）
+    "status":200,
+	"message":"OK"
+	data: [
+        {
+            id:132
+            name:"第2次codereview"		//活动名字
+            introduce:"dfdfsd"			//活动介绍(md)
+            date:"String"				//举办时间
+            group:"String"     		     //承办组
+            shower:"String"   			//展示组
+            github:"String"			//资料下载（github地址）
+        },
+        ...
+        ]
 }
 
 简历投递

@@ -136,7 +136,10 @@ response:
 特色活动
 URL:/api/plain/getActivity
 method:GET
-request:{}
+request:{
+    page:1
+    rows:10
+}
 response:
 {
 	id:132

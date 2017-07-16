@@ -17,5 +17,8 @@ var API = {
     modifyUserInfo:this.base+'/api/member/modifyUserInfo',
     ProjectIntro:this.base+'/api/plain/getProjectIntro',
     GroupNumIntro:this.base+'/api/plain/getGroupIntro',
-    activityIntro:this.base+'/api/plain/getActivity'
+    activityIntro:this.base+'/api/plain/getActivity',
+    uploadDatum:this.base+'/api/member/uploadDatum',
+    modifyDatum:this.base+'/api/member/modifyDatum',
+    deleteDatum:this.base+'/api/member/deleteDatum'
 }

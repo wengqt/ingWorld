@@ -16,7 +16,7 @@ public interface ActivityDao {
 
     int delete(int id);
 
-    List<ActivityDTO> select(@Param("page") int page, @Param("rows") int rows);
+    List<ActivityDTO> select(@Param("begin") int begin, @Param("rows") int rows);
 
     int getActivityCount();
 

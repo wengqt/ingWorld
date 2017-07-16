@@ -54,7 +54,7 @@ submitChange.onclick=function () {
 }
 
 loginSubmit.onclick=function() {
-    console.log("ww");
+
     loginInfo.id=document.getElementById("id").value;
     loginInfo.password=document.getElementById("password").value;
     inputEmpty.style.display="none";
@@ -109,7 +109,7 @@ changeId.onclick=function () {
     $.removeCookie('userId');
 }
 
-if($.cookie('loginState')==0){
+if($.cookie('loginState')==0||!$.cookie('loginState')){
     document.getElementById("login").innerHTML='登&nbsp;&nbsp;&nbsp;&nbsp;&nbsp;录';
     console.log("no login");
     login.onclick = function () {

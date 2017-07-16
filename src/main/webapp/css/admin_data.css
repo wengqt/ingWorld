@@ -13,8 +13,8 @@
     background-color: #fff;
     height: 30px;
     line-height: 30px;  
-    margin-bottom: 10px;
-    border-bottom: 10px solid #e4eff5;
+
+    border-bottom: 12px solid #e4eff5;
 }
 tr.lineone{
     height: 20px;
@@ -64,7 +64,7 @@ tr.lineone{
     position: absolute;
     right: -120px;
 }
-.deletebtn{
+.deleteBtn{
     background-color: #d35852;
     border:none;
     height: 26px;
@@ -73,8 +73,9 @@ tr.lineone{
     width: 46px;
     border-radius: 8px;
     outline: mediumaquamarine;
+    cursor: pointer;
 }
-.changebtn{
+.changeBtn{
     background-color: #5f92c7;
     border:none;
     height: 26px;
@@ -83,6 +84,7 @@ tr.lineone{
     width: 46px;
     border-radius: 8px;
     outline: mediumaquamarine;
+    cursor: pointer;
 }
 .submmitDiv{
     width: 320px;
@@ -152,5 +154,9 @@ tr.lineone{
     border-radius: 5px;
     cursor: pointer;
     outline: mediumaquamarine;
-
+}
+*{
+    font-size: 14px;
+    margin: 0;
+    padding:0;
 }

@@ -2,7 +2,8 @@
  * Created by zhou on 2017/7/7.
  */
 var line=document.getElementsByClassName("content");
-var deleteBtn=document.getElementsByClassName("deletebtn");
+var deleteBtn=document.getElementsByClassName("deleteBtn");
+var changeBtn=document.getElementsByClassName("changeBtn")
 var tbody=document.getElementsByTagName("tbody");
 var upLoad=document.getElementById("upLoad");
 var cancelSubmit=document.getElementById("cancelSubmit");
@@ -13,8 +14,26 @@ var Info={
     title:"",
     url:""
 }
+var requestInfo={
+    page:1,
+    rows:9
+}
 console.log(line);
 console.log(deleteBtn);
+
+$.ajax({
+    url:API.getDatum,
+    type:"GET",
+    dataType:"json",
+    data:requestInfo,
+    success:function (data) {
+        console.log(data);
+    }
+})
+
+
+
+
 upLoad.onclick=function () {
     submitDiv.style.display="block";
 }
@@ -29,7 +48,13 @@ submitData.onclick=function () {
         Info.url=submitInfo[1].value;
         console.log(Info)
        $.ajax({
-           url:API.deleteNotice
+           url:API.uploadDatum,
+           type:"POST",
+           dataType:"json",
+           data:Info,
+           success:function (data) {
+               console.log(data);
+           }
        })
    }
 }
@@ -38,11 +63,19 @@ for(var i=0;i<deleteBtn.length;i++){
     (function (e) {
         deleteBtn[e].onclick=function () {
             // line[e].style.display="none";
-
+            console.log("delelte"+e)
 
 
 
         }
     })(i)
-
 }
+for(var i=0;i<changeBtn.length;i++){
+    (function (e) {
+        changeBtn[e].onclick=function () {
+            // line[e].style.display="none";
+            console.log("change"+e)
+        }
+    })(i)
+}
+

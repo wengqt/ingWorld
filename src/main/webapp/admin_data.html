@@ -34,8 +34,7 @@
             <div class="nav_bar_back" href="#"><img src="images/back.png"></div>
             <div class="nav_bar_confirm" href="#"><img src="images/confirm.png"></div>
         </div>
-        <p><span class="firstspan fs-small">全部</span><span class="secondspan fs-small">筛选</span><span
-                class="thirdspan fs-small">上传</span></p>
+        <p><span class="firstspan fs-small">全部</span><span class="secondspan fs-small">筛选</span><span class="thirdspan fs-big" id="upLoad">上传</span></p>
         <table id="contentTable">
             <tr class="lineone">
                 <td class="icon"></td>
@@ -53,7 +52,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -63,7 +63,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -73,7 +74,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -83,7 +85,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -93,7 +96,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -103,7 +107,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -113,7 +118,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -123,7 +129,8 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
             <tr class="content">
                 <td>
@@ -133,10 +140,17 @@
                 <td>aa</td>
                 <td>aa</td>
                 <td>aa</td>
-                <td class="colfive"><input class="deletebtn" type="button" name="delete" value="删除"></td>
+                <td class="colfive"><input class="changebtn" type="button" name="delete" value="修改"></td>
+                <td class="colsix"><input class="deletebtn" type="button" name="delete" value="删除"></td>
             </tr>
         </table>
     </div>
+</div>
+<div class="submmitDiv" id="submitDiv">
+    <div><span>标题：</span><input class="submitInfo" type="text"></div>
+    <div><span>网址：</span><input class="submitInfo" type="text"></div>
+    <input type="button" id="cancelSubmit" value="取消提交">
+    <input type="button" id="submitData" value="提交资料">
 </div>
 
 <script src="js/jquery-3.2.0.min.js"></script>

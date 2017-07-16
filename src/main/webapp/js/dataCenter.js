@@ -23,10 +23,10 @@ for(var i=0;i<requestInfo.rows;i++){
                 dataType:"json",
                 data:requestInfo,
                 success:function (data) {
-                    // console.log(data);
-                    // var json=eval('('+data+')');
+                    console.log(data);
+                    var json=eval('('+data+')');
 
-                    // document.getElementById("totalPage").innerHTML='共'+json.total+'页';
+                    document.getElementById("totalPage").innerHTML='共'+json.total+'页';
                     for(var index=0;index<requestInfo.rows;index++) {
                         tr[index+1].innerHTML = "<tr><td><div class=\"square\"></div></td><td>"+json.data[index].title+"</td><td>"+json.data[index].publishTime+"</td><td>"+json.data[index].dataPublish+"</td><td>"+json.data[index].url+"</td></tr>";
                     }
@@ -43,9 +43,9 @@ $.ajax({
     data:requestInfo,
     success:function (data) {
         console.log(data);
-        // var json=eval('('+data+')');
+        var json=eval('('+data+')');
 
-        // document.getElementById("totalPage").innerHTML='共'+json.total+'页';
+        document.getElementById("totalPage").innerHTML='共'+json.total+'页';
         for(var index=0;index<requestInfo.rows;index++) {
             tr[index+1].innerHTML = "<tr><td><div class=\"square\"></div></td><td>"+json.data[index].title+"</td><td>"+json.data[index].publishTime+"</td><td>"+json.data[index].dataPublish+"</td><td>"+json.data[index].url+"</td></tr>";
         }

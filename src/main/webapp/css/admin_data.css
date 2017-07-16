@@ -1,6 +1,6 @@
 .body p{
-    height: 30px;
-    line-height: 30px;
+    height: 40px;
+    line-height: 40px;
     background-color: #a6c5e3;
 }
 .body table{
@@ -51,6 +51,7 @@ tr.lineone{
 }
 .thirdspan{
     margin-left: 52%;
+    cursor: pointer;
 }
 /*.body{*/
     /*min-width: 674px;*/
@@ -58,9 +59,22 @@ tr.lineone{
 .colfive{
     position: absolute;
     right: -60px;
-
+}
+.colsix{
+    position: absolute;
+    right: -120px;
 }
 .deletebtn{
+    background-color: #d35852;
+    border:none;
+    height: 26px;
+    line-height: 26px;
+    color: #ffffff;
+    width: 46px;
+    border-radius: 8px;
+    outline: mediumaquamarine;
+}
+.changebtn{
     background-color: #5f92c7;
     border:none;
     height: 26px;
@@ -69,4 +83,74 @@ tr.lineone{
     width: 46px;
     border-radius: 8px;
     outline: mediumaquamarine;
+}
+.submmitDiv{
+    width: 320px;
+    height: 240px;
+    border: none;
+    background-color: #e4eff5;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    display: none;
+
+}
+.submmitDiv div{
+    width: 80%;
+    margin: 10px auto;
+
+}
+.submmitDiv div>span{
+    font-size: 20px;
+}
+.submmitDiv div>input{
+    font-size: 20px;
+    text-overflow: ellipsis;
+   margin-top: 5px;
+
+}
+.submmitDiv input{
+    font-size: 20px;
+
+}
+#cancelSubmit{
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: mediumaquamarine;
+}
+#submitData{
+    position: absolute;
+    right: 30px;
+    bottom: 30px;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: mediumaquamarine;
+
 }

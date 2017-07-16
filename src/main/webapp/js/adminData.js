@@ -4,7 +4,6 @@
 var line=document.getElementsByClassName("content");
 var deleteBtn=document.getElementsByClassName("deleteBtn");
 var changeBtn=document.getElementsByClassName("changeBtn")
-var tbody=document.getElementsByTagName("tbody");
 var upLoad=document.getElementById("upLoad");
 var cancelSubmit=document.getElementById("cancelSubmit");
 var submitData=document.getElementById("submitData");
@@ -27,13 +26,11 @@ $.ajax({
     dataType:"json",
     data:requestInfo,
     success:function (data) {
-        console.log(data);
+
+
+
     }
 })
-
-
-
-
 upLoad.onclick=function () {
     submitDiv.style.display="block";
 }
@@ -46,7 +43,7 @@ submitData.onclick=function () {
    }else {
         Info.title=submitInfo[0].value;
         Info.url=submitInfo[1].value;
-        console.log(Info)
+        console.log(Info);
        $.ajax({
            url:API.uploadDatum,
            type:"POST",

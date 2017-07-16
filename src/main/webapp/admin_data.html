@@ -51,10 +51,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -62,10 +62,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -73,10 +73,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -84,10 +84,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -95,10 +95,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -106,10 +106,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -117,10 +117,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -128,10 +128,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -139,10 +139,10 @@
                 <td>
                     <div class="square"></div>
                 </td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
-                <td>aa</td>
+                <td></td>
+                <td></td>
+                <td></td>
+                <td></td>
                 <td class="colfive"><input class="changeBtn" type="button" name="delete" value="修改"></td>
                 <td class="colsix"><input class="deleteBtn" type="button" name="delete" value="删除"></td>
             </tr>
@@ -154,6 +154,12 @@
     <div><span>网址：</span><input class="submitInfo" type="text"></div>
     <input type="button" id="cancelSubmit" value="取消提交">
     <input type="button" id="submitData" value="提交资料">
+</div>
+<div class="changeDiv" id="changeDiv">
+    <div><span>旧网址：</span><input class="submitInfo" type="text"></div>
+    <div><span>新网址：</span><input class="submitInfo" id="submitURL" type="text"></div>
+    <input type="button" id="cancelChangeData" value="取消修改">
+    <input type="button" id="submitChangeData" value="提交修改">
 </div>
 <!--<div class="changeDataDiv" id="changeDataDiv">-->
     <!--<div><span>标题：</span><input class="submitInfo" type="text"></div>-->
@@ -188,19 +194,19 @@
 <div class="bottomlist">
     <ul>
         <li>上一页</li>
-        <li>1</li>
-        <li>2</li>
-        <li>3</li>
-        <li>4</li>
+        <li class="selectedPage">1</li>
+        <li class="selectedPage">2</li>
+        <li class="selectedPage">3</li>
+        <li class="selectedPage">4</li>
         <li>下一页</li>
     </ul>
+    <p id="total"></p>
 </div>
 
 
 <script src="js/jquery-3.2.0.min.js"></script>
 <script src="js/jquery.cookie.js"></script>
 <script src="js/login.js"></script>
-
 <script src="js/API.js"></script>
 <script src="js/adminData.js"></script>
 </body>

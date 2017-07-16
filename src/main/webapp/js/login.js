@@ -15,6 +15,7 @@ var changeId=document.getElementById("changeId");
 var changePassword=document.getElementById("changePassword");
 var submitChange=document.getElementById("submitChange");
 var cancelChange=document.getElementById("cancelChange");
+
 var loginInfo={
     id:"id",
     password:"password"

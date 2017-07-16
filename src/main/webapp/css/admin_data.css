@@ -32,13 +32,13 @@ tr.lineone{
     width: 10%;
 }
 .colone{
-    width: 25%;
+    width: 16%;
 }
 .coltwo{
-    width: 20%;
+    width: 25%;
 }
 .colthree{
-    width: 20%;
+    width: 16%;
 }
 .colfour{
     width: 20%;
@@ -103,7 +103,7 @@ tr.lineone{
     display: none;
 
 }
-.submmitDiv div{
+.submmitDiv div,.changeDiv div{
     width: 80%;
     margin: 10px auto;
 
@@ -111,16 +111,54 @@ tr.lineone{
 .submmitDiv div>span{
     font-size: 20px;
 }
-.submmitDiv div>input{
+.submmitDiv div>input,.changeDiv input{
     font-size: 20px;
     text-overflow: ellipsis;
    margin-top: 5px;
-
 }
 .submmitDiv input{
     font-size: 20px;
-
 }
+.changeDiv div>span{
+    font-size: 20px;
+}
+.changeDiv{
+    width: 320px;
+    height: 240px;
+    border: none;
+    background-color: #e4eff5;
+    position: absolute;
+    left: 50%;
+    top:50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    padding: 10px;
+    display: none;
+}
+.changeDiv input{
+    font-size: 20px;
+}
+#cancelChangeData{
+    position: absolute;
+    left: 30px;
+    bottom: 30px;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: mediumaquamarine;
+}
+
 #cancelSubmit{
     position: absolute;
     left: 30px;
@@ -141,6 +179,23 @@ tr.lineone{
 #submitData{
     position: absolute;
     right: 30px;
+    bottom: 30px;
+    background-color: #5f92c7;
+    color: #fff;
+    width: 120px;
+    height: 36px;
+    line-height: 36px;
+    font-size: 20px;
+    font-weight: 100;
+    text-align: center;
+    border:none;
+    border-radius: 5px;
+    cursor: pointer;
+    outline: mediumaquamarine;
+}
+#submitChangeData{
+    position: absolute;
+    right: 44px;
     bottom: 30px;
     background-color: #5f92c7;
     color: #fff;

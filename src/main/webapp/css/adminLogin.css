@@ -114,10 +114,10 @@ input#loginSubmit.submit{
     min-width: 288px;
     position: relative;
 }
-.bottomlist:after{
-    content: "共50页";
+#total{
+
     position: absolute;
     top: 3px;
-    right: -62px;
+    right: -105px;
     font-size: 14px;
 }

@@ -17,6 +17,8 @@ public class Datum {
 
     private String dataPublish;
 
+    private Integer publisherId;
+
     private String publishTime;
 
 }

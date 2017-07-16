@@ -21,13 +21,11 @@
         FROM datum
         WHERE id = #{id}
     </select>
-
-    <select id="getDatum" parameterType="Page" resultMap="DatumMap">
+    <select id="getDatum" resultMap="DatumMap">
         SELECT *
         FROM datum
-        LIMIT #{page}, #{rows}
+        LIMIT #{begin}, #{rows}
     </select>
-
     <insert id="insertDatum" parameterType="Datum" useGeneratedKeys="true" keyProperty="id">
         INSERT INTO datum(id, title, url, publisher , publisherId, `date`)
         VALUES(#{id}, #{title}, #{url}, #{dataPublish},#{publisherId},NOW())

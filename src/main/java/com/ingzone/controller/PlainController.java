@@ -93,11 +93,8 @@ public class PlainController {
     }
 
     @RequestMapping(value = "/getActivity", method = RequestMethod.GET)
-    public Result getActivity(Integer page, Integer rows) {
-        if (page == null || rows == null) {
-            return ResultCache.FAILURE;
-        }
-        return activityService.getActivity(page, rows);
+    public Result getActivity(Page page) {
+        return activityService.getActivity(page);
     }
 
 }

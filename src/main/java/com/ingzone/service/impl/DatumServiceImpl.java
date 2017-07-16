@@ -32,7 +32,7 @@ public class DatumServiceImpl implements DatumService {
     @Override
     public Result getDatum(Page page) {
         Integer count = datumDAO.getDatumCount();
-        List<Datum> datumList = datumDAO.getDatum(page);
+        List<Datum> datumList = datumDAO.getDatum((page.getPage()-1)*page.getRows(),page.getRows());
         return ResultCache.getDataOk(new DatumVO(count, datumList));
     }
 
@@ -40,6 +40,7 @@ public class DatumServiceImpl implements DatumService {
     public Result insertDatum(Datum datum, Integer userid) {
         User user = userDAO.getUserById(userid);
         datum.setDataPublish(user.getName());
+        datum.setPublisherId(userid);
         datumDAO.insertDatum(datum);
         return ResultCache.getCache(1);
     }
@@ -47,7 +48,7 @@ public class DatumServiceImpl implements DatumService {
     @Override
     public Result deleteDatum(int id, Integer userid, String currentRole) {
         Datum datum = datumDAO.getDatumById(id);
-        if(datum == null) {
+        if (datum == null) {
             return ResultCache.getCache(0);
         }
         User dataOwner = userDAO.getUserByName(datum.getDataPublish());
@@ -60,7 +61,7 @@ public class DatumServiceImpl implements DatumService {
     public Result updateDatum(Datum datum, Integer userid, String currentRole) {
         // 当前存储的资料，用来判断是否是拥有者
         Datum ownerDatum = datumDAO.getDatumById(datum.getId());
-        if(ownerDatum == null) {
+        if (ownerDatum == null) {
             return ResultCache.FAILURE;
         }
         User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());

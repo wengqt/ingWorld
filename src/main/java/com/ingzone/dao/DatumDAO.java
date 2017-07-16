@@ -2,6 +2,7 @@ package com.ingzone.dao;
 
 import com.ingzone.model.dto.Datum;
 import com.ingzone.model.dto.Page;
+import org.apache.ibatis.annotations.Param;
 import org.springframework.stereotype.Repository;
 
 import java.util.List;
@@ -23,6 +24,6 @@ public interface DatumDAO {
 
     Datum getDatumById(int id);
 
-    List<Datum> getDatum(Page page);
 
+    List<Datum> getDatum(@Param("begin") int begin, @Param("rows") int rows);
 }

@@ -49,10 +49,11 @@ public class DatumServiceImpl implements DatumService {
     @Override
     public Result deleteDatum(int id, Integer userid, String currentRole) {
         Datum datum = datumDAO.getDatumById(id);
+        System.out.println(currentRole);
         if (datum == null) {
             return ResultCache.getCache(0);
         }
-        User dataOwner = userDAO.getUserByName(datum.getDataPublish());
+        User dataOwner = userDAO.getUserById(datum.getPublisherId());
 
         return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.deleteDatum(id) == 1 ? ResultCache.OK : ResultCache.FAILURE);
@@ -65,9 +66,9 @@ public class DatumServiceImpl implements DatumService {
         if (ownerDatum == null) {
             return ResultCache.FAILURE;
         }
-        User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
+        User dataOwner = userDAO.getUserById(datum.getId());
         if (dataOwner == null) {
-            return ResultCache.FAILURE
+            return ResultCache.FAILURE;
         }
 
         return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,

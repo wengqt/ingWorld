@@ -32,6 +32,7 @@ CREATE TABLE `datum` (
   `url` varchar(255) DEFAULT NULL,
   `publisher` varchar(255) DEFAULT NULL,
   `date` datetime DEFAULT NULL,
+  `publisherId` int(11) NOT NULL,
   PRIMARY KEY (`id`),
   UNIQUE KEY `datum_id_uindex` (`id`)
 ) ENGINE=InnoDB DEFAULT CHARSET=utf8;

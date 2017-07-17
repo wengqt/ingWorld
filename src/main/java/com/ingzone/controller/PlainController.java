@@ -50,7 +50,6 @@ public class PlainController {
 
     @RequestMapping(value = "/getProjectIntro", method = RequestMethod.GET)
     public Result getProjectIntro(Page page) {
-        System.out.println("xxxxxxx" + page);
         if (page == null || page.getPage() == null || page.getRows() == null || page.getPage() <= 0 || page.getRows() <= 0) {
             return ResultCache.FAILURE;
         }

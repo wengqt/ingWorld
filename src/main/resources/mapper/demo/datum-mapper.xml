@@ -7,6 +7,7 @@
         <result column="url" property="url"/>
         <result column="title" property="title"/>
         <result column="publisher" property="dataPublish"/>
+        <result column="publisherId" property="publisherId"/>
         <result column="date" property="publishTime"/>
     </resultMap>
 
@@ -20,21 +21,18 @@
         FROM datum
         WHERE id = #{id}
     </select>
-
-    <select id="getDatum" parameterType="Page" resultMap="DatumMap">
+    <select id="getDatum" resultMap="DatumMap">
         SELECT *
         FROM datum
-        LIMIT #{page}, #{rows}
+        LIMIT #{begin}, #{rows}
     </select>
-
     <insert id="insertDatum" parameterType="Datum" useGeneratedKeys="true" keyProperty="id">
-        INSERT INTO datum(id, title, url, publisher, date)
-        VALUES(#{id}, #{title}, #{url}, #{dataPublish}, NOW())
+        INSERT INTO datum(id, title, url, publisher , publisherId, `date`)
+        VALUES(#{id}, #{title}, #{url}, #{dataPublish},#{publisherId},NOW())
     </insert>
 
     <delete id="deleteDatum" parameterType="int">
-        DELETE
-        FROM datum
+        DELETE FROM datum
         WHERE id = #{id}
     </delete>
 

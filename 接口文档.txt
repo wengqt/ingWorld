@@ -345,7 +345,8 @@ response:
 	name:"lph" 名字
 	introduce:"string"
 	group:123456 所属组
-	from:"string" 年级学院
+	major:" "      专业
+    grade:"string" 年级班级
 	blog:"string" 个人博客
 	phone:"1231456" 手机
 	mail:"sdu.esu.cn" 邮箱
@@ -363,7 +364,8 @@ request:
 	name:"lph" 名字
 	introduce:"string"
 	group:123456 所属组
-	from:"string" 年级学院
+	major:" "      专业
+	grade:"string" 年级班级
 	blog:"string" 个人博客
 	phone:"1231456" 手机
 	mail:"sdu.esu.cn" 邮箱

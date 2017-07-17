@@ -39,6 +39,12 @@ span.info{
     line-height: 70px;
     height: 30px;
 }
+.longspan{
+    display: inline-block;
+    line-height: 70px;
+    height: 30px;
+    width:460px;
+}
 .message img{
     position: absolute;
     right: 0px;
@@ -46,12 +52,7 @@ span.info{
     width: 25%;
     height: 200px;
 }
-.state{
-    position: absolute;
-    right: 320px;
-    font-size: 12px;
-    bottom: -36px;
-}
+
 .delete_resume{
     position: absolute;
     right: 160px;
@@ -94,18 +95,34 @@ span.info{
     outline: mediumaquamarine;
     text-overflow:ellipsis
 }
+.longinput{
+    display: inline-block;
+    font-size: 20px;
+    width: 80%;
+    border: none;
+    background-color: #e4eff5;
+    color: #5f92c7;
+    outline: mediumaquamarine;
+    text-overflow:ellipsis;
+}
 .inputtext{
     outline: mediumaquamarine;
     font-family: 微软雅黑;
-    margin-top: 20px;
+    margin-top: 16px;
     width:100%;
     font-size:20px;
-    min-height: 200px;
+    min-height: 150px;
     resize: none;
     border: none;
     background-color: #e4eff5;
     color: #5f92c7;
 }
 #submitChange{
+    display: none;
+}
+#github{
+    letter-spacing: 1.4px;
+}
+#cancelChange{
     display: none;
 }

@@ -1,0 +1,123 @@
+.loginChange{
+    background-color: #eee;
+    line-height: 50px;
+    width: 20%;
+    height: 150px;
+    padding: 20px;
+    min-width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.loginChange input{
+    width: 40%;
+}
+.changePassword{
+    background-color: #eee;
+    line-height: 50px;
+    width: 20%;
+    height: 150px;
+    padding: 20px;
+    min-width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+}
+.changePassword input{
+    width:40%;
+}
+.logindiv{
+    background-color: #eee;
+    line-height: 50px;
+    width: 20%;
+    height: 150px;
+    padding: 20px;
+    min-width: 200px;
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    -webkit-transform: translate(-50%, -50%);
+    -moz-transform: translate(-50%, -50%);
+    -ms-transform: translate(-50%, -50%);
+    -o-transform: translate(-50%, -50%);
+    transform: translate(-50%, -50%);
+    display: none;
+
+}
+.logindiv input{
+    width: 60%;
+}
+input#loginSubmit.submit{
+    display: block;
+    width:50%;
+    margin: 0 auto;
+}
+.inputError{
+
+    width: 64%;
+    color: red;
+    display: block;
+    margin: 0 auto;
+    display: none;
+}
+.inputEmpty{
+
+    width: 80%;
+    color: red;
+    display: block;
+    margin:0px auto 0;
+    display: none;
+}
+
+.close{
+    position: absolute;
+    top: -10px;
+    right: 0;
+    font-size: 40px;
+    cursor: pointer;
+}
+.login{
+    position: absolute;
+    top: 20px;
+    right: 20px;
+    color: #3870ac;
+    font-size: inherit;
+}
+#login{
+    font-size: 20px;
+    color: #ffffff;
+}
+.bottomlist ul li{
+    float: left;
+    margin-left: 20px;
+    font-size: 20px;
+    cursor: pointer;
+}
+
+.bottomlist{
+    width: 22%;
+    margin: 20px auto 0;
+    line-height: 20px;
+    height: 20px;
+    min-width: 288px;
+    position: relative;
+}
+#total{
+
+    position: absolute;
+    top: 3px;
+    right: -105px;
+    font-size: 14px;
+}

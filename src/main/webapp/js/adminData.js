@@ -72,11 +72,10 @@ function getDatum() {
                             success:function (data) {
                                 console.log(data);
                                 alert("删除成功");
+                                getDatum();
                             }
                         })
                         console.log("delelte"+e);
-
-                        getDatum();
                     }
                 })(i)
             }
@@ -85,11 +84,36 @@ function getDatum() {
                     changeBtn[e].onclick=function () {
                         // line[e].style.display="none";
                         console.log("change"+e);
+                        document.getElementById("oldURL").value=line[e].getElementsByTagName("td")[4].innerHTML;
                         changeDiv.style.display="block";
-                        document.getElementById("submitChangeData").onclick=function () {
 
+                        document.getElementById("submitChangeData").onclick=function () {
+                            if(document.getElementById("submitURL").value==""||document.getElementById("submitURL").value==document.getElementById("oldURL").value){
+                                alert("输入网址不能为空或重复")
+                            }else {
+                                changeInfo.url = document.getElementById("submitURL").value;
+                                changeInfo.id = contentId[e];
+                                console.log(changeInfo);
+
+                                $.ajax({
+                                    url:API.modifyDatum,
+                                    type:"POST",
+                                    dataType:"json",
+                                    data:changeInfo,
+                                    success:function (data) {
+                                        console.log(data);
+                                        getDatum();
+                                        alert("修改成功");
+                                    }
+                                })
+
+                                changeDiv.style.display="none";
+
+                            }
+
+
+                                changeDiv.style.display="none";
                         }
-                        getDatum();
                     }
                 })(i)
             }

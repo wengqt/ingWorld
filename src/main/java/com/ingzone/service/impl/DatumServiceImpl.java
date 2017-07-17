@@ -13,6 +13,7 @@ import com.ingzone.util.AuthPrivilegeUtil;
 import org.springframework.beans.factory.annotation.Autowired;
 import org.springframework.stereotype.Service;
 import org.springframework.transaction.annotation.Transactional;
+import sun.misc.Cache;
 
 import java.util.List;
 
@@ -64,6 +65,9 @@ public class DatumServiceImpl implements DatumService {
             return ResultCache.FAILURE;
         }
         User dataOwner = userDAO.getUserByName(ownerDatum.getDataPublish());
+        if (dataOwner == null) {
+            return ResultCache.FAILURE
+        }
 
         return AuthPrivilegeUtil.operateWithPrivilege(dataOwner.getId(), userid, dataOwner.getRole(), currentRole,
                 () -> datumDAO.updateDatum(datum) == 1 ? ResultCache.OK : ResultCache.FAILURE);

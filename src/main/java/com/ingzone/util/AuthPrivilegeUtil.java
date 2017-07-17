@@ -25,7 +25,6 @@ public class AuthPrivilegeUtil {
         if(requireRole == null || currentRole == null) {
            return false;
         }
-        System.out.println(requireRole.toLowerCase());
         Integer requiredRank = map.get(requireRole.toLowerCase());
         Integer currentRank = map.get(currentRole.toLowerCase());
         if(requiredRank < currentRank) {

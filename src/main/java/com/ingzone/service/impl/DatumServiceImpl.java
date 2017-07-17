@@ -49,7 +49,6 @@ public class DatumServiceImpl implements DatumService {
     @Override
     public Result deleteDatum(int id, Integer userid, String currentRole) {
         Datum datum = datumDAO.getDatumById(id);
-        System.out.println(currentRole);
         if (datum == null) {
             return ResultCache.getCache(0);
         }

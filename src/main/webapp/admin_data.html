@@ -12,6 +12,7 @@
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/admin_data.css">
     <link rel="stylesheet" href="css/adminLogin.css">
+    <link rel="stylesheet" href="css/bottom.css">
     <link>
 </head>
 <body>
@@ -193,12 +194,15 @@
 </div>
 <div class="bottomlist">
     <ul>
-        <li>上一页</li>
-        <li class="selectedPage">1</li>
-        <li class="selectedPage">2</li>
-        <li class="selectedPage">3</li>
-        <li class="selectedPage">4</li>
-        <li>下一页</li>
+        <li id="lastPage">上一页</li>
+        <div class="selected">
+            <li class="selectedPage">1</li>
+            <li class="selectedPage">2</li>
+            <li class="selectedPage">3</li>
+            <!--<li class="selectedPage">4</li>-->
+        </div>
+
+        <li id="nextPage">下一页</li>
     </ul>
     <p id="total"></p>
 </div>

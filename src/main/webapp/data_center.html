@@ -3,6 +3,23 @@
 <head>
 	<meta charset="utf-8">
 	<link rel="stylesheet" type="text/css" href="css/DataCenter2.css">
+	<link rel="stylesheet" type="text/css" href="css/bottom.css">
+	<style type="text/css">
+		p#total{
+			background-color: transparent;
+			position: absolute;
+			top: -4px;
+			right: -130px;
+			font-size: 16px;
+		}
+		#upLoad{
+			font-size: 20px;
+			cursor: pointer;
+		}
+		#nextPage{
+			cursor: pointer;
+		}
+	</style>
 	<title></title>
 </head>
 <body>
@@ -11,7 +28,7 @@
 		<img class="rightimg" src="img/B.png">
 	</div>
 	<div class="content">
-		<p><span class="firstspan">全部</span><span class="secondspan">筛选</span><span class="thirdspan">上传</span></p>
+		<p><span class="firstspan">全部</span><span class="secondspan">筛选</span><span class="thirdspan" id="upLoad">上传</span></p>
 		<table>
 			<tr class="lineone">
 				<td class="icon"></td>
@@ -85,19 +102,25 @@
 			</tr>
 
 		</table>
-		<div class="bottomSelect" id="bottomSelect">
+		<div class="bottomlist">
 			<ul>
-				<li class="option">1</li>
-				<li class="option">2</li>
-				<li class="option">3</li>
-				<li class="option">4</li>
-				<li class="option">5</li>
-				<li class="option">6</li>
-				<li class="option">7</li>
-				<li class="option">8</li>
-				<li class="option">9</li>
-				<li class="totalPage" id="totalPage">共有50页</li>
+				<li id="lastPage">上一页</li>
+				<div class="selected">
+					<li class="selectedPage">1</li>
+					<li class="selectedPage">2</li>
+					<li class="selectedPage">3</li>
+					<!--<li class="selectedPage">4</li>-->
+				</div>
+
+				<li id="nextPage">下一页</li>
 			</ul>
+			<p id="total"></p>
+		</div>
+		<div class="submmitDiv" id="submitDiv">
+			<div><span>标题：</span><input class="submitInfo" type="text"></div>
+			<div><span>网址：</span><input class="submitInfo" type="text"></div>
+			<input type="button" id="cancelSubmit" value="取消提交">
+			<input type="button" id="submitData" value="提交资料">
 		</div>
 		<script>
             var leftimg=document.getElementById("leftimg");

@@ -16,7 +16,7 @@ public class AuthPrivilegeUtil {
 
     static {
         map.put("admin", 0);
-        map.put("miniAdmin", 1);
+        map.put("miniadmin", 1);
         map.put("member", 2);
     }
 
@@ -25,8 +25,8 @@ public class AuthPrivilegeUtil {
         if(requireRole == null || currentRole == null) {
            return false;
         }
-        Integer requiredRank = map.get(requireRole);
-        Integer currentRank = map.get(currentRole);
+        Integer requiredRank = map.get(requireRole.toLowerCase());
+        Integer currentRank = map.get(currentRole.toLowerCase());
         if(requiredRank < currentRank) {
             return false;
         }

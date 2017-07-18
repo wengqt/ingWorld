@@ -123,14 +123,14 @@
 
 	<div class="footerForInput">
 
-		<a class="last1 footerA" onclick="lastPage()">上一页</a>
+		<a class="last1 footerA" onclick="lastProPage()">上一页</a>
 		&nbsp;
 		<!--      &nbsp;  是插入空格的意思   -->
-		<a class="next1 footerA" onclick="nextPage()">下一页</a>
+		<a class="next1 footerA" onclick="nextProPage()">下一页</a>
 		&nbsp;&nbsp;
 
-		<input type="text">
-		<span class="JumpToPageButton" style="border:1px solid #00F ;padding: 0 5px;"    >跳转</span>
+		<input type="text" class="TextField" id="ProTextField">
+		<span class="JumpToPageButton" id="ProJumpTo" style="border:1px solid #00F ;padding: 0 5px;"  onclick="jumpToPro()"  >跳转</span>
 
 	</div>
 
@@ -145,8 +145,8 @@
 		<div class="content">
 			<img src="img/img11.jpg">
 			<div class="word ">
-				<h1 class="groupName">这是项目介绍</h1>
-				<p class="IntroContent">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+				<h1 class="IntroTitle" id="ProIntroTitle">这是项目介绍</h1>
+				<p class="IntroContent" id="ProIntoContent">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
 			</div>
 		</div>
 	</div>
@@ -160,55 +160,55 @@
 <div id="mainBody_4" class=" display--none page-value mainBody">
 	<div class="sonOfMainBody_tran" id="Activity">
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
-		<div class="outDiamondDiv_4 ">
-			<div class=" showActIntro">
-				<div class="ActName">活动介绍</div>
-			</div>
-		</div>
+		<!--<div class="outDiamondDiv_4 ">-->
+			<!--<div class=" showActIntro">-->
+				<!--<div class="ActName">活动介绍</div>-->
+			<!--</div>-->
+		<!--</div>-->
 
 
 	</div>
 
 	<div class="footerForInput">
 
-		<a class="last1 footerA">上一页</a>
+		<a class="last1 footerA" onclick="lastActPage()">上一页</a>
 		&nbsp;
 		<!--      &nbsp;  是插入空格的意思   -->
-		<a class="next1 footerA">下一页</a>
+		<a class="next1 footerA" onclick="nextActPage()">下一页</a>
 		&nbsp;&nbsp;
 
-		<input type="text">
-		<span class="JumpToPageButton" style="border:1px solid #00F ;padding: 0 5px;"    >跳转</span>
+		<input type="text" class="TextField" id="ActTextField">
+		<span class="JumpToPageButton" id="ActJumpTo" style="border:1px solid #00F ;padding: 0 5px;"  onclick="jumpToAct()"  >跳转</span>
 
 	</div>
 
@@ -220,12 +220,11 @@
 		<div class="content">
 			<img src="img/img11.jpg">
 			<div class="word ">
-				<h1 class="groupName">这是活动介绍</h1>
-				<p class="IntroContent">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
+				<h1 class="IntroTitle" id="ActIntroTitle">这是项目介绍</h1>
+				<p class="IntroContent" id="ActIntoContent">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
 			</div>
 		</div>
 	</div>
-
 
 </div>
 

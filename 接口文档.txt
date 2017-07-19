@@ -473,10 +473,10 @@ URL:/api/admin/uploadActivity
 method:POST
 request:
 {
-	name:"第2次codereview"		//活动名字
+	name:"第2次codereview"	    //活动名字
 	introduce:"dfdfsd"			//活动介绍
  	date:"String"				//举办时间
-	group:"String"     		     //承办组
+	group:"String"     		    //承办组
 	shower:"String"   			//展示组
 	github:"String"			//资料下载（github地址）
 }

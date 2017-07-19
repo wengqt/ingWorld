@@ -1,9 +1,13 @@
-#mainBody_3{
+#admin_mainbody_act{
 
     min-width: 1165px;
+
+    min-height: 700px;
+
+    position: relative;
 }
 .diamondDiv_3{
-
+    cursor: pointer;
     position: relative;
 
     padding: 14%;
@@ -41,18 +45,18 @@
 
 .sonOfMainBody_tran{
 
-    width: 80%;
+    width: 81%;
 
     margin: 0 auto;
 }
 
 .outDiamondDiv_3{
-    height: 94%;
+    height: 93%;
     display: inline-block;
     width: 30%;
     /* margin: 0 auto; */
     /* margin: 12px; */
-    margin: 13% 0 1% 3%;
+    margin: 12% 0 1% 3%;
 }
 
 #firstLineDiv_3{
@@ -84,7 +88,7 @@
     padding: 10% 7% 0 7%;
 }
 
-.uptranlge_3{
+.ActName{
     left: 24%;
     top: 14%;
     z-index: -1;
@@ -129,4 +133,32 @@
     -o-transform: rotate(-45deg);
     text-align: center;
     font-size: 120%;
+}
+
+.footerForInput {
+    /* text-align: right; */
+    width: 91%;
+    /* height: 38%; */
+    /* height: 75px; */
+    text-align: right;
+    line-height: 75px;
+    position: absolute;
+    /* top: 90%; */
+    bottom: 5px;
+    /* font-size: 500px!important; */
+}
+
+.footerA{
+    color: black;
+    /**/
+    cursor: pointer;
+}
+.JumpToPageButton{
+    cursor: pointer;
+}
+#OutCreatActivity_admin{
+
+}
+#creatActivity_admin{
+    width: 100%;
 }

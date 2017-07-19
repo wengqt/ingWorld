@@ -79,7 +79,7 @@ function getProIntro(PropageInt,rows) {
 
                         })(i)) ;
                     }
-
+                showPage(PropageInt,PropageMax)
 
             },
             error:function (a,b,c) {
@@ -209,6 +209,7 @@ function getActIntro(ActpageInt,rows) {
 
 
                     })(i)) ;
+                    showPage(ActpageInt,ActpageMax);
                 }
 
 
@@ -259,3 +260,13 @@ function  jumpToAct() {
 
 }
 
+function showPage(currentPage,TotalPage) {
+
+    document.getElementById("currentPage_Act").innerHTML = currentPage;
+    document.getElementById("totalPage_Act").innerHTML = TotalPage;
+
+    document.getElementById("currentPage_Pro").innerHTML = currentPage;
+    document.getElementById("totalPage_Pro").innerHTML = TotalPage;
+
+
+}

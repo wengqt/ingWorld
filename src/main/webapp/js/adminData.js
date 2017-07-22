@@ -14,10 +14,7 @@ var selectedPage=document.getElementsByClassName("selectedPage");
 var changeDiv=document.getElementById("changeDiv");
 var contentId=[];
 var totalPage=0;
-var Info={
-    title:"",
-    url:""
-}
+
 var deleteInfo={
     id:""
 }

@@ -78,8 +78,8 @@ function getGroupIntro(num) {
 
             success:function (data) {
 
-                document.getElementsByClassName("groupName").innerHTML = GroupName;
-                document.getElementsByClassName("IntroContent").innerHTML = data.introduce;
+                document.getElementById("GroupIntroTitle").innerHTML = GroupName;
+                document.getElementById("GroupIntroContent").innerHTML = data.introduce;
 
                 console.log(data.introduce);
 

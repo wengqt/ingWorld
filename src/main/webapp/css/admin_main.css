@@ -49,7 +49,7 @@ a:hover{
     color: #ffffff;
 }
 *{
-    font-size: 0;
+    /*font-size: 0;*/
 }
 html{
     font-size: initial;

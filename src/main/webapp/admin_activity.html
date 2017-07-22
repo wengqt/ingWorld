@@ -91,6 +91,9 @@
     </style>
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/admin_activity.css">
+    <link rel="stylesheet" type="text/css" href="css/IntroOverview.css">
+
+
 </head>
 <body>
 <div class="head fs-large blue-deep">ING工作室后台管理</div>
@@ -115,50 +118,75 @@
             <div class="nav_bar_back" href="#"><img src="images/back.png"></div>
             <div class="nav_bar_confirm" href="#"><img src="images/confirm.png"></div>
             <div id="showScreen">
-                <div id="mainBody_3" class="mainBody">
-                    <div class="sonOfMainBody_tran">
+                <div id="admin_mainbody_act" class="mainBody">
+                    <div class="sonOfMainBody_tran" id="admin_Activity">
 
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3">
-                                <div class="downtranlge_3">修改活动</div>
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+
+
+                        <!--<div class="outDiamondDiv_3 ">-->
+                            <!--<div class="diamondDiv_3">-->
+                                <!--<div class="ActName">活动</div>-->
+                            <!--</div>-->
+                        <!--</div>-->
+
+                    </div>
+
+
+                    <div class="footerForInput">
+
+                        <a class="last1 footerA" onclick="lastActPage()">上一页</a>
+
+                        <!--      &nbsp;  是插入空格的意思   -->
+                        <a class="next1 footerA" onclick="nextActPage()">下一页</a>
+                        &nbsp;&nbsp;
+                        当前页码:<span id="currentPage"></span>&nbsp;共:<span id="totalPage"></span>页
+                        <input type="text" class="TextField" id="ActTextField">
+                        <span class="JumpToPageButton" id="ActJumpTo" style="border:1px solid #00F ;padding: 0 5px;" onclick="jumpToAct_admin()"  >跳转</span>
+
+                    </div>
+
+                </div>
+                <div id="OutActivityIntr" class="display--none mainBody">
+
+                    <div class="ActivityIntr">
+                        <div class="content">
+                            <img src="img/img11.jpg">
+                            <div class="word ">
+                                <h1 class="IntroTitle" id="ActIntroTitle">这是项目介绍</h1>
+                                <p class="IntroContent" id="ActIntoContent">啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊啊</p>
                             </div>
                         </div>
-
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3">
-                                <div class="downtranlge_3">添加活动</div>
-                            </div>
-                        </div>
-
-
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3 ">
-                                <div class="uptranlge_3">活动</div>
-                            </div>
-                        </div>
-
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3">
-                                <div class="uptranlge_3">活动</div>
-                            </div>
-                        </div>
-
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3">
-                                <div class="uptranlge_3">活动</div>
-                            </div>
-                        </div>
-
-
-
-                        <div class="outDiamondDiv_3 ">
-                            <div class="diamondDiv_3">
-                                <div class="downtranlge_3">活动</div>
-                            </div>
-                        </div>
-
-
-
                     </div>
                 </div>
             </div>
@@ -166,4 +194,7 @@
     </div>
 </div>
 </body>
+<script src="js/jquery-3.2.0.min.js"></script>
+<script src="js/API.js"></script>
+<script src="js/admin_activity.js"></script>
 </html>

@@ -2,7 +2,7 @@
 
     min-width: 1165px;
 
-    min-height: 700px;
+    min-height: 663px;
 
     position: relative;
 }
@@ -56,7 +56,7 @@
     width: 30%;
     /* margin: 0 auto; */
     /* margin: 12px; */
-    margin: 12% 0 1% 3%;
+    margin: 10% 0 1% 3%;
 }
 
 #firstLineDiv_3{
@@ -144,7 +144,7 @@
     line-height: 75px;
     position: absolute;
     /* top: 90%; */
-    bottom: 5px;
+    bottom: 0px;
     /* font-size: 500px!important; */
 }
 
@@ -161,4 +161,80 @@
 }
 #creatActivity_admin{
     width: 100%;
+}
+
+.SetUpNewAct{
+    float: left;
+    cursor: pointer;
+    font-size: 22px;
+    /* border: 1px solid; */
+    color: black;
+    margin-left: 15%;
+}
+
+.Act_operate {
+    width: 70%;
+    margin: 0 auto;
+    padding-top: 6%;
+    min-width: 900px;
+    /* text-align: center; */
+}
+
+#showScreen h1 {color: #5f92c7;font-weight: bold;letter-spacing: 10px;}
+input.actText {
+    font-size: 22px;
+    padding-left: 3%;
+    letter-spacing: 2px;
+    height: 40px;
+    width: 100%;
+}
+
+textarea.actTextArea {
+    margin-top: 4%;
+    width: 100%;
+    font-size: 22px;
+    padding-top: 2%;
+    padding-left: 3%;
+    letter-spacing: 2px;
+    height: 200px;
+    /* width: 100%; */
+}
+.Act_operate p {color: #85b3e2;font-size: 22px;font-weight: 300;}
+
+.Act_operate_input {
+    font-size: 20px;
+    padding: 2px 0 2px 6px;
+    margin: 1%;
+}
+
+.actTime {
+    width: 24%;
+    margin: 1.5% 5px;
+}
+
+Act_operate_input {
+    margin: 5px;
+}
+
+.groupDuty {
+    /* font-size: 20px; */
+    color: rgba(75, 109, 143, 0.84);
+    padding: 7px 6px;
+}
+
+.groupShow_p{
+
+    display: inline;
+    width: 40%;
+    float: right;
+}
+p.groupDuty_p {
+    /* width: 40%; */
+    display: inline;
+}
+
+.groupShow {
+    /* font-size: 20px; */
+    color: rgba(75, 109, 143, 0.84);
+    padding: 7px 6px;
 }

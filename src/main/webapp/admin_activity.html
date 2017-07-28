@@ -88,6 +88,7 @@
     <meta charset="UTF-8">
     <title>管理页</title>
     <style>
+
     </style>
     <link rel="stylesheet" href="css/admin_main.css">
     <link rel="stylesheet" href="css/admin_activity.css">
@@ -195,27 +196,34 @@
                     <input type="text" class="actText" placeholder="请输入活动名称"><br>
                     <textarea class="actTextArea" placeholder="请输入活动内容详情"></textarea>
                     <p>展示时间<input type="text" class="actTime Act_operate_input">年<input type="text" class="actTime Act_operate_input" >月<input type="text" class="actTime Act_operate_input">日</p>
-                    <p class="groupDuty_p">承办组
-                        <select id="Change_groupDuty" class="Act_operate_input groupDuty">
-                                <option value="后台">后台组</option>
-                                <option value="前端">前端组</option>
-                                <option value="安卓">安卓组</option>
-                                <option value="IOS">IOS组</option>
-                                <option value="游戏">游戏组</option>
-                                <option value="设计">设计组</option>
-                        </select>
-                    </p>
+                    <div class="groupDuty_p_div group_p_div">
+                        <p class="groupDuty_p">承办组
+                            <!--<select id="Change_groupDuty" class="Act_operate_input groupDuty">-->
+                                    <!--<option value="后台">后台组</option>-->
+                                    <!--<option value="前端">前端组</option>-->
+                                    <!--<option value="安卓">安卓组</option>-->
+                                    <!--<option value="IOS">IOS组</option>-->
+                                    <!--<option value="游戏">游戏组</option>-->
+                                    <!--<option value="设计">设计组</option>-->
+                            <!--</select>-->
 
-                    <p   class="groupShow_p"> 展示组
-                        <select id="Change_groupShow" class="Act_operate_input groupShow">
-                            <option value="后台">后台组</option>
-                            <option value="前端">前端组</option>
-                            <option value="安卓">安卓组</option>
-                            <option value="IOS">IOS组</option>
-                            <option value="游戏">游戏组</option>
-                            <option value="设计">设计组</option>
-                        </select>
-                    </p>
+                        </p>
+                        <div class="groupDuty_div"></div>
+                    </div>
+                    <div class="groupShow_p_div group_p_div">
+                        <p   class="groupShow_p"> 展示组
+                            <!--<select id="Change_groupShow" class="Act_operate_input groupShow">-->
+                                <!--<option value="后台">后台组</option>-->
+                                <!--<option value="前端">前端组</option>-->
+                                <!--<option value="安卓">安卓组</option>-->
+                                <!--<option value="IOS">IOS组</option>-->
+                                <!--<option value="游戏">游戏组</option>-->
+                                <!--<option value="设计">设计组</option>-->
+                            <!--</select>-->
+                        </p>
+                        <div class="groupShow_div"></div>
+                    </div>
+
                     <p>资料下载<input type="text" id="change_dataSource" class="Act_operate_input "></p>
                     <button id="deleteActButton">删除活动</button>
                     <button id="ChangeButton">确认修改</button>
@@ -229,26 +237,30 @@
                     <textarea class="actTextArea" placeholder="请输入活动内容详情"></textarea>
                     <p>展示时间<input type="text" class="actTime Act_operate_input">年<input type="text" class="actTime Act_operate_input" >月<input type="text" class="actTime Act_operate_input">日</p>
                     <p class="groupDuty_p">承办组
-                        <select id="new_groupDuty" class="Act_operate_input">
-                            <option value="后台">后台组</option>
-                            <option value="前端">前端组</option>
-                            <option value="安卓">安卓组</option>
-                            <option value="IOS">IOS组</option>
-                            <option value="游戏">游戏组</option>
-                            <option value="设计">设计组</option>
-                        </select>
+                        <!--<select id="new_groupDuty" class="Act_operate_input">-->
+                            <!--<option value="后台">后台组</option>-->
+                            <!--<option value="前端">前端组</option>-->
+                            <!--<option value="安卓">安卓组</option>-->
+                            <!--<option value="IOS">IOS组</option>-->
+                            <!--<option value="游戏">游戏组</option>-->
+                            <!--<option value="设计">设计组</option>-->
+                        <!--</select>-->
 
+                        <div class="groupDuty_div"></div>
+
+                    </p>
                     <p class="groupShow_p"> 展示组
-                        <select id="New_groupShow" class="Act_operate_input groupShow">
-                            <option value="后台">后台组</option>
-                            <option value="前端">前端组</option>
-                            <option value="安卓">安卓组</option>
-                            <option value="IOS">IOS组</option>
-                            <option value="游戏">游戏组</option>
-                            <option value="设计">设计组</option>
-                        </select>
+                        <!--<select id="New_groupShow" class="Act_operate_input groupShow">-->
+                            <!--<option value="后台">后台组</option>-->
+                            <!--<option value="前端">前端组</option>-->
+                            <!--<option value="安卓">安卓组</option>-->
+                            <!--<option value="IOS">IOS组</option>-->
+                            <!--<option value="游戏">游戏组</option>-->
+                            <!--<option value="设计">设计组</option>-->
+                        <!--</select>-->
+
                     </p>
-                    </p>
+
                     <p>资料下载<input type="text" id="new_dataSource" class="Act_operate_input"></p>
 
                     <button id="newActButton">发布活动</button>

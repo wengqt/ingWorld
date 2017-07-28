@@ -224,9 +224,11 @@ Act_operate_input {
 
 .groupShow_p{
 
-    display: inline;
-    width: 40%;
-    float: right;
+    /* display: inline; */
+
+    /* width: 30%; */
+
+    /* float: right; */
 }
 p.groupDuty_p {
     /* width: 40%; */
@@ -237,4 +239,43 @@ p.groupDuty_p {
     /* font-size: 20px; */
     color: rgba(75, 109, 143, 0.84);
     padding: 7px 6px;
+}
+
+.groupDuty_div {
+    background-color: white;
+    width: 145px;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid;
+    margin: 0 2em;
+    background-image: url("../images/arrow.png");
+    background-position: 90% center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+}
+
+.groupShow_div {
+    background-color: white;
+    width: 145px;
+    height: 30px;
+    display: inline-block;
+    border: 1px solid;
+    /* margin: 0 2em; */
+    background-image: url(../images/arrow.png);
+    background-position: 90% center;
+    background-size: 20px 20px;
+    background-repeat: no-repeat;
+    /* float: right; */
+}
+.group_p_div{
+
+    /* width: 30%; */
+
+    /* width: 78%; */
+
+    height: 50px;
+
+    display: inline-block;
+
+    /* width: 500px; */
 }

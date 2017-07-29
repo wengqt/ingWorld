@@ -20,5 +20,7 @@ var API = {
     activityIntro:this.base+'/api/plain/getActivity',
     uploadDatum:this.base+'/api/member/uploadDatum',
     modifyDatum:this.base+'/api/member/modifyDatum',
-    deleteDatum:this.base+'/api/member/deleteDatum'
+    deleteDatum:this.base+'/api/member/deleteDatum',
+    setNewAct:this.base+'/api/admin/uploadActivity',
+    changeAct:this.base+'/api/admin/modifyActivity'
 }

@@ -163,13 +163,27 @@
     width: 100%;
 }
 
-.SetUpNewAct{
+#SetUpNewActButton{
     float: left;
     cursor: pointer;
     font-size: 22px;
     /* border: 1px solid; */
     color: black;
     margin-left: 15%;
+}
+#SetUpNewActButton:hover{
+    color: white;
+}
+#ChangeActButton{
+    float: left;
+    cursor: pointer;
+    font-size: 22px;
+    /* border: 1px solid; */
+    color: black;
+    margin-left: 15%;
+}
+#ChangeActButton:hover{
+    color: white;
 }
 
 .Act_operate {
@@ -208,7 +222,7 @@ textarea.actTextArea {
 }
 
 .actTime {
-    width: 24%;
+    width: 13%;
     margin: 1.5% 5px;
 }
 
@@ -224,7 +238,7 @@ Act_operate_input {
 
 .groupShow_p{
 
-    /* display: inline; */
+    display: inline;
 
     /* width: 30%; */
 
@@ -260,7 +274,7 @@ p.groupDuty_p {
     height: 30px;
     display: inline-block;
     border: 1px solid;
-    /* margin: 0 2em; */
+    margin: 0 2em;
     background-image: url(../images/arrow.png);
     background-position: 90% center;
     background-size: 20px 20px;
@@ -278,4 +292,21 @@ p.groupDuty_p {
     display: inline-block;
 
     /* width: 500px; */
+}
+.groupShow_p_div {
+    float: right;
+}
+.ChangegroupDuty_name_div{
+    display: none;
+    color: #96bbe1;
+}
+.ChangegroupShow_name_div{
+    display: none;
+    color: #96bbe1;
+}
+input#change_dataSource {
+    width: 50%;
+}
+input#new_dataSource {
+    width: 50%;
 }

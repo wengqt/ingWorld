@@ -135,7 +135,7 @@ function  jumpToPro() {
 
 
 
-
+var ID;
 
 //点击活动菱形的时候 显示活动详细介绍
 function showActDetailIntro(IntroTitle,IntroContent) {
@@ -203,6 +203,7 @@ function getActIntro(ActpageInt,rows) {
                             console.log(index);
 
                             var Intro_title = data.data.activities[index].id;
+
                             var Intro_Content = data.data.activities[index].introduce;
                             showActDetailIntro(Intro_title,Intro_Content);
                         }

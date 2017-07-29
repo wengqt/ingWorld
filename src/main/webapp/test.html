@@ -1,0 +1,30 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <title>Title</title>
+    <script src="js/jquery-3.2.0.min.js"></script>
+    <script src="js/API.js"></script>
+</head>
+<body>
+<script>
+
+    $.ajax({
+        url:API.setNewAct,
+        method:"POST",
+        data:{
+            "name":"liuxxxxx",
+            "introduce":"xxxx",
+            date:"2016-01-02 12:40:00",
+            group:"String" ,
+            shower:"String" ,
+            github:"String"
+        },
+        success:function (data) {
+            JSON.parse(data)
+            console.log(data)
+        }
+    })
+</script>
+</body>
+</html>

@@ -1,6 +1,7 @@
 .idea
 target
 ingZone.iml
+out
 src/main/java/com/ingzone/controller/Test.java
 src/main/java/com/ingzone/service/BB.java
 src/main/java/com/ingzone/service/TestService.java

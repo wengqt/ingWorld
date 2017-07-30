@@ -6,7 +6,7 @@ var PropageInt = 1;
 var ActpageInt = 1;
 var PropageMax,ActpageMax,ID;
 var actName_0,actIntr_0,showDate_0,showTime_0,showYear_0,showMonth_0,showDay_0,showHour_0,showMin_0,groupDuty_0 = [],groupShow_0 = [],dataSource_0;
-
+var index_SetDuty
 
 //点击活动菱形的时候 显示活动详细介绍
 function showActDetailIntro(IntroTitle,IntroContent) {
@@ -87,10 +87,14 @@ function getActIntro(ActpageInt,rows) {
 
                             showHour_0 =showTime_0[0];
                             showMin_0 = showTime_0[1];
-                            if(groupDuty_0 != null){
+                            var duty = data.data.activities[index].group;
+                            var show = data.data.activities[index].shower;
+                            if(duty != null){
                                 groupDuty_0 = data.data.activities[index].group.split(",");
+                            }else {
+
                             }
-                           if(groupShow_0 !=null){
+                           if(show  != null){
                                groupShow_0 = data.data.activities[index].shower.split(",");
                            }
 
@@ -195,24 +199,28 @@ document.getElementById("ChangeActButton").onclick = function () {
 
 
     var boxes_duty = document.getElementsByClassName("ChangegroupDuty_name");
+
     for( var i=0;i<boxes_duty.length;i++){
         for(  var j=0;j<groupDuty_0.length;j++){
-            if(boxes_duty[i].value == groupDuty_0[j]){
+            if(boxes_duty[i].value == groupDuty_0[j]) {
                 boxes_duty[i].checked = true;
-
+            }
             }console.log(boxes_duty[i],groupDuty_0[j])
-        }
+
     }
 
-    var boxes_show = document.getElementsByClassName("NewgroupDuty_name");
-    for( var i=0;i<boxes_duty.length;i++){
-        for(  var j=0;j<groupShow_0.length;j++){
-            if(boxes_show[i].value == groupShow_0[j]){
-                boxes_show[i].checked = true;
+    var boxes_show = document.getElementsByClassName("ChangegroupShow_name");
 
-            }console.log(boxes_show[i],groupShow_0[j])
+    for( var k=0;k<boxes_show.length;k++){
+        for(  var l=0;l<groupShow_0.length;l++){
+            if(boxes_show[k].value == groupShow_0[l]){
+                boxes_show[k].checked = true;
+
+            }
         }
     }
+    // console.log(boxes_show)
+
 
 
     document.getElementById("change_dataSource").value = dataSource_0;
@@ -272,7 +280,7 @@ document.getElementById("newActButton").onclick = function () {
         },
         success:function (data) {
 
-            console.log(data)
+            alert("创建活动成功")
         }
     });
 
@@ -323,9 +331,51 @@ document.getElementById("ChangeButton").onclick =function () {
         },
         success:function (data) {
 
-            console.log(data)
+            alert("修改活动成功")
         }
     });
 };
 
+//删除活动
+document.getElementById("deleteActButton").onclick= function () {
+    $.ajax({
+        url:API.deleteAct+"?id="+ID ,
+        method:"GET",
 
+        success:function (data) {
+
+            alert("删除活动成功")
+        }
+    });
+};
+
+// var dutyGroup_setArr = document.getElementsByClassName("dutyGroup_set"),dutyGroup_setString = null;
+//
+//     for (var c = 0;c<dutyGroup_setArr.length;c++){
+//         if (dutyGroup_setArr[c].checked){
+//             dutyGroup_setString = dutyGroup_setString +","+ dutyGroup_setArr[c].value
+//         }
+//     }
+//     document.getElementById("dutyGroup_setDiv").innerHTML = dutyGroup_setString;
+//
+//
+// for(var i = 0;i<dutyGroup_setArr.length;i++){
+//     dutyGroup_setArr[i].addEventListener("click",(function () {
+//         // console.log(123)
+//         var index = i;
+//
+//
+// // console
+//         return function () {
+//
+//             // console.log("我检查到了监听器")
+//             // getGroupNumber(index+1);
+//             // getGroupIntro(index+1);
+//
+//
+//
+//
+//         }
+//
+//
+//     })(i)) ;
